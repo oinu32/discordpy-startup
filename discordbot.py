@@ -29,7 +29,7 @@ async def おみくじ(ctx):
     await ctx.send(embed=embed)
 
 @bot.command(aliases=["choose, random"])
-async def ちょいす(self, ctx, *choices):
+async def ちょいす(ctx, *choices):
     """ここけすな"""
     if choices:
         await ctx.send(random.choice(choices))
@@ -37,28 +37,28 @@ async def ちょいす(self, ctx, *choices):
         await ctx.show_help()
         
 @commands.command()
-async def きりさめ(self, ctx):
+async def きりさめ(ctx):
     kirisame = ['きりさめはJKだょ？','きりさめはJCだょ！','きりさめはJSかも？','きりっっ','きりちゃん☆彡','キリンリキ']
     await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))      
 
 @commands.command()
-async def TENGA(self, ctx):
+async def TENGA(ctx):
     await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
 
 @commands.command()
-async def ぱぱ(self, ctx):
+async def ぱぱ(ctx):
     await ctx.send("<@&662950715945386016>"+'\nぱぱー！')
 
 @commands.command()
-async def くらめん(self, ctx):
+async def くらめん(ctx):
     await ctx.send("<@&549971775828656168>")
 
 @commands.command()
-async def えくせ(self, ctx):
+async def えくせ(ctx):
     await ctx.send("<@419876101419040776>")
 
 @commands.command()
-async def りず(self, ctx):
+async def りず(ctx):
     await ctx.send("<@356035126909468675>")        
         
  
