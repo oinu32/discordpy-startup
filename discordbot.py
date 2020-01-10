@@ -60,7 +60,9 @@ async def えくせ(ctx):
 @bot.command()
 async def りず(ctx):
     await ctx.send("<@356035126909468675>")        
-        
- 
+
+@bot.command()
+async def おいぬ(ctx):
+    await ctx.send("<@224042826520854528>")
 
 bot.run(token)
