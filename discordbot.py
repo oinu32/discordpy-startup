@@ -1,4 +1,3 @@
-
 import discord
 import os
 import traceback
@@ -29,5 +28,12 @@ async def おみくじ(ctx):
     embed.add_field(name="[運勢] ", value=random.choice(('姫吉','大吉', '吉' , '中吉' , '小吉' ,'凶', '大凶')), inline=False)
     await ctx.send(embed=embed)
 
+@bot.command(aliases=["choose, random"])
+async def ちょいす(self, ctx, *choices):
+    """ここけすな"""
+    if choices:
+        await ctx.send(random.choice(choices))
+    else:
+        await ctx.show_help()
 
 bot.run(token)
