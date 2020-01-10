@@ -64,5 +64,13 @@ async def りず(ctx):
 @bot.command()
 async def おいぬ(ctx):
     await ctx.send("<@224042826520854528>")
+    
+@bot.command(filename=None,spoiler=False)
+async def ねこ(ctx):
+    path = r"C:\Users\watashi\Desktop\騎士君\ねこ"
+    files = os.listdir(path)
+    neeko = ['にゃあ💛','にゃんっっ! ', 'にゃぁ～？','にゃあにゃあ！', 'にゃ～ん', '猫です。よろしくお願いします。＜〇＞＜〇＞']
+    await ctx.send(random.choice(neeko))
+    await ctx.send(file=discord.File(path +'/'+random.choice(files)))
 
 bot.run(token)
