@@ -28,7 +28,7 @@ async def おみくじ(ctx):
     embed.add_field(name="[運勢] ", value=random.choice(('姫吉','大吉', '吉' , '中吉' , '小吉' ,'凶', '大凶')), inline=False)
     await ctx.send(embed=embed)
 
-@bot.command(aliases=["choose, random"])
+@bot.command()
 async def ちょいす(ctx, *choices):
     """ここけすな"""
     if choices:
