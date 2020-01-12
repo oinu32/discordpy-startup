@@ -53,7 +53,7 @@ async def だいす(ctx, inputmsg)
         dice = 1
     else:
         dice = 0
-
+        
     if dice == 1:
         await ctx.send(Dice('9D600'))
     
