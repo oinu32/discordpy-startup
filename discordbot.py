@@ -58,9 +58,9 @@ async def on_message(ctx, message):
             lst.append(rand_num)
         await message.channel.send(lst)
         
-@bot.command()
-async def 1D6(ctx):    
-    await ctx.send('qqq')
+#@bot.command()
+#async def 1D6(ctx):    
+#    await ctx.send('qqq')
     
 @bot.command()
 async def きりさめ(ctx):
