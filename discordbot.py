@@ -55,7 +55,7 @@ async def だいす(ctx, inputmsg):
         dice = 0
         
     if dice == 1:
-        await ctx.send(inputmsg + ' ' + Dice(inputmsg))
+        await ctx.send(str(inputmsg) + ' ' + Dice(inputmsg))
     
 @bot.command()
 async def きりさめ(ctx):
