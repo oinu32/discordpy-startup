@@ -37,7 +37,7 @@ async def ちょいす(ctx, *choices):
         await ctx.show_help()
 
 @bot.command()
-async def on_message(self, message):    
+async def on_message(message):    
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
@@ -59,7 +59,7 @@ async def on_message(self, message):
             
 @bot.command()
 async def きりさめ(ctx):
-    kirisame = ['きりさめはJKだょ？','きりさめはJCだょ！','きりさめはJSかも？','きりっっ','きりちゃん☆彡','キリンリキ']
+    kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
     await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))      
 
 @bot.command()
