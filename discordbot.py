@@ -37,8 +37,8 @@ async def ちょいす(ctx, *choices):
         await ctx.show_help()
 
 @bot.command()
-async def だいす(ctx, message):
-    if  re.match('[1-9]{1}[D]', message):
+async def だいす(ctx, message.content):
+    if  re.match('[1-9]{1}[D]', message.content):
         dice = 1
     else:
         dice = 0
