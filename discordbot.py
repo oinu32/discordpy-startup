@@ -59,7 +59,7 @@ async def on_message(ctx, message):
         await message.channel.send(lst)
         
 @bot.command()
-async def 1D6(ctx, message):    
+async def 1D6(ctx):    
     await ctx.send('qqq')
     
 @bot.command()
