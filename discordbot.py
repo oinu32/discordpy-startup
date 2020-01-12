@@ -48,14 +48,14 @@ async def ちょいす(ctx, *choices):
         await ctx.show_help()
 
 @bot.command()
-async def だいす(ctx, aaa):
-    if  re.match('[1-9]{1}[D]', aaa):
+async def だいす(ctx, inputmsg):
+    if  re.match('[1-9]{1}[D]', inputmsg):
         dice = 1
     else:
         dice = 0
         
     if dice == 1:
-        await ctx.send(Dice('9D600'))
+        await ctx.send(Dice(inputmsg))
     
 @bot.command()
 async def きりさめ(ctx):
