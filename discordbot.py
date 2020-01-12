@@ -36,17 +36,18 @@ async def ちょいす(ctx, *choices):
     else:
         await ctx.show_help()
 
-@bot.command()
-async def on_message(ctx, message):    
+@bot.Cog.listener()
+async def on_message(self, message):    
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
-    if  re.match('[1-9]{1}[D]', ctx.content):
+    if  re.match('/[1-9]{1}[D]', message.content):
         dice = 1
     else:
         dice = 0
-      
+    
     if dice > 0:
+        await message.channel.send('Dice')
         i = 0
         count = int(message.content[1:2]) + 1
         dim = int(message.content[3:])
@@ -54,8 +55,8 @@ async def on_message(ctx, message):
         for i in range(1, count):
             rand_num =  random.randint(1, dim)
             lst.append(rand_num)
-        await ctx.send(lst)
-            
+        await message.channel.send(lst)
+
 @bot.command()
 async def きりさめ(ctx):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
