@@ -48,7 +48,7 @@ async def ちょいす(ctx, *choices):
         await ctx.show_help()
 
 @bot.command()
-async def だいす(ctx, aaa)
+async def だいす(ctx, aaa):
     if  re.match('[1-9]{1}[D]', aaa):
         dice = 1
     else:
