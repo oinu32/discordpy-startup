@@ -36,7 +36,7 @@ async def ちょいす(ctx, *choices):
     else:
         await ctx.show_help()
 
-@bot.Cog.listener()
+@bot.listener()
 async def on_message(self, message):    
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
