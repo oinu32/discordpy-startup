@@ -11,6 +11,17 @@ from datetime import datetime
 bot = commands.Bot(command_prefix='?')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+def Dice(pInputMessage):
+    list = []
+    string = (re.match('[1-9]{1}[D]', pInputMessage).group())
+    dice_amount = string[0]
+    dice_faces = pInputMessage[2:]
+    
+    for i in range(int(dice_amount)):
+        list.append(random.randint(1,int(dice_faces)))
+
+    return list
+
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
@@ -42,16 +53,9 @@ async def だいす(ctx, inputmsg)
         dice = 1
     else:
         dice = 0
-    
-    if dice > 0:
-        i = 0
-        count = int(message.content[1:2]) + 1
-        dim = int(message.content[3:])
-        lst = []
-        for i in range(1, count):
-            rand_num =  random.randint(1, dim)
-            lst.append(rand_num)
-        await ctx.send(lst)
+
+    if dice == 1:
+        await ctx.send(Dice('9D600'))
     
 @bot.command()
 async def きりさめ(ctx):
