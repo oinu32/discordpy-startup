@@ -45,8 +45,8 @@ async def だいす(ctx, aaa):
     
     if dice > 0:
         i = 0
-        count = int(ctx.content[1:2]) + 1
-        dim = int(ctx.content[3:])
+        count = int(aaa.content[1:2]) + 1
+        dim = int(aaa.content[3:])
         lst = []
         for i in range(1, count):
             rand_num =  random.randint(1, dim)
