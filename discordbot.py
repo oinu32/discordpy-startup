@@ -57,7 +57,11 @@ async def on_message(ctx, message):
             rand_num =  random.randint(1, dim)
             lst.append(rand_num)
         await message.channel.send(lst)
-
+        
+@bot.command()
+async def 1D6(ctx, message):    
+    await ctx.send('qqq')
+    
 @bot.command()
 async def きりさめ(ctx):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
