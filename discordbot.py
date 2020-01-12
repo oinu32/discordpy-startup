@@ -44,7 +44,6 @@ async def だいす(ctx, aaa):
         dice = 0
     
     if dice > 0:
-        await message.channel.send('Dice')
         i = 0
         count = int(message.content[1:2]) + 1
         dim = int(message.content[3:])
@@ -52,7 +51,7 @@ async def だいす(ctx, aaa):
         for i in range(1, count):
             rand_num =  random.randint(1, dim)
             lst.append(rand_num)
-        await message.channel.send(lst)
+        await ctx.send(lst)
         
 #@bot.command()
 #async def 1D6(ctx):    
