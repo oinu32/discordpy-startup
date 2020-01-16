@@ -93,5 +93,16 @@ async def ねこ(ctx):
     neeko = ['にゃあ💛','にゃんっっ! ', 'にゃぁ～？','にゃあにゃあ！', 'にゃ～ん', '猫です。よろしくお願いします。＜〇＞＜〇＞']
     await ctx.send(random.choice(neeko))
     #await ctx.send(file=discord.File(path +'/'+random.choice(files)))
+#===========================================================================================================================
+@bot.command()
+async def cmd(ctx):
+    def check(event,reaction,user):
+        return str(reaction.emoji) == '\U0000270b' and not user.bot
+    while True:
+        event,reaction,user = await bot.wait_for("reaction_press",check=check)
+        if event == "add":
+            await ctx.send(f"{user.mention} がリアクションを押した")
+        elif event == "remove":
+            await ctx.send(f"{user.mention} がリアクションを消した")
 
 bot.run(token)
