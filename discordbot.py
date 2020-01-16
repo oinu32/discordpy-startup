@@ -93,7 +93,17 @@ async def ねこ(ctx):
     neeko = ['にゃあ💛','にゃんっっ! ', 'にゃぁ～？','にゃあにゃあ！', 'にゃ～ん', '猫です。よろしくお願いします。＜〇＞＜〇＞']
     await ctx.send(random.choice(neeko))
     #await ctx.send(file=discord.File(path +'/'+random.choice(files)))
+    
 #===========================================================================================================================
+
+@bot.event
+async def on_reaction_add(reaction,user):
+    bot.dispatch("reaction_press","add",reaction,user)
+
+@bot.event
+async def on_reaction_remove(reaction,user):
+    bot.dispatch("reaction_press","remove",reaction,user)
+
 @bot.command()
 async def cmd(ctx):
     def check(event,reaction,user):
