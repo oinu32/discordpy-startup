@@ -84,6 +84,9 @@ async def りず(ctx):
     await ctx.send("<@356035126909468675>")        
 
 @bot.command()
+async def ぽり(ctx):
+    await ctx.send("<@509004043922702347>")
+    
 async def おいぬ(ctx):
     await ctx.send("<@224042826520854528>")
     
