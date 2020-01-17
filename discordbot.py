@@ -177,6 +177,14 @@ async def on_raw_reaction_add(payload):
 
     # 分かりやすいように歓迎のメッセージを送る
     await channel.send("<@&667699276268306435>"+'を付与しました。')
+    
+@bot.command()
+async def じかん(ctx):
+    msg = await ctx.send('test')
+    #投票の欄
+    await msg.add_reaction(':blossom:')
+    await msg.add_reaction('✖')
 
+    
 
 bot.run(token)    
