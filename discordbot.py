@@ -150,6 +150,33 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
         # リアクション消す。メッセージ管理権限がないとForbidden:エラーが出ます。
         await msg.remove_reaction(str(reaction.emoji), user)
 
+ #====================ROLE付与==========================
+
+ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID
+ID_ROLE_ASA = 667699276268306435 # 付けたい役職のID
+@bot.event
+async def on_raw_reaction_add(payload):
+    # channel_id から Channel オブジェクトを取得
+    channel = client.get_channel(payload.channel_id)
+
+    # 該当のチャンネル以外はスルー
+    if channel.id != ID_CHANNEL_README:
+        return
+
+    # guild_id から Guild オブジェクトを取得
+    guild = client.get_guild(payload.guild_id)
+
+    # user_id から Member オブジェクトを取得
+    member = guild.get_member(payload.user_id)
+
+    # 用意した役職IDから Role オブジェクトを取得
+    role = guild.get_role(ID_ROLE_ASA)
+
+    # リアクションを付けたメンバーに役職を付与
+    await member.add_roles(role)
+
+    # 分かりやすいように歓迎のメッセージを送る
+    await channel.send("<@&667699276268306435>"+'を付与しました。')
 
 
 bot.run(token)    
