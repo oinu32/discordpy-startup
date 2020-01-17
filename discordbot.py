@@ -152,39 +152,21 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
 
  #====================ROLE付与==========================
 
-ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID
-ID_ROLE_ASA = 667699276268306435 # 付けたい役職のID
-@bot.event
-async def on_raw_reaction_add(payload):
-    # channel_id から Channel オブジェクトを取得
-    channel = client.get_channel(payload.channel_id)
-
-    # 該当のチャンネル以外はスルー
-    if channel.id != ID_CHANNEL_README:
-        return
-
-    # guild_id から Guild オブジェクトを取得
-    guild = client.get_guild(payload.guild_id)
-
-    # user_id から Member オブジェクトを取得
-    member = guild.get_member(payload.user_id)
-
-    # 用意した役職IDから Role オブジェクトを取得
-    role = guild.get_role(ID_ROLE_ASA)
-
-    # リアクションを付けたメンバーに役職を付与
-    await member.add_roles(role)
-
-    # 分かりやすいように歓迎のメッセージを送る
-    await channel.send("<@&667699276268306435>"+'を付与しました。')
-    
-@bot.command()
+@bot.command
 async def じかん(ctx):
-    msg = await ctx.send('test')
-    #投票の欄
-    await msg.add_reaction(':blossom:')
-    await msg.add_reaction('✖')
 
+        role = discord.utils.get( message.guild.roles , name = "test" )
+        asa = discord.utils.get( guild.roles , name = "朝活" )
+        if asa not in message.author.roles:
+
+            await message.author.add_roles(asa)
+            await message.channel.send("<@&asa>役職を付与しました")
+            # member.rolesは、メンバーの持っている役職の一覧を返すので、その中に目的の役職がないか探しています。
+
+        else:
+
+            await message.author.remove_roles(asa)
+            await message.channel.send("役職を剥奪しました")
     
 
 bot.run(token)    
