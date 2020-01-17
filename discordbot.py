@@ -31,7 +31,7 @@ async def on_command_error(ctx, error):
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
-#=======================遊び用====================================
+#=======================遊び用====================================＝
 @bot.command()
 async def おみくじ(ctx):
     embed = discord.Embed(title="おみくじ", description=f"{ctx.author.mention}さんの運勢！",color=0x2ECC69)
