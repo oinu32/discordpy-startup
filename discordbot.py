@@ -12,15 +12,14 @@ from datetime import datetime
 token = os.environ['DISCORD_BOT_TOKEN']
 
 bot = commands.Bot(command_prefix='?')
+
 def Dice(pInputMessage):
     list = []
     string = (re.match('[1-9]{1}[D]', pInputMessage).group())
     dice_amount = string[0]
     dice_faces = pInputMessage[2:]
-    
     for i in range(int(dice_amount)):
         list.append(random.randint(1,int(dice_faces)))
-
     return list
 
 @bot.event
@@ -33,17 +32,20 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 #=======================遊び用====================================
+@bot.command()
 async def おみくじ(ctx):
     embed = discord.Embed(title="おみくじ", description=f"{ctx.author.mention}さんの運勢！",color=0x2ECC69)
     embed.set_thumbnail(url=ctx.author.avatar_url)
     embed.add_field(name="[運勢] ", value=random.choice(('姫吉','大吉', '吉' , '中吉' , '小吉' ,'凶', '大凶')), inline=False)
     await ctx.send(embed=embed)
+@bot.command()
 async def ちょいす(ctx, *choices):
     """ここけすな"""
     if choices:
         await ctx.send(random.choice(choices))
     else:
         await ctx.show_help()
+@bot.command()
 async def だいす(ctx, inputmsg):
     if  re.match('[1-9]{1}[D]', inputmsg):
         dice = 1
@@ -56,29 +58,40 @@ async def だいす(ctx, inputmsg):
 @bot.command()
 async def ぱぱ(ctx):
     await ctx.send("<@&662950715945386016>"+'\nぱぱー！')
+@bot.command()
 async def くらめん(ctx):
     await ctx.send("<@&549971775828656168>")
+@bot.command()
 async def あさ(ctx):
     await ctx.send("<@&667699276268306435>")
+@bot.command()
 async def ひる(ctx):
     await ctx.send("<@&667699294404345856>")
+@bot.command()
 async def よる(ctx):
     await ctx.send("<@&667699315363414018>")
+@bot.command()
 async def しんや(ctx):
     await ctx.send("<@&667699342538309632>")
     
 #=個人
+@bot.command()
 async def きりさめ(ctx):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
     await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))      
+@bot.command()
 async def てんが(ctx):
     await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
+@bot.command()
 async def えくせ(ctx):
     await ctx.send("<@419876101419040776>")
+@bot.command()
 async def りず(ctx):
     await ctx.send("<@356035126909468675>")        
+@bot.command()
 async def ぽり(ctx):
     await ctx.send("<@509004043922702347>")
+@bot.command()
 async def おいぬ(ctx):
     await ctx.send("<@224042826520854528>")
     
