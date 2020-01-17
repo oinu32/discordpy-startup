@@ -152,21 +152,18 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
 
  #====================ROLE付与==========================
 
-@bot.command
-async def じかん(ctx):
+ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID  
+ID_ROLE_WELCOME = 667699276268306435 # 付けたい役職のID  
 
-        role = discord.utils.get( message.guild.roles , name = "test" )
-        asa = discord.utils.get( guild.roles , name = "朝活" )
-        if asa not in message.author.roles:
-
-            await message.author.add_roles(asa)
-            await message.channel.send("<@&asa>役職を付与しました")
-            # member.rolesは、メンバーの持っている役職の一覧を返すので、その中に目的の役職がないか探しています。
-
-        else:
-
-            await message.author.remove_roles(asa)
-            await message.channel.send("役職を剥奪しました")
+@bot.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)  
+    if channel.id == ID_CHANNEL_README:  
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_ROLE_WELCOME)  
+        await member.add_roles(role)  
+        await channel.send('いらっしゃいませ！')  
     
 
 bot.run(token)    
