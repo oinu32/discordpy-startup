@@ -63,16 +63,16 @@ async def くらめん(ctx):
     await ctx.send("<@&549971775828656168>")
 @bot.command()
 async def あさ(ctx):
-    await ctx.send("<@&667737559761158144>")
+    await ctx.send("<@&667633293319208961>")
 @bot.command()
 async def ひる(ctx):
-    await ctx.send("<@&667737624559091712>")
+    await ctx.send("<@&667633576484929546>")
 @bot.command()
 async def よる(ctx):
-    await ctx.send("<@&667737699817488423>")
+    await ctx.send("<@&667633701118672915>")
 @bot.command()
 async def しんや(ctx):
-    await ctx.send("<@&667737720206131200>")
+    await ctx.send("<@&667633870572748800>")
     
 #=個人
 @bot.command()
