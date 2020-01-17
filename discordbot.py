@@ -115,6 +115,7 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
     #投票の欄
     await msg.add_reaction('⏫')
     await msg.add_reaction('✖')
+    await msg.add_reaction('%3Ablossom%3A')
 
     def check(reaction, user):
         emoji = str(reaction.emoji)
