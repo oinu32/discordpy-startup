@@ -137,7 +137,7 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
                 cnt -= 1
                 test = discord.Embed(title=about,colour=0x1e90ff)
                 test.add_field(name=f"あと__{cnt}__人 募集中\n", value='\n'.join(reaction_member), inline=True)
-                await msg.edit(test)
+                await msg.edit(embed=test)
 
                 if cnt == 0:
                     test = discord.Embed(title=about,colour=0x1e90ff)
@@ -156,6 +156,12 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
                     await msg.edit(embed=test)
                 else:
                     pass
+            elif str(reaction.emoji) == '🌼':
+            if channel.id == ID_CHANNEL_README:
+                guild = client.get_guild(payload.guild_id)  
+                member = guild.get_member(payload.user_id)  
+                role = guild.get_role(ID_ROLE_WELCOME)  
+                await member.add_roles(role)  
         # リアクション消す。メッセージ管理権限がないとForbidden:エラーが出ます。
         await msg.remove_reaction(str(reaction.emoji), user)
 
