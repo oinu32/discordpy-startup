@@ -156,15 +156,6 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
                     await msg.edit(embed=test)
                 else:
                     pass
-         elif str(reaction.emoji) == '✖':
-            async def on_raw_reaction_add(payload):  
-                channel = client.get_channel(payload.channel_id)  
-                if channel.id == ID_CHANNEL_README:  
-                    guild = client.get_guild(payload.guild_id)  
-                    member = guild.get_member(payload.user_id)  
-                    role = guild.get_role(ID_ROLE_WELCOME)  
-                    await member.add_roles(role)  
-                    await channel.send('いらっしゃいませ！')  
 
         # リアクション消す。メッセージ管理権限がないとForbidden:エラーが出ます。
         await msg.remove_reaction(str(reaction.emoji), user)
