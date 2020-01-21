@@ -173,7 +173,6 @@ async def on_raw_reaction_add(payload):
         member = guild.get_member(payload.user_id)  
         role = guild.get_role(ID_ROLE_WELCOME)  
         await member.add_roles(role)  
-        await channel.send('ロールを付与しました')  
-    
+        await channel.send('いらっしゃいませ！')  
 
 bot.run(token)    
