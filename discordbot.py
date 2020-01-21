@@ -10,8 +10,10 @@ from discord.ext import commands
 from datetime import datetime
 
 token = os.environ['DISCORD_BOT_TOKEN']
-
 bot = commands.Bot(command_prefix='?')
+
+ID_CHANNEL_README = 669139661511458816 # 該当のチャンネルのID  
+ID_ROLE_WELCOME = 669139763500154890 # 付けたい役職のID  
 
 def Dice(pInputMessage):
     list = []
@@ -28,6 +30,16 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
     
+@bot.event  
+async def on_raw_reaction_add(payload):  
+    channel = client.get_channel(payload.channel_id)  
+    if channel.id == ID_CHANNEL_README:  
+        guild = client.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_ROLE_WELCOME)  
+        await member.add_roles(role)  
+        await channel.send('いらっしゃいませ！')
+        
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -162,17 +174,6 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
 
  #====================ROLE付与==========================
 
-ID_CHANNEL_README = 669139661511458816 # 該当のチャンネルのID  
-ID_ROLE_WELCOME = 669139763500154890 # 付けたい役職のID  
 
-@bot.event  
-async def on_raw_reaction_add(payload):  
-    channel = client.get_channel(payload.channel_id)  
-    if channel.id == ID_CHANNEL_README:  
-        guild = client.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_ROLE_WELCOME)  
-        await member.add_roles(role)  
-        await channel.send('いらっしゃいませ！')  
 
 bot.run(token)    
