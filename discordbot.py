@@ -12,10 +12,6 @@ from datetime import datetime
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='?')
 
-ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID  
-ID_ROLE_ASA = 667633293319208961 # 付けたい役職のID  
-ID_ROLE_HIRU =　667633576484929546
-
 def Dice(pInputMessage):
     list = []
     string = (re.match('[1-9]{1}[D]', pInputMessage).group())
@@ -30,17 +26,7 @@ async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
-    
-@bot.event  
-async def on_raw_reaction_add(payload):  
-    channel = bot.get_channel(payload.channel_id)  
-    if channel.id == ID_CHANNEL_README:
-        guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)
-        role = guild.get_role(ID_ROLE_ASA)  
-        await member.add_roles(role)  
-
-            
+                
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -174,7 +160,20 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
         await msg.remove_reaction(str(reaction.emoji), user)
 
  #====================ROLE付与==========================
+ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID  
+ID_ROLE_ASA = 667633293319208961 # 付けたい役職のID  
+ID_ROLE_HIRU = 667633576484929546
+ID_ROLE_YORU = 667633701118672915
+ID_ROLE_SINY = 667633870572748800
 
-
+@bot.event  
+async def on_raw_reaction_add(payload):  
+    channel = bot.get_channel(payload.channel_id)  
+    if channel.id == ID_CHANNEL_README:  
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)  
+        role = guild.get_role(ID_ROLE_ASA)  
+        await member.add_roles(role)  
+        await channel.send('いらっしゃいませ！')
 
 bot.run(token)    
