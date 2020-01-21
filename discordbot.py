@@ -170,7 +170,7 @@ ID_ROLE_SINY = 667633870572748800
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
     if channel.id == ID_CHANNEL_README:
-        if str(reaction.emoji) == '🌼':
+        if reaction.emoji == '🌼':
             guild = bot.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_ROLE_ASA)  
