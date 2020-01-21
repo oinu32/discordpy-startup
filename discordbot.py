@@ -162,8 +162,8 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
 
  #====================ROLE付与==========================
 
-ID_CHANNEL_README = 664605511554957312 # 該当のチャンネルのID  
-ID_ROLE_WELCOME = 669141155409297408 # 付けたい役職のID  
+ID_CHANNEL_README = 669139661511458816 # 該当のチャンネルのID  
+ID_ROLE_WELCOME = 669139763500154890 # 付けたい役職のID  
 
 @bot.event  
 async def on_raw_reaction_add(payload):  
