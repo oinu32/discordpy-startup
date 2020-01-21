@@ -12,8 +12,9 @@ from datetime import datetime
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='?')
 
-ID_CHANNEL_README = 669139661511458816 # 該当のチャンネルのID  
-ID_ROLE_WELCOME = 669139763500154890 # 付けたい役職のID  
+ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID  
+ID_ROLE_ASA = 667633293319208961 # 付けたい役職のID  
+ID_ROLE_HIRU =　667633576484929546
 
 def Dice(pInputMessage):
     list = []
@@ -35,11 +36,16 @@ async def on_raw_reaction_add(payload):
     channel = bot.get_channel(payload.channel_id)  
     if channel.id == ID_CHANNEL_README:  
         guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)  
-        role = guild.get_role(ID_ROLE_WELCOME)  
-        await member.add_roles(role)  
-        await channel.send('いらっしゃいませ！')
-        
+        member = guild.get_member(payload.user_id)
+        if str(reaction.emoji) == '🌼':
+            role = guild.get_role(ID_ROLE_ASA)  
+            await member.add_roles(role)  
+        elif str(reaction.emoji) == '🌞':
+            role = guild.get_role(ID_ROLE_HIRU)  
+            await member.add_roles(role)  
+            
+            
+            
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
