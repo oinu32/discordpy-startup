@@ -162,8 +162,8 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
 
  #====================ROLE付与==========================
 
-ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID  
-ID_ROLE_WELCOME = 667699276268306435 # 付けたい役職のID  
+ID_CHANNEL_README = 539825823503613962 # 該当のチャンネルのID  
+ID_ROLE_WELCOME = 669141155409297408 # 付けたい役職のID  
 
 @bot.event  
 async def on_raw_reaction_add(payload):  
@@ -173,7 +173,7 @@ async def on_raw_reaction_add(payload):
         member = guild.get_member(payload.user_id)  
         role = guild.get_role(ID_ROLE_WELCOME)  
         await member.add_roles(role)  
-        await channel.send('いらっしゃいませ！')  
+        await channel.send('ロールを付与しました')  
     
 
 bot.run(token)    
