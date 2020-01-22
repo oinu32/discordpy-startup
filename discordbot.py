@@ -59,7 +59,7 @@ async def sayd(self, ctx, *, message: str):
     await ctx.send(message)
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
-        await ctx.delete()
+        await ctx.message.delete()
         
 @bot.command(filename=None,spoiler=False)
 async def ねこ(ctx):
@@ -110,8 +110,6 @@ async def ぽり(ctx):
 @bot.command()
 async def おいぬ(ctx):
     await ctx.send("<@224042826520854528>")
-    
-
     
 #====募集=======================================================================================================================
 
