@@ -55,44 +55,44 @@ async def だいす(ctx, inputmsg):
 #================================呼び出し=============================
 #=ろーる
 @bot.command()
-async def ぱぱ(ctx):
-    await ctx.send("<@&662950715945386016>"+'\nぱぱー！')
+async def ぱぱ(ctx, msg):
+    await ctx.send("<@&662950715945386016>"+'\nぱぱー！' + '\n' + msg)
 @bot.command()
-async def くらめん(ctx):
-    await ctx.send("<@&549971775828656168>")
+async def くらめん(ctx, msg):
+    await ctx.send("<@&549971775828656168>" + '\n' + msg)
 @bot.command()
-async def あさ(ctx):
-    await ctx.send("<@&667633293319208961>")
+async def あさ(ctx, msg):
+    await ctx.send("<@&667633293319208961>" + '\n' + msg)
 @bot.command()
-async def ひる(ctx):
-    await ctx.send("<@&667633576484929546>")
+async def ひる(ctx, msg):
+    await ctx.send("<@&667633576484929546>" + '\n' + msg)
 @bot.command()
-async def よる(ctx):
-    await ctx.send("<@&667633701118672915>")
+async def よる(ctx, msg):
+    await ctx.send("<@&667633701118672915>" + '\n' + msg)
 @bot.command()
-async def しんや(ctx):
-    await ctx.send("<@&667633870572748800>")
+async def しんや(ctx, msg):
+    await ctx.send("<@&667633870572748800>" + '\n' + msg)
     
 #=個人
 @bot.command()
-async def きりさめ(ctx):
+async def きりさめ(ctx, msg):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
-    await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))      
+    await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame)　+ '\n' + msg)
 @bot.command()
-async def てんが(ctx):
-    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
+async def てんが(ctx, msg):
+    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>" + '\n' + msg)            
 @bot.command()
-async def えくせ(ctx):
-    await ctx.send("<@419876101419040776>")
+async def えくせ(ctx, msg):
+    await ctx.send("<@419876101419040776>" + '\n' + msg)
 @bot.command()
-async def りず(ctx):
-    await ctx.send("<@356035126909468675>")        
+async def りず(ct, msg):
+    await ctx.send("<@356035126909468675>" + '\n' + msg)  
 @bot.command()
-async def ぽり(ctx):
-    await ctx.send("<@509004043922702347>")
+async def ぽり(ctx, msg):
+    await ctx.send("<@509004043922702347>" + '\n' + msg)
 @bot.command()
 async def おいぬ(ctx, msg):
-    await ctx.send("<@224042826520854528>" + ' ' +　msg)
+    await ctx.send("<@224042826520854528>" + '\n' + msg)
     
 @bot.command(filename=None,spoiler=False)
 async def ねこ(ctx):
