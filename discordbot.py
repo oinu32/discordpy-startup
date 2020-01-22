@@ -175,6 +175,19 @@ async def on_raw_reaction_add(payload):
             member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_ROLE_ASA)  
             await member.add_roles(role)  
-            await channel.send('いらっしゃいませ！')
-
+        elif payload.emoji.name == '🌞':
+            guild = bot.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_ROLE_HIRU)  
+            await member.add_roles(role)  
+        elif payload.emoji.name == '🌝':
+            guild = bot.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_ROLE_YORU)  
+            await member.add_roles(role)  
+        elif payload.emoji.name == '🌛 ':
+            guild = bot.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id)  
+            role = guild.get_role(ID_ROLE_SINY)  
+            await member.add_roles(role)  
 bot.run(token)    
