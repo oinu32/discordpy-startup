@@ -56,7 +56,7 @@ async def だいす(ctx, inputmsg):
 #=ろーる
 @bot.command()
 async def ぱぱ(ctx, msg):
-    await ctx.send("<@&662950715945386016>"+'\nぱぱー！ ' + msg)
+    await ctx.send("<@&662950715945386016>" + msg)
 @bot.command()
 async def くらめん(ctx, msg):
     await ctx.send("<@&549971775828656168>" + msg)
