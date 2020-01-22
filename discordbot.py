@@ -170,6 +170,8 @@ ID_ROLE_SINY = 667633870572748800
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
     if channel.id == ID_CHANNEL_README:
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🌼':
             guild = bot.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id)  
@@ -177,20 +179,15 @@ async def on_raw_reaction_add(payload):
             await member.add_roles(role)  
         
         if payload.emoji.name == '🌞':
-            guild = bot.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_ROLE_HIRU)  
             await member.add_roles(role)  
         
         if payload.emoji.name == '🌝':
-            guild = bot.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_ROLE_YORU)  
             await member.add_roles(role)  
         
         if payload.emoji.name == '🌛 ':
-            guild = bot.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id)  
             role = guild.get_role(ID_ROLE_SINY)  
             await member.add_roles(role)  
+            
 bot.run(token)    
