@@ -54,7 +54,7 @@ async def だいす(ctx, inputmsg):
         await ctx.send('結果'+str(Dice(inputmsg)))
         
 @bot.command()
-async def sayd(self, ctx, *, message: str):
+async def sayd(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
     await ctx.send(message)
     # message can't be deleted in private channel(DM/Group)
