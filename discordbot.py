@@ -198,19 +198,19 @@ async def on_raw_reaction_remove(payload):
         
         if payload.emoji.name == '🌼':
             role = guild.get_role(ID_ROLE_ASA)  
-            await Member.remove_roles(role)  
+            await member.remove_roles(role)  
         
         if payload.emoji.name == '🌞':
             role = guild.get_role(ID_ROLE_HIRU)  
-            await Member.remove_roles(role)    
+            await member.remove_roles(role)    
         
         if payload.emoji.name == '🌝':
             role = guild.get_role(ID_ROLE_YORU)  
-            await Member.remove_roles(role)  
+            await member.remove_roles(role)  
         
         if payload.emoji.name == '🌛':
             role = guild.get_role(ID_ROLE_SINY)  
-            await Member.remove_roles(role)     
+            await member.remove_roles(role)     
             
                   
 bot.run(token)    
