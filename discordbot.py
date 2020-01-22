@@ -160,7 +160,7 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
         await msg.remove_reaction(str(reaction.emoji), user)
 
  #====================ROLE付与==========================
-ID_CHANNEL_README = 665211777855913985 # 該当のチャンネルのID  
+ID_CHANNEL_README = 662656160201179154 # 該当のチャンネルのID  
 ID_ROLE_ASA = 667633293319208961 # 付けたい役職のID  
 ID_ROLE_HIRU = 667633576484929546
 ID_ROLE_YORU = 667633701118672915
@@ -186,7 +186,7 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_ROLE_YORU)  
             await member.add_roles(role)  
         
-        if payload.emoji.name == '🌛 ':
+        if payload.emoji.name == '🌛':
             role = guild.get_role(ID_ROLE_SINY)  
             await member.add_roles(role)  
             
