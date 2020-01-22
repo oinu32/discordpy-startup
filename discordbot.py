@@ -52,6 +52,23 @@ async def だいす(ctx, inputmsg):
         dice = 0       
     if dice == 1:
         await ctx.send('結果'+str(Dice(inputmsg)))
+        
+@bot.command()
+async def sayd(self, ctx, *, message: str):
+    """Botに喋らせます（メッセージは自動で削除されます）"""
+    await ctx.send(message)
+    # message can't be deleted in private channel(DM/Group)
+    if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
+        await ctx.delete()
+        
+@bot.command(filename=None,spoiler=False)
+async def ねこ(ctx):
+    #path = r"C:\Users\watashi\Desktop\騎士君\ねこ"
+    #files = os.listdir(path)
+    neeko = ['にゃあ💛','にゃんっっ! ', 'にゃぁ～？','にゃあにゃあ！', 'にゃ～ん', '猫です。よろしくお願いします。＜〇＞＜〇＞']
+    await ctx.send(random.choice(neeko))
+    #await ctx.send(file=discord.File(path +'/'+random.choice(files)))        
+ 
 #================================呼び出し=============================
 #=ろーる
 @bot.command()
@@ -94,13 +111,7 @@ async def ぽり(ctx):
 async def おいぬ(ctx):
     await ctx.send("<@224042826520854528>")
     
-@bot.command(filename=None,spoiler=False)
-async def ねこ(ctx):
-    #path = r"C:\Users\watashi\Desktop\騎士君\ねこ"
-    #files = os.listdir(path)
-    neeko = ['にゃあ💛','にゃんっっ! ', 'にゃぁ～？','にゃあにゃあ！', 'にゃ～ん', '猫です。よろしくお願いします。＜〇＞＜〇＞']
-    await ctx.send(random.choice(neeko))
-    #await ctx.send(file=discord.File(path +'/'+random.choice(files)))
+
     
 #====募集=======================================================================================================================
 
@@ -212,5 +223,5 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINY)  
             await member.remove_roles(role)     
             
-                  
+                 
 bot.run(token)    
