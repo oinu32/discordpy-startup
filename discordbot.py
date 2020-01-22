@@ -92,7 +92,7 @@ async def ぽり(ctx):
     await ctx.send("<@509004043922702347>")
 @bot.command()
 async def おいぬ(ctx, msg):
-    await ctx.send("<@224042826520854528>" + msg)
+    await ctx.send("<@224042826520854528>" + '\n '　+　msg)
     
 @bot.command(filename=None,spoiler=False)
 async def ねこ(ctx):
