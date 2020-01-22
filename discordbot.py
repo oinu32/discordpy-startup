@@ -55,23 +55,23 @@ async def だいす(ctx, inputmsg):
 #================================呼び出し=============================
 #=ろーる
 @bot.command()
-async def ぱぱ(ctx, msg):
-    await ctx.send("<@&662950715945386016>" + '\n' + msg)
+async def ぱぱ(ctx):
+    await ctx.send("<@&662950715945386016>")
 @bot.command()
 async def くらめん(ctx, msg):
     await ctx.send("<@&549971775828656168>" + '\n' + msg)
 @bot.command()
 async def あさ(ctx, msg):
-    await ctx.send("<@&667633293319208961>" + msg)
+    await ctx.send("<@&667633293319208961>" + '\n' + msg)
 @bot.command()
 async def ひる(ctx, msg):
-    await ctx.send("<@&667633576484929546>" + msg)
+    await ctx.send("<@&667633576484929546>" + '\n' + msg)
 @bot.command()
 async def よる(ctx, msg):
-    await ctx.send("<@&667633701118672915>" + msg)
+    await ctx.send("<@&667633701118672915>" + '\n' +  msg)
 @bot.command()
 async def しんや(ctx, msg):
-    await ctx.send("<@&667633870572748800>" + msg)
+    await ctx.send("<@&667633870572748800>" + '\n' +  msg)
     
 #=個人
 @bot.command()
@@ -79,20 +79,20 @@ async def きりさめ(ctx):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
     await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))
 @bot.command()
-async def てんが(ctx, msg):
+async def てんが(ctx):
     await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
 @bot.command()
-async def えくせ(ctx, msg):
-    await ctx.send("<@419876101419040776>" + msg)
+async def えくせ(ctx):
+    await ctx.send("<@419876101419040776>")
 @bot.command()
-async def りず(ct, msg):
-    await ctx.send("<@356035126909468675>" + msg)  
+async def りず(ctx):
+    await ctx.send("<@356035126909468675>")  
 @bot.command()
-async def ぽり(ctx, msg):
-    await ctx.send("<@509004043922702347>" + msg)
+async def ぽり(ctx):
+    await ctx.send("<@509004043922702347>")
 @bot.command()
-async def おいぬ(ctx, msg):
-    await ctx.send("<@224042826520854528>" + msg)
+async def おいぬ(ctx):
+    await ctx.send("<@224042826520854528>")
     
 @bot.command(filename=None,spoiler=False)
 async def ねこ(ctx):
