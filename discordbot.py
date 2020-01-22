@@ -56,7 +56,7 @@ async def だいす(ctx, inputmsg):
 #=ろーる
 @bot.command()
 async def ぱぱ(ctx, msg):
-    await ctx.send("<@&662950715945386016>" + msg)
+    await ctx.send("<@&662950715945386016>" + "ぱぱー！\n" + msg)
 @bot.command()
 async def くらめん(ctx, msg):
     await ctx.send("<@&549971775828656168>" + msg)
@@ -77,10 +77,10 @@ async def しんや(ctx, msg):
 @bot.command()
 async def きりさめ(ctx, msg):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
-    await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame) + msg)
+    await ctx.send("<@474584379071528960>" + "\n" + random.choice(kirisame) + "\n" + msg)
 @bot.command()
 async def てんが(ctx, msg):
-    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>" + msg)            
+    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>" + "\n" + msg)            
 @bot.command()
 async def えくせ(ctx, msg):
     await ctx.send("<@419876101419040776>" + msg)
