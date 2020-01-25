@@ -173,7 +173,8 @@ ID_ROLE_ASA = 667633293319208961 # 付けたい役職のID
 ID_ROLE_HIRU = 667633576484929546
 ID_ROLE_YORU = 667633701118672915
 ID_ROLE_SINY = 667633870572748800
-
+ID_chl_syuti = 670669933033685008
+ID_ROLE_SINK = 670691815376158781
 @bot.event  
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
@@ -197,6 +198,13 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_ROLE_SINY)  
             await member.add_roles(role)
             
+   if channel.id == ID_chl_syuti:
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id) 
+        if payload.emoji.name == '🍌':
+            role = guild.get_role(ID_ROLE_SINK)  
+            await member.add_roles(role)
+    
 @bot.event  
 async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id)  
@@ -220,7 +228,13 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINY)  
             await member.remove_roles(role)     
             
-#=凸管理=======================================================================                 
+   if channel.id == ID_chl_syuti:
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id) 
+        if payload.emoji.name == '🍌':
+            role = guild.get_role(ID_ROLE_SINK)  
+            await member.remove_roles(role)
+                
 
 
 
