@@ -176,7 +176,7 @@ ID_ROLE_SINY = 667633870572748800
 ID_chl_syuti = 670669933033685008
 ID_ROLE_SINK = 670691815376158781
 TsK_channel_ID = 648495209663168512
-tsk_role_id = 671354476044615680
+Tsk_role_id = 671354476044615680
 
 @bot.event  
 async def on_raw_reaction_add(payload):  
@@ -210,7 +210,7 @@ async def on_raw_reaction_add(payload):
         member = guild.get_member(payload.user_id)
         
         if payload.emoji.name == '🤓':
-            role = guild.get_role(tsk_role_id)  
+            role = guild.get_role(Tsk_role_id)  
             await member.add_roles(role)    
 @bot.event  
 async def on_raw_reaction_remove(payload):
@@ -244,7 +244,7 @@ async def on_raw_reaction_remove(payload):
         member = guild.get_member(payload.user_id)
         
         if payload.emoji.name == '🤓':
-            role = guild.get_role(tsk_role_id)  
+            role = guild.get_role(Tsk_role_id)  
             await member.remove_roles(role)
                 
 #===============================タスキル====
