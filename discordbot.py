@@ -175,7 +175,7 @@ ID_ROLE_YORU = 667633701118672915
 ID_ROLE_SINY = 667633870572748800
 ID_chl_syuti = 670669933033685008
 ID_ROLE_SINK = 670691815376158781
-TsK_channel_ID = 648495209663168512
+
 Tsk_role_id = 671354476044615680
 
 @bot.event  
@@ -204,13 +204,7 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
-@bot.event  
-async def on_raw_reaction_add(payload):  
-    channel = bot.get_channel(payload.channel_id)      
-    if channel.id == TsK_channel_ID:
-        guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)
-        
+            
         if payload.emoji.name == '🤓':
             role = guild.get_role(Tsk_role_id)  
             await member.add_roles(role)    
@@ -241,13 +235,6 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
 
-@bot.event  
-async def on_raw_reaction_remove(payload):
-    channel = bot.get_channel(payload.channel_id)             
-    if channel.id == TsK_channel_ID:
-        guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id)
-        
         if payload.emoji.name == '🤓':
             role = guild.get_role(Tsk_role_id)  
             await member.remove_roles(role)
