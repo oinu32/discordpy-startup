@@ -253,13 +253,13 @@ async def loop():
     now = datetime.datetime.now().strftime('%H:%M')
     if now == '00:00':
         channel = client.get_channel(ID_TSKIIL)
-        await channel.send('今日のタスキル確認')  
         guild = client.get_guild(ID_SRV)
         role = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
             if role in member.roles:
                 await member.remove_roles(role)
-        
+        msg = channel.send('今日のタスキル確認')
+        await msg.add_reaction('🤓')        
 
 
 
