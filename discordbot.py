@@ -204,7 +204,9 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
-    
+@bot.event  
+async def on_raw_reaction_add(payload):  
+    channel = bot.get_channel(payload.channel_id)      
     if channel.id == TsK_channel_ID:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)
@@ -238,7 +240,10 @@ async def on_raw_reaction_remove(payload):
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
-            
+
+@bot.event  
+async def on_raw_reaction_remove(payload):
+    channel = bot.get_channel(payload.channel_id)             
     if channel.id == TsK_channel_ID:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id)
