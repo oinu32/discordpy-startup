@@ -257,7 +257,7 @@ async def loop():
         for member in guild.members:
             if role in member.roles:
                 await member.remove_roles(role)
-
+loop.start()
 
 
 
