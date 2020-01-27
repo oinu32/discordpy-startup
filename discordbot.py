@@ -240,7 +240,7 @@ async def on_raw_reaction_remove(payload):
         member = guild.get_member(payload.user_id)
         
             if payload.emoji.name == '🤓':
-                role = guild.get_role(ID_ROLE_SINK)  
+                role = guild.get_role(tsk_role_id)  
                 await member.add_roles(role)
 
 @bot.event  
@@ -251,7 +251,7 @@ async def on_raw_reaction_remove(payload):
         member = guild.get_member(payload.user_id)
         
             if payload.emoji.name == '🤓':
-                role = guild.get_role(ID_ROLE_SINK)  
+                role = guild.get_role(tsk_role_id)  
                 await member.remove_roles(role)
 
 @bot.loop(seconds=30)
