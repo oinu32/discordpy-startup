@@ -211,7 +211,7 @@ async def on_raw_reaction_add(payload):
         
         if payload.emoji.name == '🤓':
             role = guild.get_role(tsk_role_id)  
-            await member.remove_roles(role)    
+            await member.add_roles(role)    
 @bot.event  
 async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id)  
@@ -245,7 +245,7 @@ async def on_raw_reaction_remove(payload):
         
         if payload.emoji.name == '🤓':
             role = guild.get_role(tsk_role_id)  
-            await member.add_roles(role)
+            await member.remove_roles(role)
                 
 #===============================タスキル====
 server_id = 539773033724772362
