@@ -232,6 +232,7 @@ async def on_raw_reaction_remove(payload):
 #===============================タスキル====
 TsK_channel_ID = 648495209663168512
 tsk_role_id = 671354476044615680
+
 @bot.event  
 async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id)  
@@ -254,11 +255,12 @@ async def on_raw_reaction_remove(payload):
                 role = guild.get_role(tsk_role_id)  
                 await member.remove_roles(role)
 
+server_id = 539773033724772362
 @bot.loop(seconds=30)
 async def loop():
     now = datetime.datetime.now().strftime('%H:%M')
     if now == '05:00':
-        guild = client.get_guild('539773033724772362')
+        guild = client.get_guild(server_id)
         role = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
             if role in member.roles:
