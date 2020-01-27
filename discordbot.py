@@ -229,8 +229,40 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
                 
+#===============================タスキル====
+TsK_channel_ID = 648495209663168512
+tsk_role_id = 671354476044615680
+@bot.event  
+async def on_raw_reaction_remove(payload):
+    channel = bot.get_channel(payload.channel_id)  
+    if channel.id == TsK_channel_ID:
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)
+        
+            if payload.emoji.name == '🤓':
+                role = guild.get_role(ID_ROLE_SINK)  
+                await member.add_roles(role)
 
+@bot.event  
+async def on_raw_reaction_remove(payload):
+    channel = bot.get_channel(payload.channel_id)  
+    if channel.id == TsK_channel_ID:
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id)
+        
+            if payload.emoji.name == '🤓':
+                role = guild.get_role(ID_ROLE_SINK)  
+                await member.remove_roles(role)
 
+@bot.loop(seconds=30)
+async def loop():
+    now = datetime.datetime.now().strftime('%H:%M')
+    if now == '05:00':
+        guild = client.get_guild('539773033724772362')
+        role = discord.utils.get(guild.roles,name='タスキル')
+        for member in guild.members:
+            if role in member.roles:
+                await member.remove_roles(role)
 
 
 
