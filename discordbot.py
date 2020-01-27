@@ -251,13 +251,13 @@ ID_SRV = 539773033724772362
 @tasks.loop(seconds=30)
 async def loop():
     now = datetime.datetime.now().strftime('%H:%M')
-    if now == '00:00':
+    if now == '05:00':
         guild = client.get_guild(ID_SRV)
         role = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
             if role in member.roles:
                 await member.remove_roles(role)
-        await client.get_channel(ID_TSKIIL).ctx.send('今日のタスキル確認').add_reaction('🤓')
+
 
 
 
