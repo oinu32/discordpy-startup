@@ -133,7 +133,7 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
 
     while len(reaction_member)-1 <= cnt:
         try:
-            reaction, user = await client.wait_for('reaction_add', timeout=settime, check=check)
+            reaction, user = await bot.wait_for('reaction_add', timeout=settime, check=check)
         except asyncio.TimeoutError:
             await ctx.send('募集が終了しました。')
             break
