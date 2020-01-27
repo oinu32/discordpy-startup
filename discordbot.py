@@ -175,8 +175,7 @@ ID_ROLE_YORU = 667633701118672915
 ID_ROLE_SINY = 667633870572748800
 ID_chl_syuti = 670669933033685008
 ID_ROLE_SINK = 670691815376158781
-
-Tsk_role_id = 671354476044615680
+ID_ROLE_TSKL = 671354476044615680
 
 @bot.event  
 async def on_raw_reaction_add(payload):  
@@ -206,8 +205,9 @@ async def on_raw_reaction_add(payload):
             await member.add_roles(role)
             
         if payload.emoji.name == '🤓':
-            role = guild.get_role(Tsk_role_id)  
+            role = guild.get_role(ID_ROLE_TSKL)  
             await member.add_roles(role)    
+            
 @bot.event  
 async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id)  
@@ -236,16 +236,16 @@ async def on_raw_reaction_remove(payload):
             await member.remove_roles(role)
 
         if payload.emoji.name == '🤓':
-            role = guild.get_role(Tsk_role_id)  
+            role = guild.get_role(ID_ROLE_TSKL)  
             await member.remove_roles(role)
                 
 #===============================タスキル====
-server_id = 539773033724772362
+Server_id = 539773033724772362
 @bot.loop(seconds=30)
 async def loop():
     now = datetime.datetime.now().strftime('%H:%M')
     if now == '05:00':
-        guild = client.get_guild(server_id)
+        guild = client.get_guild(Server_id)
         role = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
             if role in member.roles:
