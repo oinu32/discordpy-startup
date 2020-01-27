@@ -135,9 +135,7 @@ async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
         try:
             reaction, user = await bot.wait_for('reaction_add', timeout=settime, check=check)
         except asyncio.TimeoutError:
-                finish = discord.Embed(title=about,colour=0x1e90ff)
-                finish.add_field(name="このメンバーです",value='\n'.join(reaction_member), inline=True)
-                await ctx.send(embed=finish)
+            await ctx.send('集計時間が終了しました。')
             break
         else:
             print(str(reaction.emoji))
