@@ -248,9 +248,10 @@ async def on_raw_reaction_remove(payload):
 #===============================タスキル====
 
 ID_SRV = 539773033724772362
-@tasks.loop(seconds=30)
+@tasks.loop(seconds=60)
 async def loop():
-    now = datetime.datetime.now().strftime('%H:%M')
+    await bot.wait_until_ready()
+    now  = datetime.now().strftime("%H:%M")
     if now == '05:00':
         guild = bot.get_guild(ID_SRV)
         role = discord.utils.get(guild.roles,name='タスキル')
