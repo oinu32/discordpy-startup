@@ -253,8 +253,8 @@ async def loop():
 loop.start()
 #=そのた======================================
 @bot.command()
-async def コール(ctx, msg):
-    am = await ctx.send(msg)
+async def コール(ctx, men, msg):
+    am = await ctx.send(men + ' ' + msg)
     await am.add_reaction('🤚')
 
 
