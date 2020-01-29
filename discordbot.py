@@ -253,9 +253,12 @@ async def loop():
 loop.start()
 #=そのた======================================
 @bot.command()
-async def コール(ctx, men, msg):
-    am = await ctx.send(men + ' ' + msg)
-    await am.add_reaction('🤚')
-
+async def コール(ctx, *, message: str):
+    """Botに喋らせます（メッセージは自動で削除されます）"""
+    msg = await ctx.send(message)
+    await msg.add_reaction('🤚')
+    # message can't be deleted in private channel(DM/Group)
+    if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
+        await ctx.message.delete()
 
 bot.run(token)    
