@@ -252,7 +252,7 @@ ID_SRV = 539773033724772362
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '05:00':
+    if now == '20:00':
         channel = bot.get_channel(ID_TSKIIL)
         guild = bot.get_guild(ID_SRV)
         role = discord.utils.get(guild.roles,name='タスキル')
