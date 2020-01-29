@@ -77,19 +77,7 @@ async def ぱぱ(ctx):
 @bot.command()
 async def くらめん(ctx, msg):
     await ctx.send("<@&549971775828656168>" + '\n' + msg)
-@bot.command()
-async def あさ(ctx, msg):
-    await ctx.send("<@&667633293319208961>" + '\n' + msg)
-@bot.command()
-async def ひる(ctx, msg):
-    await ctx.send("<@&667633576484929546>" + '\n' + msg)
-@bot.command()
-async def よる(ctx, msg):
-    await ctx.send("<@&667633701118672915>" + '\n' +  msg)
-@bot.command()
-async def しんや(ctx, msg):
-    await ctx.send("<@&667633870572748800>" + '\n' +  msg)
-    
+
 #=個人
 @bot.command()
 async def きりさめ(ctx):
@@ -263,8 +251,11 @@ async def loop():
         await msg.add_reaction('🤓')
         
 loop.start()
-
-
+#=そのた======================================
+@bot.command()
+async def コール(ctx, msg):
+    am = await ctx.send(msg)
+    await msg.add_reaction('🤚')
 
 
 bot.run(token)    
