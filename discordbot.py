@@ -255,7 +255,7 @@ loop.start()
 @bot.command()
 async def コール(ctx, msg):
     am = await ctx.send(msg)
-    await msg.add_reaction('🤚')
+    await am.add_reaction('🤚')
 
 
 bot.run(token)    
