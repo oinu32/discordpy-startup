@@ -242,9 +242,9 @@ async def loop():
         for member in guild.members:
             if tskl in member.roles:
                 await member.remove_roles(tskl)
-        
+  
         test = discord.Embed(title=about,colour=0x1e90ff)
-        test.add_field(name="今日の凸状況", value='\n １凸目' + "1️⃣" + '\n 2凸目' + "2️⃣" + '\n ３凸目' + "3️⃣", inline=False)
+        test.add_field(name="今日の凸状況", value="\n １凸目1️⃣\n 2凸目2️⃣\n ３凸目3️⃣", inline=False)
         poll = await channel.send(embed=test)
         await poll.add_reaction("1️⃣")
         await poll.add_reaction("2️⃣")
