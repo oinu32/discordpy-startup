@@ -235,18 +235,21 @@ ID_SRV = 539773033724772362
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '16:25':
+    if now == '16:35':
         channel = bot.get_channel(ID_TSKIIL)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
             if tskl in member.roles:
                 await member.remove_roles(tskl)
-                
+        
+        test = discord.Embed(title=about,colour=0x1e90ff)
+        test = embed.add_field(name="今日の凸状況", value='\n １凸目' + "1️⃣" + '\n 2凸目' + "2️⃣" + '\n ３凸目' + "3️⃣", inline=False)
         poll = await channel.send('てすと')
         await poll.add_reaction("1️⃣")
         await poll.add_reaction("2️⃣")
         await poll.add_reaction("3️⃣")
+        
         msg = await channel.send('ほんじつのタスキルまん')
         await msg.add_reaction('🤓')
         
