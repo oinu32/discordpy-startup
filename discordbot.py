@@ -240,25 +240,14 @@ ID_SRV = 539773033724772362
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '15:15':
+    if now == '20:00':
         channel = bot.get_channel(ID_TSKIIL)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
-        asak = discord.utils.get(guild.roles,name='朝活')
-        hiru = discord.utils.get(guild.roles,name='昼活')
-        yoru = discord.utils.get(guild.roles,name='夜活')
-        snya = discord.utils.get(guild.roles,name='深夜組')
         for member in guild.members:
             if tskl in member.roles:
                 await member.remove_roles(tskl)
-            elif asak in guild.members:
-                await member.remove_roles(asak)
-            elif hiru in guild.members:
-                await member.remove_roles(hiru)
-            elif yoru in guild.members:
-                await member.remove_roles(yoru)
-            elif snya in guild.members:
-                await member.remove_roles(snya)
+
                 
 #        msg = await channel.send('ほんじつのタスキルまん')
 #        await msg.add_reaction('🤓')
