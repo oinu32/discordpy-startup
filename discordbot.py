@@ -251,13 +251,13 @@ async def loop():
         for member in guild.members:
             if tskl in member.roles:
                 await member.remove_roles(tskl)
-            if asak in guild.members:
+            elif asak in guild.members:
                 await member.remove_roles(asak)
-            if hiru in guild.members:
+            elif hiru in guild.members:
                 await member.remove_roles(hiru)
-            if yoru in guild.members:
+            elif yoru in guild.members:
                 await member.remove_roles(yoru)
-            if snya in guild.members:
+            elif snya in guild.members:
                 await member.remove_roles(snya)
                 
 #        msg = await channel.send('ほんじつのタスキルまん')
