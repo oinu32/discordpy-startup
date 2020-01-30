@@ -164,7 +164,7 @@ ID_ROLE_SINY = 667633870572748800
 ID_chl_syuti = 670669933033685008
 ID_ROLE_SINK = 670691815376158781
 ID_ROLE_TSKL = 671354476044615680
-ID_TSKIIL = 648495209663168512
+ID_TSKIIL = 624668843444273164
 @bot.event  
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
