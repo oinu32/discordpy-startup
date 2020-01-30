@@ -74,9 +74,6 @@ async def ねこ(ctx):
 @bot.command()
 async def ぱぱ(ctx):
     await ctx.send("<@&662950715945386016>")
-@bot.command()
-async def くらめん(ctx, msg):
-    await ctx.send("<@&549971775828656168>" + '\n' + msg)
 
 #=個人
 @bot.command()
@@ -95,9 +92,7 @@ async def りず(ctx):
 @bot.command()
 async def ぽり(ctx):
     await ctx.send("<@509004043922702347>")
-@bot.command()
-async def おいぬ(ctx):
-    await ctx.send("<@224042826520854528>")
+
     
 #====募集=======================================================================================================================
 
@@ -240,17 +235,23 @@ ID_SRV = 539773033724772362
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '20:00':
+    if now == '16:20':
         channel = bot.get_channel(ID_TSKIIL)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
             if tskl in member.roles:
                 await member.remove_roles(tskl)
-
                 
-#        msg = await channel.send('ほんじつのタスキルまん')
-#        await msg.add_reaction('🤓')
+        poll = await channel.send('てすと')
+        await msg.add_reaction('1⃣')
+        await msg.add_reaction('2⃣')
+        await msg.add_reaction('3⃣')
+        
+        msg = await channel.send('ほんじつのタスキルまん')
+        await msg.add_reaction('🤓')
+        
+        
         
 loop.start()
 #=そのた======================================
