@@ -244,9 +244,9 @@ async def loop():
                 await member.remove_roles(tskl)
                 
         poll = await channel.send('てすと')
-        await msg.add_reaction('1⃣')
-        await msg.add_reaction('2⃣')
-        await msg.add_reaction('3⃣')
+        await msg.add_reaction("1️⃣")
+        await msg.add_reaction("2️⃣")
+        await msg.add_reaction("3️⃣")
         
         msg = await channel.send('ほんじつのタスキルまん')
         await msg.add_reaction('🤓')
