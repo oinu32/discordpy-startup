@@ -235,7 +235,7 @@ ID_SRV = 539773033724772362
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '16:23':
+    if now == '16:25':
         channel = bot.get_channel(ID_TSKIIL)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
@@ -244,10 +244,9 @@ async def loop():
                 await member.remove_roles(tskl)
                 
         poll = await channel.send('てすと')
-        await msg.add_reaction("1️⃣")
-        await msg.add_reaction("2️⃣")
-        await msg.add_reaction("3️⃣")
-        
+        await poll.add_reaction("1️⃣")
+        await poll.add_reaction("2️⃣")
+        await poll.add_reaction("3️⃣")
         msg = await channel.send('ほんじつのタスキルまん')
         await msg.add_reaction('🤓')
         
