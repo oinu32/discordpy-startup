@@ -245,7 +245,7 @@ async def loop():
         
         test = discord.Embed(title=about,colour=0x1e90ff)
         test = embed.add_field(name="今日の凸状況", value='\n １凸目' + "1️⃣" + '\n 2凸目' + "2️⃣" + '\n ３凸目' + "3️⃣", inline=False)
-        poll = await channel.send('てすと')
+        poll = await channel.send(embed=test)
         await poll.add_reaction("1️⃣")
         await poll.add_reaction("2️⃣")
         await poll.add_reaction("3️⃣")
