@@ -231,11 +231,11 @@ async def on_raw_reaction_remove(payload):
 #===============================タスキル====
 
 ID_SRV = 539773033724772362
-@tasks.loop(seconds=60)
+@tasks.loop(seconds=45)
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '16:50':
+    if now == '20:00':
         channel = bot.get_channel(ID_TSKIIL)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
