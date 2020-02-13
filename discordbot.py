@@ -265,4 +265,4 @@ async def コール(ctx, *, message: str):
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
 
-bot.run(token)    
+bot.run(token)
