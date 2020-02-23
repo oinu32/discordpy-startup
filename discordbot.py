@@ -244,13 +244,13 @@ async def loop():
             if tskl in member.roles:
                 await member.remove_roles(tskl)
 
-#        poll = await channel.send('今日の凸状況')
-#        await poll.add_reaction("1️⃣")
-#        await poll.add_reaction("2️⃣")
-#        await poll.add_reaction("3️⃣")
+        poll = await channel.send('今日の凸状況')
+        await poll.add_reaction("1️⃣")
+        await poll.add_reaction("2️⃣")
+        await poll.add_reaction("3️⃣")
         
-#        msg = await channel.send('ほんじつのタスキルまん')
-#        await msg.add_reaction('🤓')
+        msg = await channel.send('ほんじつのタスキルまん')
+        await msg.add_reaction('🤓')
         
         
         
