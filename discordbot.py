@@ -232,7 +232,7 @@ async def on_raw_reaction_remove(payload):
 #===============================タスキル====
 
 ID_SRV = 539773033724772362
-@tasks.loop(seconds=45)
+@tasks.loop(seconds=60)
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
