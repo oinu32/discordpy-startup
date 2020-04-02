@@ -172,8 +172,8 @@ async def on_raw_reaction_remove(payload):
 async def コール(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
     msg = await ctx.send(message)
-    await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
+    await msg.add_reaction('🤚')
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
