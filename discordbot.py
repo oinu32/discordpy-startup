@@ -5,10 +5,12 @@ import re
 import os
 import random
 import asyncio
-import set_input
 from discord.ext import tasks
 from discord.ext import commands
 from datetime import datetime
+
+token = os.environ['DISCORD_BOT_TOKEN']
+bot = commands.Bot(command_prefix='?')
 
 ID_CHANNEL_README = 670669933033685008 # 該当のチャンネルのID  
 ID_ROLE_ASA = 667633293319208961 # 付けたい役職のID  
@@ -20,9 +22,6 @@ ID_ROLE_SINK = 670691815376158781　#進行ろーるID
 ID_ROLE_TSKL = 671354476044615680  #たすきる
 ID_TSKIIL = 624668843444273164 #たすきる用ちゃんねるID
 ID_SRV = 539773033724772362 #さーばーID
-
-token = os.environ['DISCORD_BOT_TOKEN']
-bot = commands.Bot(command_prefix='?')
 
 def Dice(pInputMessage):
     list = []
