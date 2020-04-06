@@ -5,7 +5,6 @@ import re
 import os
 import random
 import asyncio
-import gspread
 import set_input
 from oauth2client.service_account import ServiceAccountCredentials
 from discord.ext import tasks
