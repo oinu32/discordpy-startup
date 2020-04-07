@@ -179,7 +179,7 @@ async def コール(ctx, *, message: str):
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
 
-bot.command()
+@bot.command()
 async def 秒数(ctx, zan,la):
 　　　c = 90-(zan/la)✴︎90+20
 　　　msg = await ctx.send(c)
