@@ -172,13 +172,16 @@ async def on_raw_reaction_remove(payload):
 @bot.command()
 async def コール(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
-    msg = await ctx.send(message)
+   msg = await ctx.send(message)
     await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
 
-
+bot.command()
+async def 秒数(ctx, zan,la):
+　　　c = 90-(zan/la)✴︎90+20
+　　　msg = await ctx.send(c)
 
 bot.run(token)
