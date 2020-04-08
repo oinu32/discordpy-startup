@@ -188,7 +188,7 @@ async def 秒数(ctx, zan,la):
     if 0 > int(zan) or 0 > int(la):
         await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
     else:        
-        await ctx.send(ctx.author.mention + '\n' +  str(math.floor(c)) + "秒")
+        await ctx.send(ctx.author.mention + '\n' +  str(c) + "秒")
 
 @bot.command()
 async def フル(ctx, zan):
