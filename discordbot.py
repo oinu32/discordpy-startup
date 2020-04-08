@@ -164,7 +164,7 @@ async def on_raw_reaction_remove(payload):
 #        await poll.add_reaction("1️⃣")
 #        await poll.add_reaction("2️⃣")
 #        await poll.add_reaction("3️⃣")
-        
+       
 #        msg = await channel.send('ほんじつのタスキルまん')
 #        await msg.add_reaction('🤓')
 #loop.start()
