@@ -171,7 +171,7 @@ async def on_raw_reaction_remove(payload):
 
 #=そのた======================================
 @bot.command()
-async def コール(ctx, syu, boss, message: str):
+async def コール(ctx, syu, boss):
     """Botに喋らせます（メッセージは自動で削除されます）"""
     msg = await ctx.send(str(syu) + '週目 ' + str(boss) + 'ボス')
     await msg.add_reaction('🤚')
