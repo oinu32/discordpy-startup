@@ -147,7 +147,7 @@ async def on_raw_reaction_remove(payload):
                 
 #===============================タスキル====
 
-#ID_SRV = 539773033724772362
+#ID_SRV = set_input.ID_SRV
 #@tasks.loop(seconds=60)
 #async def loop():
 #    await bot.wait_until_ready()
@@ -171,9 +171,9 @@ async def on_raw_reaction_remove(payload):
 
 #=そのた======================================
 @bot.command()
-async def コール(ctx, *, message: str):
+async def コール(ctx, syu, boss, msg, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
-    msg = await ctx.send(message)
+    msg = await ctx.send(str(syu) + "週目 " + str(boss) + "ボス"　+ '\n' + msg)
     await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
     # message can't be deleted in private channel(DM/Group)
@@ -186,5 +186,7 @@ async def 秒数(ctx, zan,la):
     if c > 90:
         c = 90
     await ctx.send(ctx.author.mention + '\n' +  str(math.floor(c)) + "秒")
+    
+    
 
 bot.run(token)
