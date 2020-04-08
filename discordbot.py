@@ -196,6 +196,6 @@ async def フル(ctx, zan):
     if 0 > int(zan):
         await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
     else:
-        await ctx.send(ctx.author.mention + '\n' +  str(f) + "万くらいでフル持越し")
+        await ctx.send(ctx.author.mention + '\n' +  str(f) + "くらいでフル持越し")
 
 bot.run(token)
