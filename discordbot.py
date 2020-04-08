@@ -189,7 +189,10 @@ async def 秒数(ctx, zan,la):
         await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
     else:        
         await ctx.send(ctx.author.mention + '\n' +  str(math.floor(c)) + "秒")
-    
-    
+
+@bot.command()
+async def フル(ctx, zan):
+    f = int(zan) * 4.29
+    await ctx.send(ctx.author.mention + '\n' +  str(f) + "万ぐらい")
 
 bot.run(token)
