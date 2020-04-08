@@ -3,6 +3,7 @@ import os
 import traceback
 import re
 import os
+import math
 import random
 import asyncio
 import set_input
@@ -184,6 +185,6 @@ async def 秒数(ctx, zan,la):
     c = 90 - (int(zan) / int(la)) * 90 + 20
     if c > 90:
         c = 90
-    await ctx.send(str(c) + "秒")
+    await ctx.send(str(math.floor(c)) + "秒")
 
 bot.run(token)
