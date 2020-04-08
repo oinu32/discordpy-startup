@@ -193,6 +193,6 @@ async def 秒数(ctx, zan,la):
 @bot.command()
 async def フル(ctx, zan):
     f = int(zan) * 4.29
-    await ctx.send(ctx.author.mention + '\n' +  str(f) + "万ぐらい")
+    await ctx.send(ctx.author.mention + '\n' +  str(f) + "万くらいでフル持越し")
 
 bot.run(token)
