@@ -185,7 +185,10 @@ async def 秒数(ctx, zan,la):
     c = 90 - (int(zan) / int(la)) * 90 + 20
     if c > 90:
         c = 90
-    await ctx.send(ctx.author.mention + '\n' +  str(math.floor(c)) + "秒")
+    if 0 > zan or 0 > la:
+        await ctx.send(ctx.author.mention + '\n' + "正しい数値をいれてください")
+    else        
+        await ctx.send(ctx.author.mention + '\n' +  str(math.floor(c)) + "秒")
     
     
 
