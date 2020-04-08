@@ -181,7 +181,7 @@ async def コール(ctx, *, message: str):
 
 @bot.command()
 async def 秒数(ctx, zan,la):
-    c = 90 - (int(zan) // int(la)) * 90 + 20
+    c = 90 - (int(zan) / int(la)) * 90 + 20
     if c > 90:
         c = 90
     await ctx.send(str(c) + "秒")
