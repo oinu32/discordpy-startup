@@ -173,7 +173,7 @@ async def on_raw_reaction_remove(payload):
 @bot.command()
 async def コール(ctx, syu, boss, msg, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
-    msg = await ctx.send(str(syu) + '週目 ' + str(boss) + 'ボス'　+ '\n' + msg)
+    msg = await ctx.send(str(syu) + '週目 ' + str(boss) + 'ボス' + '\n' + msg)
     await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
     # message can't be deleted in private channel(DM/Group)
