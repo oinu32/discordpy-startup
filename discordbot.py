@@ -147,27 +147,26 @@ async def on_raw_reaction_remove(payload):
                 
 #===============================タスキル====
 
-#ID_SRV = set_input.ID_SRV
-#@tasks.loop(seconds=60)
-#async def loop():
-#    await bot.wait_until_ready()
-#    now  = datetime.now().strftime("%H:%M")
-#    if now == '20:00':
-#        channel = bot.get_channel(ID_TSKIIL)
-#        guild = bot.get_guild(ID_SRV)
-#        tskl = discord.utils.get(guild.roles,name='タスキル')
-#        for member in guild.members:
-#            if tskl in member.roles:
-#                await member.remove_roles(tskl)
-
-#        poll = await channel.send('今日の凸状況')
-#        await poll.add_reaction("1️⃣")
-#        await poll.add_reaction("2️⃣")
-#        await poll.add_reaction("3️⃣")
-       
-#        msg = await channel.send('ほんじつのタスキルまん')
-#        await msg.add_reaction('🤓')
-#loop.start()
+ID_SRV = set_input.ID_SRV
+@tasks.loop(seconds=60)
+async def loop():
+    await bot.wait_until_ready()
+    now  = datetime.now().strftime("%H:%M")
+    if now == '20:00':
+        channel = bot.get_channel(ID_TSKIIL)
+        guild = bot.get_guild(ID_SRV)
+        tskl = discord.utils.get(guild.roles,name='タスキル')
+        for member in guild.members:
+            if tskl in member.roles:
+                await member.remove_roles(tskl)
+        poll = await channel.send('今日の凸状況')
+        await poll.add_reaction("1️⃣")
+        await poll.add_reaction("2️⃣")
+        await poll.add_reaction("3️⃣")
+      
+        msg = await channel.send('ほんじつのタスキルまん')
+        await msg.add_reaction('🤓')
+loop.start()
 
 #=そのた======================================
 @bot.command()
