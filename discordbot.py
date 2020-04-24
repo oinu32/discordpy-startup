@@ -138,7 +138,7 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
             
-    if channel.id == ID_TSKIIL:   
+    if channel.id == ID_TSKILL:   
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
@@ -153,7 +153,7 @@ async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
     if now == '20:00':
-        channel = bot.get_channel(ID_TSKIIL)
+        channel = bot.get_channel(ID_TSKILL)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
         for member in guild.members:
