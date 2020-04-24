@@ -168,6 +168,7 @@ async def loop():
         await msg.add_reaction('🤓')
 loop.start()
 
+
 #=そのた======================================
 @bot.command()
 async def コール(ctx, syu, boss):
