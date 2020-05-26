@@ -171,7 +171,7 @@ loop.start()
 
 #=そのた======================================
 @bot.command()
-async def コール(ctx, *, message: str)::
+async def コール(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
     await ctx.send(message)
     await msg.add_reaction('🤚')
