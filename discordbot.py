@@ -174,8 +174,8 @@ loop.start()
 async def コール(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
     await ctx.send(message)
-    await msg.add_reaction('🤚')
-    await msg.add_reaction('🥺')
+    await ctx.add_reaction('🤚')
+    await ctx.add_reaction('🥺')
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
