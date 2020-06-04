@@ -13,6 +13,7 @@ from discord.ext import commands
 from datetime import datetime
 
 
+
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='?')
 
@@ -59,7 +60,9 @@ async def sayd(ctx, *, message: str):
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
-        
+
+#翻訳群
+translator = Translator()        
 @bot.command()
 async def kh(ctx, *, message: str):
     #韓国
