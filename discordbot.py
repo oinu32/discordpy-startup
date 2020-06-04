@@ -66,14 +66,14 @@ async def sayd(ctx, *, message: str):
 async def kh(ctx, *, message: str):
     #韓国
     translator = Translator()  
-    msg=translator.translate(message, src='ja' ,dest='ko')
+    msg=translator.translate(message.clean_content, src='ja' ,dest='ko')
     await ctx.send(msg.text) 
 
 @bot.command()
 async def jh(ctx, *, message: str):
     #韓国→日本
     translator = Translator()  
-    msg=translator.translate(message, src='ko' ,dest='ja')
+    msg=translator.translate(message.clean_content, src='ko' ,dest='ja')
     await ctx.send(msg.text) 
 
     
