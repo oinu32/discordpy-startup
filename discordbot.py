@@ -83,11 +83,24 @@ async def ejh(ctx, *, message):
 
 @bot.command()
 async def jeh(ctx, *, message):
-    #韓国→日本
+    #english→日本
     translator = Translator()  
     msg=translator.translate(ctx.message.clean_content[4:], src='en' ,dest='ja')
     await ctx.send(msg.text) 
     
+@bot.command()
+async def cjh(ctx, *, message):
+    #中国語
+    translator = Translator()  
+    msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='zh-CN')
+    await ctx.send(msg.text) 
+
+@bot.command()
+async def jch(ctx, *, message):
+    #ちゃいにーず→日本
+    translator = Translator()  
+    msg=translator.translate(ctx.message.clean_content[4:], src='zh-CN' ,dest='ja')
+    await ctx.send(msg.text)    
     
     
     
