@@ -64,7 +64,7 @@ async def sayd(ctx, *, message: str):
 async def kh(ctx, *, message):
     #韓国
     translator = Translator()  
-    mention=message.clean_content
+    mention=ctx.message.clean_content
     msg=translator.translate(mention, src='ja' ,dest='ko')
     await ctx.send(msg.text) 
 
@@ -72,7 +72,7 @@ async def kh(ctx, *, message):
 async def jh(ctx, *, message):
     #韓国→日本
     translator = Translator()  
-    mention=message.clean_content
+    mention=ctx.message.clean_content
     msg=translator.translate(mention, src='ko' ,dest='ja')
     await ctx.send(msg.text) 
 
