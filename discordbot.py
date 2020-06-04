@@ -61,7 +61,7 @@ async def sayd(ctx, *, message: str):
 
 #翻訳群      
 @bot.command()
-async def kh(ctx, *, message: str):
+async def kh(ctx, *, message):
     #韓国
     translator = Translator()  
     mention=message.clean_content
@@ -69,7 +69,7 @@ async def kh(ctx, *, message: str):
     await ctx.send(msg.text) 
 
 @bot.command()
-async def jh(ctx, *, message: str):
+async def jh(ctx, *, message):
     #韓国→日本
     translator = Translator()  
     mention=message.clean_content
