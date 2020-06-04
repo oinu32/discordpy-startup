@@ -7,9 +7,11 @@ import math
 import random
 import asyncio
 import set_input
+from googletrans import Translator
 from discord.ext import tasks
 from discord.ext import commands
 from datetime import datetime
+
 
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='?')
@@ -57,7 +59,12 @@ async def sayd(ctx, *, message: str):
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
- 
+        
+@bot.command()
+async def kh(ctx, *, message: str):
+    msg=translator.translate(message, src='ja' ,dest='ko').text)#韓国
+    await cts.send(msg) 
+
 #================================呼び出し=============================
 @bot.command()
 async def きりさめ(ctx):
