@@ -63,7 +63,7 @@ async def sayd(ctx, *, message: str):
 @bot.command()
 async def kh(ctx, *, message: str):
     #韓国
-    msg=translator.translate(message, src='ja' ,dest='ko').text)
+    msg=translator.translate(message, src='ja' ,dest='ko').text
     await cts.send(msg) 
 
 #================================呼び出し=============================
