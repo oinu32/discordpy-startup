@@ -61,13 +61,13 @@ async def sayd(ctx, *, message: str):
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
 
-#翻訳群
-translator = Translator()        
+#翻訳群      
 @bot.command()
 async def kh(ctx, *, message: str):
     #韓国
-    msg=translator.translate(message, src='ja' ,dest='ko').text
-    await ct.send(msg) 
+    translator = Translator()  
+    msg=translator.translate(message, src='ja' ,dest='ko')
+    await ctx.send(msg.text) 
 
 #================================呼び出し=============================
 @bot.command()
