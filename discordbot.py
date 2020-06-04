@@ -67,7 +67,7 @@ translator = Translator()
 async def kh(ctx, *, message: str):
     #韓国
     msg=translator.translate(message, src='ja' ,dest='ko').text
-    await cts.send(msg) 
+    await ct.send(msg) 
 
 #================================呼び出し=============================
 @bot.command()
