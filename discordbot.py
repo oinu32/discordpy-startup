@@ -12,8 +12,6 @@ from discord.ext import tasks
 from discord.ext import commands
 from datetime import datetime
 
-
-
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='?')
 
@@ -63,17 +61,17 @@ async def sayd(ctx, *, message: str):
 
 #翻訳群      
 @bot.command()
-async def kh(ctx, *, message: str):
+async def kh(ctx, *, message.clean_content: str):
     #韓国
     translator = Translator()  
-    msg=translator.translate(message, src='ja' ,dest='ko').clean_content
+    msg=translator.translate(message, src='ja' ,dest='ko')
     await ctx.send(msg.text) 
 
 @bot.command()
-async def jh(ctx, *, message: str):
+async def jh(ctx, *, message.clean_content: str):
     #韓国→日本
     translator = Translator()  
-    msg=translator.translate(message, src='ko' ,dest='ja').clean_content
+    msg=translator.translate(message, src='ko' ,dest='ja')
     await ctx.send(msg.text) 
 
     
