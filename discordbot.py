@@ -106,14 +106,14 @@ async def cjh(ctx, *, message):
 async def jtlh(ctx, *, message):
     #あいるらんど
     translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='tl')
+    msg=translator.translate(ctx.message.clean_content[5:] , src='ja' ,dest='tl')
     await ctx.send(msg.text) 
 
 @bot.command()
 async def tljh(ctx, *, message):
     #airurand(たがろぐ)→日本
     translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:], src='tl' ,dest='ja')
+    msg=translator.translate(ctx.message.clean_content[5:], src='tl' ,dest='ja')
     await ctx.send(msg.text)        
     
     
