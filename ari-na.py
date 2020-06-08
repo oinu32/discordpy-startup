@@ -13,6 +13,9 @@ from datetime import datetime
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='?ari')
 
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
 
 
 
