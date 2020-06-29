@@ -73,8 +73,7 @@ async def kh(ctx, *, message):
 @bot.command()
 async def jh(ctx, *, message):
     #韓国→日本
-    #translator = Translator()
-    translator = Translator(os.environ['CLIENT_ID'], os.environ['CLIENT_SECRET'])
+    translator = Translator()
     msg=translator.translate(ctx.message.clean_content[4:], src='ko' ,dest='ja')
     await ctx.send(msg.text) 
     
