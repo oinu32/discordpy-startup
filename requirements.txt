@@ -3,5 +3,3 @@ gspread
 oauth2client
 googletrans
 Translator
-papago
-Translator
