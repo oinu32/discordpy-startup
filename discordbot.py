@@ -8,8 +8,8 @@ import random
 import asyncio
 import set_input
 
-#from googletrans import Translator
-from papago import Translator
+from googletrans import Translator
+#from papago import Translator
 
 from discord.ext import tasks
 from discord.ext import commands
@@ -73,7 +73,8 @@ async def kh(ctx, *, message):
 @bot.command()
 async def jh(ctx, *, message):
     #韓国→日本
-    translator = Translator()  
+    translator = Translator()
+    #translator = Translator(os.environ['CLIENT_ID'], os.environ['CLIENT_SECRET'])
     msg=translator.translate(ctx.message.clean_content[4:], src='ko' ,dest='ja')
     await ctx.send(msg.text) 
     
@@ -211,25 +212,25 @@ async def on_raw_reaction_remove(payload):
 #===============================タスキル====
 
 ID_SRV = set_input.ID_SRV
-@tasks.loop(seconds=60)
-async def loop():
-    await bot.wait_until_ready()
-    now  = datetime.now().strftime("%H:%M")
-    if now == '20:00':
-        channel = bot.get_channel(ID_TSKILL)
-        guild = bot.get_guild(ID_SRV)
-        tskl = discord.utils.get(guild.roles,name='タスキル')
-        for member in guild.members:
-            if tskl in member.roles:
-                await member.remove_roles(tskl)
-        poll = await channel.send('今日の凸状況')
-        await poll.add_reaction("1️⃣")
-        await poll.add_reaction("2️⃣")
-        await poll.add_reaction("3️⃣")
-     
-        msg = await channel.send('ほんじつのタスキルまん')
-        await msg.add_reaction('🤓')
-loop.start()
+#@tasks.loop(seconds=60)
+#async def loop():
+#    await bot.wait_until_ready()
+#    now  = datetime.now().strftime("%H:%M")
+#    if now == '20:00':
+#        channel = bot.get_channel(ID_TSKILL)
+#        guild = bot.get_guild(ID_SRV)
+#        tskl = discord.utils.get(guild.roles,name='タスキル')
+#        for member in guild.members:
+#            if tskl in member.roles:
+#                await member.remove_roles(tskl)
+#        poll = await channel.send('今日の凸状況')
+#        await poll.add_reaction("1️⃣")
+#        await poll.add_reaction("2️⃣")
+#        await poll.add_reaction("3️⃣")
+#     
+#        msg = await channel.send('ほんじつのタスキルまん')
+#        await msg.add_reaction('🤓')
+#loop.start()
 
 
 #=そのた======================================
