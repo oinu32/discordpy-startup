@@ -7,7 +7,10 @@ import math
 import random
 import asyncio
 import set_input
-from googletrans import Translator
+
+#from googletrans import Translator
+from papago import Translator
+
 from discord.ext import tasks
 from discord.ext import commands
 from datetime import datetime
