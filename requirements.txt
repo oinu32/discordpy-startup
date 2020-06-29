@@ -1,7 +1,7 @@
 discord.py
 gspread
 oauth2client
-googletrans
-Translator
+#googletrans
+#Translator
 papago
 Translator
