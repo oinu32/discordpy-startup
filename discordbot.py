@@ -226,7 +226,7 @@ ID_SRV = set_input.ID_SRV
 #        await poll.add_reaction("2️⃣")
 #        await poll.add_reaction("3️⃣")
 #     
-#        msg = await channel.send('ほんじつのタスキルまん')
+#        msg = await channel.send('本日のKIMURA Chance')
 #        await msg.add_reaction('🤓')
 #loop.start()
 
