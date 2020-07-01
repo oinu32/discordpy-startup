@@ -125,9 +125,9 @@ async def tljh(ctx, *, message):
 async def きりさめ(ctx):
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
     await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))
-@bot.command()
-async def てんが(ctx):
-    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
+#@bot.command()
+#async def てんが(ctx):
+#    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
 
  #====================ROLE付与==========================
 ID_CHANNEL_README = set_input.ID_CHANNEL_README # 該当のチャンネルのID  
