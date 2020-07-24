@@ -260,4 +260,6 @@ async def フル(ctx, zan):
     else:
         await ctx.send(ctx.author.mention + '\n' +  str(f) + "くらいでフル持越し")
 
+#===============================        
+        
 bot.run(token)
