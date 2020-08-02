@@ -139,6 +139,7 @@ ID_chl_syuti = set_input.ID_chl_syuti
 ID_ROLE_SINK = set_input.ID_ROLE_SINK
 ID_ROLE_TSKL = set_input.ID_ROLE_TSKL
 ID_TSKILL = set_input.ID_TSKILL
+ID_TSKILL2 = set_input.ID_TSKILL2
 @bot.event  
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
@@ -229,6 +230,22 @@ ID_SRV = set_input.ID_SRV
 #        msg = await channel.send('本日のKIMURA Chance')
 #        await msg.add_reaction('🤓')
 #loop.start()
+
+#@tasks.loop(seconds=60)
+#async def loop():
+#    await bot.wait_until_ready()
+#    now  = datetime.now().strftime("%H:%M")
+#    if now == '20:00':
+#        channel = bot.get_channel(ID_TSKILL2)
+#        guild = bot.get_guild(ID_SRV)
+#        tskl = discord.utils.get(guild.roles,name='タスキル')
+#        for member in guild.members:
+#            if tskl in member.roles:
+#                await member.remove_roles(tskl)   
+#        msg = await channel.send('本日のKIMURA Chance')
+#        await msg.add_reaction('🤓')
+#loop.start()
+
 
 
 #=そのた======================================
