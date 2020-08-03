@@ -235,17 +235,24 @@ async def loop():
         
         msg2 = await channel2.send('本日のKIMURA Chance')
         await msg2.add_reaction('🤓')
+        
+        emoji1 = discord.utils.get(message.guild.emojis, id="cnt1")
+        emoji2 = discord.utils.get(message.guild.emojis, id="cnt2")
+        emoji3 = discord.utils.get(message.guild.emojis, id="cnt3")
+        emoji4 = discord.utils.get(message.guild.emojis, id="cnt4")
+        emoji5 = discord.utils.get(message.guild.emojis, id="cnt5")
+        
         msg3 = await channel3.send("今日の凸先よてい" + '/n' + "1️⃣～5️⃣：物理" + '/n' + ":cnt1:～:cnt2:：魔法")
         await poll.add_reaction("1️⃣")
         await poll.add_reaction("2️⃣")
         await poll.add_reaction("3️⃣")
         await poll.add_reaction("4️⃣")
         await poll.add_reaction("5️⃣")
-        await poll.add_reaction(':cnt1:')
-        await poll.add_reaction(':cnt2:')
-        await poll.add_reaction(':cnt3:')
-        await poll.add_reaction(':cnt4:')
-        await poll.add_reaction(':cnt5:')
+        await poll.add_reaction(emoji1)
+        await poll.add_reaction(emoji2)
+        await poll.add_reaction(emoji3)
+        await poll.add_reaction(emoji4)
+        await poll.add_reaction(emoji5)
         
 #loop.start()
 
