@@ -245,7 +245,7 @@ async def loop():
         await msg.add_reaction('🤓')
         
         msg2 = await channel2.send('本日のKIMURA Chance')
-        await msg2.add_reaction('🤓')"
+        await msg2.add_reaction('🤓')
         msg3 = await channel3.send('今日の凸先よてい'/n' 1️⃣～5️⃣：物理'/n':cnt1:～:cnt2:：魔法')
         await poll.add_reaction("1️⃣")
         await poll.add_reaction("2️⃣")
