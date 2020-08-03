@@ -57,16 +57,16 @@ async def だいす(ctx, inputmsg):
 async def sayd(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
     await ctx.send(message)
-        await poll.add_reaction("1️⃣")
-        await poll.add_reaction("2️⃣")
-        await poll.add_reaction("3️⃣")
-        await poll.add_reaction("4️⃣")
-        await poll.add_reaction("5️⃣")
-        await poll.add_reaction(':cnt1:')
-        await poll.add_reaction(':cnt2:')
-        await poll.add_reaction(':cnt3:')
-        await poll.add_reaction(':cnt4:')
-        await poll.add_reaction(':cnt5:')    
+    await poll.add_reaction("1️⃣")
+    await poll.add_reaction("2️⃣")
+    await poll.add_reaction("3️⃣")
+    await poll.add_reaction("4️⃣")
+    await poll.add_reaction("5️⃣")
+    await poll.add_reaction(':cnt1:')
+    await poll.add_reaction(':cnt2:')
+    await poll.add_reaction(':cnt3:')
+    await poll.add_reaction(':cnt4:')
+    await poll.add_reaction(':cnt5:')    
     
     
     # message can't be deleted in private channel(DM/Group)
