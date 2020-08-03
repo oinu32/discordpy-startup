@@ -269,7 +269,7 @@ async def コール(ctx, *, message: str):
 
 @bot.command()
 async def 凸(ctx):
-    msg = await ctx.send('凸ルート選択' + '\n' + '1️⃣~5️⃣:物理' + '\n +  emoji1 + '~' + emoji5 + ':魔法')
+    msg = await ctx.send('凸ルート選択' + '\n' + '1️⃣~5️⃣:物理' + '\n + ":cnt1:～:cnt2:：魔法")
     await msg.add_reaction("1️⃣")
     await msg.add_reaction("2️⃣")
     await msg.add_reaction("3️⃣")
