@@ -241,7 +241,7 @@ async def loop():
         msg2 = await channel2.send('本日のKIMURA Chance')
         await msg2.add_reaction('🤓')
         
-        msg3 = await channel3.send("今日の凸先よてい" + '\n' + "1️⃣～5️⃣：物理" + '\n' + ":cnt1:～:cnt2:" + "：魔法")
+        msg3 = await channel3.send("今日の凸先よてい" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
         await msg3.add_reaction("1️⃣")
         await msg3.add_reaction("2️⃣")
         await msg3.add_reaction("3️⃣")
@@ -269,7 +269,7 @@ async def コール(ctx, *, message: str):
 
 @bot.command()
 async def 凸(ctx):
-    msg = await ctx.send('凸ルート選択' + '\n' + "1️⃣～5️⃣：物理" + '\n' + ":cnt1:～:cnt2:" + "：魔法")
+    msg = await ctx.send('凸ルート選択' + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
     await msg.add_reaction("1️⃣")
     await msg.add_reaction("2️⃣")
     await msg.add_reaction("3️⃣")
