@@ -201,7 +201,7 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
             
-    if channel.id == ID_TSKILL:   
+    if channel.id == ID_TSKILL or channel.id == ID_TSKILL2:   
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
