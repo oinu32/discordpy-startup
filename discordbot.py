@@ -211,28 +211,41 @@ async def on_raw_reaction_remove(payload):
 #===============================タスキル====
 
 ID_SRV = set_input.ID_SRV
-#@tasks.loop(seconds=60)
-#async def loop():
-#    await bot.wait_until_ready()
-#    now  = datetime.now().strftime("%H:%M")
-#    if now == '20:00':
-#        channel = bot.get_channel(ID_TSKILL)
-#        channel2 = bot.get_channel(ID_TSKILL2)
-#        guild = bot.get_guild(ID_SRV)
-#        tskl = discord.utils.get(guild.roles,name='タスキル')
-#        for member in guild.members:
-#            if tskl in member.roles:
-#                await member.remove_roles(tskl)
-#        poll = await channel.send('今日の凸状況')
-#        await poll.add_reaction("1️⃣")
-#        await poll.add_reaction("2️⃣")
-#        await poll.add_reaction("3️⃣")
+@tasks.loop(seconds=60)
+async def loop():
+    await bot.wait_until_ready()
+    now  = datetime.now().strftime("%H:%M")
+    if now == '20:00':
+        channel = bot.get_channel(ID_TSKILL)
+        channel2 = bot.get_channel(ID_TSKILL2)
+        channel3 = bot.get_channel(ID_)
+        guild = bot.get_guild(ID_SRV)
+        tskl = discord.utils.get(guild.roles,name='タスキル')
 
-#        msg = await channel.send('本日のKIMURA Chance')
-#        await msg.add_reaction('🤓')
+        for member in guild.members:
+            if tskl in member.roles:
+                await member.remove_roles(tskl)
+        poll = await channel.send('今日の凸状況')
+        await poll.add_reaction("1️⃣")
+        await poll.add_reaction("2️⃣")
+        await poll.add_reaction("3️⃣")
+        msg = await channel.send('本日のKIMURA Chance')
+        await msg.add_reaction('🤓')
         
-#        msg2 = await channel2.send('本日のKIMURA Chance')
-#        await msg2.add_reaction('🤓')
+        msg2 = await channel2.send('本日のKIMURA Chance')
+        await msg2.add_reaction('🤓')"
+        msg3 = await channel3.send('今日の凸先よてい'/n' 1️⃣～5️⃣：物理'/n':cnt1:～:cnt2:：魔法')
+        await poll.add_reaction("1️⃣")
+        await poll.add_reaction("2️⃣")
+        await poll.add_reaction("3️⃣")
+        await poll.add_reaction("4️⃣")
+        await poll.add_reaction("5️⃣")
+        await poll.add_reaction(':cnt1:')
+        await poll.add_reaction(':cnt2:')
+        await poll.add_reaction(':cnt3:')
+        await poll.add_reaction(':cnt4:')
+        await poll.add_reaction(':cnt5:')
+        
 #loop.start()
 
 
