@@ -140,6 +140,7 @@ ID_ROLE_SINK = set_input.ID_ROLE_SINK
 ID_ROLE_TSKL = set_input.ID_ROLE_TSKL
 ID_TSKILL = set_input.ID_TSKILL
 ID_TSKILL2 = set_input.ID_TSKILL2
+ID_totu = set_input.ID_totu
 @bot.event  
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
@@ -218,7 +219,7 @@ async def loop():
     if now == '20:00':
         channel = bot.get_channel(ID_TSKILL)
         channel2 = bot.get_channel(ID_TSKILL2)
-        channel3 = bot.get_channel(ID_)
+        channel3 = bot.get_channel(ID_totu)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
 
@@ -248,7 +249,7 @@ async def loop():
         
 #loop.start()
 
-
+emoji = client.get_emoji(310177266011340803)
 #=そのた======================================
 @bot.command()
 async def コール(ctx, *, message: str):
@@ -256,11 +257,8 @@ async def コール(ctx, *, message: str):
     msg = await ctx.send(message)
     await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
-    await msg.add_reaction("1️⃣")
-    await msg.add_reaction("2️⃣")
-    await msg.add_reaction("3️⃣")
-    await msg.add_reaction("4️⃣")
-    await msg.add_reaction("5️⃣")
+    
+    
     await msg.add_reaction(':cnt1:')
     await msg.add_reaction(':cnt2:')
     await msg.add_reaction(':cnt3:')
