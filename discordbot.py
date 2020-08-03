@@ -210,8 +210,13 @@ async def on_raw_reaction_remove(payload):
             await member.remove_roles(role)
                 
 #===============================タスキル====
-
+emoji1 = '<:cnt1:739818340939202622>'
+emoji2 = '<:cnt2:739818340557783063>'
+emoji3 = '<:cnt3:739818340918493273>'
+emoji4 = '<:cnt4:739818340788207617>'
+emoji5 = '<:cnt5:739818340905648208>'
 ID_SRV = set_input.ID_SRV
+
 @tasks.loop(seconds=60)
 async def loop():
     await bot.wait_until_ready()
@@ -236,27 +241,21 @@ async def loop():
         msg2 = await channel2.send('本日のKIMURA Chance')
         await msg2.add_reaction('🤓')
         
-        emoji1 = '<:cnt1:739818340939202622>'
-        emoji2 = '<:cnt2:739818340557783063>'
-        emoji3 = '<:cnt3:739818340918493273>'
-        emoji4 = '<:cnt4:739818340788207617>'
-        emoji5 = '<:cnt5:739818340905648208>'
-        
         msg3 = await channel3.send("今日の凸先よてい" + '/n' + "1️⃣～5️⃣：物理" + '/n' + ":cnt1:～:cnt2:：魔法")
-        await poll.add_reaction("1️⃣")
-        await poll.add_reaction("2️⃣")
-        await poll.add_reaction("3️⃣")
-        await poll.add_reaction("4️⃣")
-        await poll.add_reaction("5️⃣")
-        await poll.add_reaction(emoji1)
-        await poll.add_reaction(emoji2)
-        await poll.add_reaction(emoji3)
-        await poll.add_reaction(emoji4)
-        await poll.add_reaction(emoji5)
+        await msg3.add_reaction("1️⃣")
+        await msg3.add_reaction("2️⃣")
+        await msg3.add_reaction("3️⃣")
+        await msg3.add_reaction("4️⃣")
+        await msg3.add_reaction("5️⃣")
+        await msg3.add_reaction(emoji1)
+        await msg3.add_reaction(emoji2)
+        await msg3.add_reaction(emoji3)
+        await msg3.add_reaction(emoji4)
+        await msg3.add_reaction(emoji5)
         
-#loop.start()
+loop.start()
 
-emoji = client.get_emoji(310177266011340803)
+#emoji = client.get_emoji(310177266011340803)
 #=そのた======================================
 @bot.command()
 async def コール(ctx, *, message: str):
@@ -266,11 +265,11 @@ async def コール(ctx, *, message: str):
     await msg.add_reaction('🥺')
     
     
-    await msg.add_reaction(':cnt1:')
-    await msg.add_reaction(':cnt2:')
-    await msg.add_reaction(':cnt3:')
-    await msg.add_reaction(':cnt4:')
-    await msg.add_reaction(':cnt5:')
+    await msg.add_reaction(emoji1)
+    await msg.add_reaction(emoji2)
+    await msg.add_reaction(emoji3)
+    await msg.add_reaction(emoji4)
+    await msg.add_reaction(emoji5)
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
