@@ -56,19 +56,7 @@ async def だいす(ctx, inputmsg):
 @bot.command()
 async def sayd(ctx, *, message: str):
     """Botに喋らせます（メッセージは自動で削除されます）"""
-    await ctx.send(message)
-    await ctx.add_reaction("1️⃣")
-    await ctx.add_reaction("2️⃣")
-    await ctx.add_reaction("3️⃣")
-    await ctx.add_reaction("4️⃣")
-    await ctx.add_reaction("5️⃣")
-    await ctx.add_reaction(':cnt1:')
-    await ctx.add_reaction(':cnt2:')
-    await ctx.add_reaction(':cnt3:')
-    await ctx.add_reaction(':cnt4:')
-    await ctx.add_reaction(':cnt5:')    
-    
-    
+    await ctx.send(message)  
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
@@ -268,6 +256,16 @@ async def コール(ctx, *, message: str):
     msg = await ctx.send(message)
     await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
+    await ctx.add_reaction("1️⃣")
+    await ctx.add_reaction("2️⃣")
+    await ctx.add_reaction("3️⃣")
+    await ctx.add_reaction("4️⃣")
+    await ctx.add_reaction("5️⃣")
+    await ctx.add_reaction(':cnt1:')
+    await ctx.add_reaction(':cnt2:')
+    await ctx.add_reaction(':cnt3:')
+    await ctx.add_reaction(':cnt4:')
+    await ctx.add_reaction(':cnt5:')
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
