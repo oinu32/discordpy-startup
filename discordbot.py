@@ -226,11 +226,11 @@ async def loop():
 #        channel2 = bot.get_channel(ID_TSKILL2)
 #        channel3 = bot.get_channel(ID_totu)
 #        guild = bot.get_guild(ID_SRV)
-#        tskl = discord.utils.get(guild.roles,name='タスキル')
+        tskl = discord.utils.get(guild.roles,name='タスキル')
 
 #        for member in guild.members:
-#            if tskl in member.roles:
-#                await member.remove_roles(tskl)
+            if tskl in member.roles:
+                await member.remove_roles(tskl)
 #        poll = await channel.send('今日の凸状況')
 #        await poll.add_reaction("1️⃣")
 #        await poll.add_reaction("2️⃣")
@@ -265,9 +265,8 @@ async def loop():
 #        await msg3.add_reaction(emoji4)
 #        await msg3.add_reaction(emoji5)
         
-#loop.start()
+loop.start()
 
-#emoji = client.get_emoji(310177266011340803)
 #=そのた======================================
 @bot.command()
 async def コール(ctx, *, message: str):
