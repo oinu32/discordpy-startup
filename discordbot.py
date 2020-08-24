@@ -308,7 +308,7 @@ async def on_message(message):
         wait_msg = await client.wait_for("message", check=check)
         m = re.search(r'[1-9]+万',wait_msg.content)
         await message.channel.send(str(m)) 
-    
+    await bot.process_commands(message)   
         
 @bot.command()
 async def 秒数(ctx, zan,la):
