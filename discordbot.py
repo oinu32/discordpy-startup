@@ -296,18 +296,18 @@ async def 凸(ctx):
         await ctx.message.delete()
 
 @bot.event()
-async def on_messarge(dmg_msg):
+async def on_message(dmg_msg):
     if messarge.author.bot:
         return
     
     def check(dmg_msg):
-        return dmg_msg.autor == messarge.autor
+        return dmg_msg.autor == message.autor
    
-    if messarge.content.startswith("/count"):    
-        wait_msg = await client.wait_for("messarge",check=check)
+    if message.content.startswith("/count"):    
+        wait_msg = await client.wait_for("message",check=check)
     
-    if messarge.content.startswith("/sum"):      
-        await messarge.channnel.send(wait_msg.content) 
+    if message.content.startswith("/sum"):      
+        await message.channnel.send(wait_msg.content) 
     
         
 @bot.command()
