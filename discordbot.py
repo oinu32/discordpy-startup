@@ -297,7 +297,7 @@ async def 凸(ctx):
 
 @bot.event
 async def on_message(message):
-    if messarge.author.bot:
+    if message.author.bot:
         return
     
     def check(dmg_msg):
