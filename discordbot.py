@@ -296,14 +296,15 @@ async def 凸(ctx):
         await ctx.message.delete()
 
 @bot.event
-async def on_message(dmg_msg):
+async def on_message(message):
     if messarge.author.bot:
         return
     
     def check(dmg_msg):
         return dmg_msg.autor == message.autor
    
-    if message.content.startswith("/count"):    
+    if message.content.startswith("/count"):
+        await message.channel.send("こんにちは！保存したいメッセージを入力してね！")
         wait_msg = await client.wait_for("message",check=check)
     
     if message.content.startswith("/sum"):      
