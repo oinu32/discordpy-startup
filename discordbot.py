@@ -294,10 +294,21 @@ async def 凸(ctx):
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
-        
-        
-        
-        
+
+@bot.event()
+async def on_messarge(dmg_msg):
+    if messarge.author.bot:
+        return
+    
+    def check(dmg_msg):
+        return dmg_msg.autor == messarge.autor
+   
+    if messarge.content.startswith("/count"):    
+        wait_msg = await client.wait_for("messarge",check=check)
+    
+    if messarge.content.startswith("/sum"):      
+        await messarge.channnel.send(wait_msg.content) 
+    
         
 @bot.command()
 async def 秒数(ctx, zan,la):
