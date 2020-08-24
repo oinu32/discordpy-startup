@@ -300,15 +300,15 @@ async def on_message(message):
     if message.author.bot:
         return
     
-    def check(dmg_msg):
-        return dmg_msg.autor == message.autor
+#    def check(dmg_msg):
+#        return dmg_msg.autor == message.autor
    
     if message.content.startswith("/count"):
         await message.channel.send("こんにちは！保存したいメッセージを入力してね！")
-        wait_msg = await client.wait_for("message",check=check)
+        wait_msg = await client.wait_for("message")
     
     if message.content.startswith("/sum"):      
-        await message.channnel.send(wait_msg.content) 
+        await message.channel.send(wait_msg.content) 
     
         
 @bot.command()
