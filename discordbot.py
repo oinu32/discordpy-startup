@@ -295,7 +295,7 @@ async def 凸(ctx):
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
 
-@bot.event()
+@bot.event
 async def on_message(dmg_msg):
     if messarge.author.bot:
         return
