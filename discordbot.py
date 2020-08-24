@@ -299,16 +299,11 @@ async def 凸(ctx):
 async def on_message(message):
     if message.author.bot:
         return
-    
-#    def check(dmg_msg):
-#        return dmg_msg.autor == message.autor
-   
     if message.content.startswith("/count"):
-        await message.channel.send("こんにちは！保存したいメッセージを入力してね！")
+        await message.channel.send("以下からカウントします。")
         wait_msg = await client.wait_for("message")
-    
-    if message.content.startswith("/sum"):      
-        await message.channel.send(wait_msg.content) 
+        m = re.search(r'[1-9]+万',wait_msg)
+        await message.channel.send(m) 
     
         
 @bot.command()
