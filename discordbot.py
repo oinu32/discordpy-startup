@@ -306,7 +306,8 @@ async def on_message(message):
     if message.content.startswith("/count"):
         await message.channel.send("以下からカウントします。")
         wait_msg = await bot.wait_for("message", check=check)
-        m = re.search(r'[1-9]+万',wait_msg.content)
+        #m = re.search(r'[1-9]+万',wait_msg.content)
+        m = re.split(r'[1-9]+万',wait_msg.content,1)
         await message.channel.send(m) 
     await bot.process_commands(message)   
         
