@@ -1,17 +1,13 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug 25 02:12:49 2020
-
-@author: watashi
-"""
-
 import re
 import DamageCalculator #ダメージの計算をするクラス
 
 class MessageController:
     def __init__(self):
         self.mDmgCalc = DamageCalculator.DamageCalculator()
-
+        self.mInputFunc = None
+        
+    def SetInputFunc(self, pFunction):
+        self.mInputFunc = pFunction
         
     def InputProcess(self, pInput):
         #ここを入力切り分けの関数にした
@@ -25,9 +21,9 @@ class MessageController:
 
     def DamageInput(self):
         #ダメージ入力のときには、複数の入力ループが必要。
-        isEnd = False
+        isEnd = False            
         while (not isEnd):
-            string = input()
+            string = self.mInputFunc()
             
             #終了の処理
             if (string == "/end"):
