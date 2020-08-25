@@ -300,7 +300,7 @@ async def on_message(message):
         return
     
     def check(msg):
-        return true
+        return True
     #msg.author == message.author
     
     if message.content.startswith("/count"):
