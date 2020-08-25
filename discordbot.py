@@ -8,6 +8,9 @@ import random
 import asyncio
 import set_input
 
+import MessageController
+
+
 from googletrans import Translator
 
 from discord.ext import tasks
@@ -296,12 +299,17 @@ async def on_message(message):
     if message.author.bot:
         return
     
-    #if message.content.startswith("/count"):
-    #    await message.channel.send("以下からカウントします。")
-    #    wait_msg = await bot.wait_for("message", check=check)
-    #    m = re.search(r'[0-9]+万',wait_msg.content)
-        #m = re.split('[1-9]+万',wait_msg.content,2)
-    #    await message.channel.send(m.group()) 
+    if message.content.startswith("/count"):
+        await message.channel.send("以下からカウントします。")
+        MsgCtrl = MessageController.MessageController()
+        MsgCtrl.SetInputFunc(lambda:await bot.wait_for("message", check=check))
+        MsgCtrl.DamageInput()
+        MsgCtrl.PrintResult()
+        
+        
+        
+        m = re.search(r'[0-9]+万',wait_msg.content)
+        await message.channel.send(m.group()) 
     await bot.process_commands(message)   
         
 @bot.command()
