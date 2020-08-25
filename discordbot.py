@@ -32,6 +32,7 @@ async def ping(ctx):
 #=======================遊び用====================================＝
 @bot.command()
 async def おみくじ(ctx):
+    """?おみくじ　おみくじひける"""
     embed = discord.Embed(title="おみくじ", description=f"{ctx.author.mention}さんの運勢！",color=0x2ECC69)
     embed.set_thumbnail(url=ctx.author.avatar_url)
     embed.add_field(name="[運勢] ", value=random.choice(('姫吉','大吉', '吉' , '中吉' , '小吉' ,'凶', '大凶')), inline=False)
@@ -39,13 +40,14 @@ async def おみくじ(ctx):
     
 @bot.command()
 async def ちょいす(ctx, *choices):
-    """ここけすな"""
+    """?ちょいす a b c ...ってやるとどれか一つ選んでくれる"""
     if choices:
         await ctx.send(random.choice(choices))
     else:
         await ctx.show_help()
 @bot.command()
 async def だいす(ctx, inputmsg):
+    """?ダイス　nDN でだいすふれるよ"""
     if  re.match('[1-9]{1}[D]', inputmsg):
         dice = 1
     else:
@@ -64,6 +66,7 @@ async def sayd(ctx, *, message: str):
 #翻訳群      
 @bot.command()
 async def kh(ctx, *, message):
+    """ ja →　ko """
     #韓国
     translator = Translator()  
     msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='ko')
@@ -71,13 +74,14 @@ async def kh(ctx, *, message):
 
 @bot.command()
 async def jh(ctx, *, message):
-    #韓国→日本
+    """ko　→ ja"""
     translator = Translator()
     msg=translator.translate(ctx.message.clean_content[4:], src='ko' ,dest='ja')
     await ctx.send(msg.text) 
     
 @bot.command()
 async def jeh(ctx, *, message):
+    """ja　→en"""
     #英語
     translator = Translator()  
     msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='en')
@@ -85,6 +89,7 @@ async def jeh(ctx, *, message):
 
 @bot.command()
 async def ejh(ctx, *, message):
+    """en→ja"""
     #english→日本
     translator = Translator()  
     msg=translator.translate(ctx.message.clean_content[4:], src='en' ,dest='ja')
@@ -92,6 +97,7 @@ async def ejh(ctx, *, message):
     
 @bot.command()
 async def jch(ctx, *, message):
+    """ja→zh-CN"""
     #中国語
     translator = Translator()  
     msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='zh-CN')
@@ -99,26 +105,12 @@ async def jch(ctx, *, message):
 
 @bot.command()
 async def cjh(ctx, *, message):
+    """zh-CN→ja"""
     #ちゃいにーず→日本
     translator = Translator()  
     msg=translator.translate(ctx.message.clean_content[4:], src='zh-CN' ,dest='ja')
     await ctx.send(msg.text)
-    
-@bot.command()
-async def jtlh(ctx, *, message):
-    #あいるらんど
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[5:] , src='ja' ,dest='tl')
-    await ctx.send(msg.text) 
 
-@bot.command()
-async def tljh(ctx, *, message):
-    #airurand(たがろぐ)→日本
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[5:], src='tl' ,dest='ja')
-    await ctx.send(msg.text)        
-    
-    
     
 #================================呼び出し=============================
 @bot.command()
@@ -270,7 +262,7 @@ loop.start()
 #=そのた======================================
 @bot.command()
 async def コール(ctx, *, message: str):
-    """Botに喋らせます（メッセージは自動で削除されます）"""
+    """🤚は凸、🥺は持ち越し吐きたい人"""
     msg = await ctx.send(message)
     await msg.add_reaction('🤚')
     await msg.add_reaction('🥺')
@@ -280,6 +272,7 @@ async def コール(ctx, *, message: str):
 
 @bot.command()
 async def 凸(ctx):
+    """私はここに凸したいってところにリアクションつけようね"""
     msg = await ctx.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
     await msg.add_reaction("1️⃣")
     await msg.add_reaction("2️⃣")
@@ -313,6 +306,7 @@ async def on_message(message):
         
 @bot.command()
 async def 秒数(ctx, zan,la):
+    """?秒数　残HP LAの人のダメージ　持越し秒数"""
     c = 90 - (int(zan) / int(la)) * 90 + 20
     if c > 90:
         c = 90
@@ -323,6 +317,7 @@ async def 秒数(ctx, zan,la):
 
 @bot.command()
 async def フル(ctx, zan):
+    """?フル　残HP　どのぐらい出せばフル持越しになるか"""
     f = int(zan) * 4.29
     if 0 > int(zan):
         await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
