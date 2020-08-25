@@ -9,7 +9,7 @@ import asyncio
 import set_input
 
 import MessageController
-
+import DamageCalculator
 
 from googletrans import Translator
 
