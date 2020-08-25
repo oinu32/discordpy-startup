@@ -315,7 +315,7 @@ async def on_message(message):
         while (not isEnd):
             wait_msg = await bot.wait_for("message", check=check)
             string = wait_msg.content
-            if  re.search(r'[0-9]+万',string)  in string 
+            if  "万"  in string 
                 await wait_msg.add_reaction("👌")
             
             #終了の処理
