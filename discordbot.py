@@ -292,7 +292,8 @@ async def 凸(ctx):
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
-
+        
+useflag = False
 @bot.event
 async def on_message(message):
     
@@ -302,7 +303,7 @@ async def on_message(message):
     def check(msg):
         return True
     #msg.author == message.author
-    useflag = False
+    
     if useflag:
         return
     
