@@ -300,7 +300,8 @@ async def on_message(message):
         return
     
     def check(msg):
-        return msg.author == message.author
+        return true
+    #msg.author == message.author
     
     if message.content.startswith("/count"):
         await message.channel.send("以下からカウントします。")
