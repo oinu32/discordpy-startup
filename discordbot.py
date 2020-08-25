@@ -332,15 +332,12 @@ async def on_message(message):
      
         DmgCalc.CalcResult()#合計を計算
         for resultTaple in DmgCalc.GetResult():
-            print( "名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万" )
-        print( "合計" + str(DmgCalc.GetResultTotal()) + "万" )
+            await message.channel.send( "名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万" )
+        await message.channel.send( "合計" + str(DmgCalc.GetResultTotal()) + "万" )
         
-        
-        
-        
-#        m = re.search(r'[0-9]+万',wait_msg.content)
-#        await message.channel.send(m.group()) 
     await bot.process_commands(message)   
+        
+        
         
 @bot.command()
 async def 秒数(ctx, zan,la):
