@@ -327,7 +327,7 @@ async def on_message(message):
             #以下は有効な入力
             dmg10e4 = re.match(r'[0-9]+', dmgMatch.group())#100万->100にする
             print(dmg10e4.group() + "(万)をデータに追加しました")#debug用
-            await await message.channel.send(message.author)
+            await message.channel.send(message.author)
             DmgCalc.InsertResult("なまえいれたい", int(dmg10e4.group()))#ダメージ計算機に結果を追加                        
         
         
