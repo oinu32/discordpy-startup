@@ -115,6 +115,7 @@ async def cjh(ctx, *, message):
 #================================呼び出し=============================
 @bot.command()
 async def きりさめ(ctx):
+    """きりさめを呼ぶ"""
     kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
     await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))
 #@bot.command()
