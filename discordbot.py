@@ -317,7 +317,7 @@ async def on_message(message):
         
         isEnd = False            
         while (not isEnd):
-            string = await bot.wait_for("message", check=check)
+            string = await bot.wait_for("message", check=check).content
             
             #終了の処理
             if (string == "/end"):
@@ -326,7 +326,7 @@ async def on_message(message):
                 continue
                 
             #結果を抽出する
-            dmgMatch = re.match(r'[0-9]+万', string) 
+            dmgMatch = re.search(r'[0-9]+万', string) 
             
             if(dmgMatch == None):
                 print("無効なダメージ入力です")
