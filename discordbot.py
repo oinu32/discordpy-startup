@@ -304,17 +304,54 @@ async def on_message(message):
     
     if message.content.startswith("/count"):
         await message.channel.send("以下からカウントします。")
-        MsgCtrl = MessageController.MessageController()
+        #MsgCtrl = MessageController.MessageController()
+        
+        DmgCalc = DamageCalculator.DamageCalculator()
+        
+        
+        
+        
         #wait_msg = await bot.wait_for("message", check=check)
+        #MsgCtrl.SetInputFunc(lambda:bot.wait_for("message", check=check))
+        #MsgCtrl.DamageInput()
         
-        MsgCtrl.SetInputFunc(lambda:bot.wait_for("message", check=check))
-        MsgCtrl.DamageInput()
-        MsgCtrl.PrintResult()
+        isEnd = False            
+        while (not isEnd):
+            string = await bot.wait_for("message", check=check)
+            
+            #終了の処理
+            if (string == "/end"):
+                print("カウントを終了します")
+                isEnd = True
+                continue
+                
+            #結果を抽出する
+            dmgMatch = re.match(r'[0-9]+万', string) 
+            
+            if(dmgMatch == None):
+                print("無効なダメージ入力です")
+                continue
+                
+            #以下は有効な入力
+            dmg10e4 = re.match(r'[0-9]+', dmgMatch.group())#100万->100にする
+            print(dmg10e4.group() + "(万)をデータに追加しました")#debug用
+            DmgCalc.InsertResult("Me", int(dmg10e4.group()))#ダメージ計算機に結果を追加                        
         
         
         
-        m = re.search(r'[0-9]+万',wait_msg.content)
-        await message.channel.send(m.group()) 
+        
+        
+        #MsgCtrl.PrintResult()
+        DmgCalc.CalcResult()#合計を計算
+        for resultTaple in DmgCalc.GetResult():
+            print( "名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万" )
+        print( "合計" + str(DmgCalc.GetResultTotal()) + "万" )
+        
+        
+        
+        
+#        m = re.search(r'[0-9]+万',wait_msg.content)
+#        await message.channel.send(m.group()) 
     await bot.process_commands(message)   
         
 @bot.command()
