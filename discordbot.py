@@ -331,9 +331,14 @@ async def on_message(message):
             DmgCalc.InsertResult(str(wait_msg.author.name), int(dmg10e4.group()))#ダメージ計算機に結果を追加                        
      
         DmgCalc.CalcResult()#合計を計算
+        
+        dmg_msg = str()  
+        
         for resultTaple in DmgCalc.GetResult():
-            await message.channel.send( "名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万" )
-        await message.channel.send( "合計" + str(DmgCalc.GetResultTotal()) + "万" )
+            dmg_msg = dmg_msg + str("名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万") + '\n'        
+        dmg_msg = dmg_msg + str("合計" + str(DmgCalc.GetResultTotal()) + "万")
+        
+        await message.channel.send(dmg_msg)
         
     await bot.process_commands(message)   
         
