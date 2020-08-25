@@ -305,17 +305,7 @@ async def on_message(message):
     
     if message.content.startswith("/count"):
         await message.channel.send("以下からカウントします。")
-        #MsgCtrl = MessageController.MessageController()
-        
         DmgCalc = DamageCalculator.DamageCalculator()
-        
-        
-        
-        
-        #wait_msg = await bot.wait_for("message", check=check)
-        #MsgCtrl.SetInputFunc(lambda:bot.wait_for("message", check=check))
-        #MsgCtrl.DamageInput()
-        
         isEnd = False            
         while (not isEnd):
             wait_msg = await bot.wait_for("message", check=check)
@@ -337,7 +327,8 @@ async def on_message(message):
             #以下は有効な入力
             dmg10e4 = re.match(r'[0-9]+', dmgMatch.group())#100万->100にする
             print(dmg10e4.group() + "(万)をデータに追加しました")#debug用
-            DmgCalc.InsertResult(message.author, int(dmg10e4.group()))#ダメージ計算機に結果を追加                        
+            await await message.channel.send(message.author)
+            DmgCalc.InsertResult("なまえいれたい", int(dmg10e4.group()))#ダメージ計算機に結果を追加                        
         
         
         
