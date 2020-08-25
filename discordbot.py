@@ -317,7 +317,8 @@ async def on_message(message):
         
         isEnd = False            
         while (not isEnd):
-            string = await bot.wait_for("message", check=check).content
+            wait_msg = await bot.wait_for("message", check=check)
+            string = wait_msg.content
             
             #終了の処理
             if (string == "/end"):
