@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug 25 01:52:46 2020
-
-@author: watashi
-"""
-
 from collections import deque
 
 class DamageCalculator:
