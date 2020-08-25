@@ -315,7 +315,7 @@ async def on_message(message):
         while (not isEnd):
             wait_msg = await bot.wait_for("message", check=check)
             string = wait_msg.content
-            
+            await wait_msg.add_reaction("👌")
             #終了の処理
             if (string == "/end"):
                 print("カウントを終了します")
