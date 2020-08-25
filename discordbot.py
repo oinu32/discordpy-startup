@@ -305,9 +305,9 @@ async def on_message(message):
     if message.content.startswith("/count"):
         await message.channel.send("以下からカウントします。")
         MsgCtrl = MessageController.MessageController()
-        wait_msg = await bot.wait_for("message", check=check)
-        await message.channel.send(str(wait_msg))
-        MsgCtrl.SetInputFunc(lambda:wait_msg)
+        #wait_msg = await bot.wait_for("message", check=check)
+        
+        MsgCtrl.SetInputFunc(lambda:bot.wait_for("message", check=check))
         MsgCtrl.DamageInput()
         MsgCtrl.PrintResult()
         
