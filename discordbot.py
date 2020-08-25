@@ -299,10 +299,14 @@ async def on_message(message):
     if message.author.bot:
         return
     
+    def check(msg):
+        return msg.author == message.author
+    
     if message.content.startswith("/count"):
         await message.channel.send("以下からカウントします。")
         MsgCtrl = MessageController.MessageController()
-        MsgCtrl.SetInputFunc(lambda:await bot.wait_for("message", check=check))
+        wait_msg = await bot.wait_for("message", check=check)
+        MsgCtrl.SetInputFunc(lambda:wait_msg)
         MsgCtrl.DamageInput()
         MsgCtrl.PrintResult()
         
