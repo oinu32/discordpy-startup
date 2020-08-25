@@ -304,11 +304,11 @@ async def on_message(message):
         return True
     #msg.author == message.author
     
-    if useflag:
-        return
+#    if useflag:
+#        return
     
     if message.content.startswith("/count"):
-        useflag = True
+#        useflag = True
         await message.channel.send("以下からカウントします。")
         DmgCalc = DamageCalculator.DamageCalculator()
         isEnd = False                   
@@ -342,7 +342,7 @@ async def on_message(message):
             dmg_msg = dmg_msg + str("名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万") + '\n'        
         dmg_msg = dmg_msg + str("合計" + str(DmgCalc.GetResultTotal()) + "万")        
         await message.channel.send(dmg_msg)
-        useflag=False
+#        useflag=False
     
     await bot.process_commands(message)   
         
