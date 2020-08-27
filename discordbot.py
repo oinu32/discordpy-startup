@@ -250,7 +250,7 @@ async def loop():
         msg2 = await channel2.send('本日のKIMURA Chance')
         await msg2.add_reaction('🤓')
         
-        msg_kanri = await channel.send('今日の凸状況')
+        msg_kanri = await channel3.send('今日の凸状況')
         await msg_kanri.add_reaction("1️⃣")
         await msg_kanri.add_reaction("2️⃣")
         await msg_kanri.add_reaction("3️⃣")
