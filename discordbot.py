@@ -165,7 +165,7 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
 
-    if channel.id == ID_TSKILL or channel.id == ID_TSKILL2:
+    if channel.id == ID_TSKILL or channel.id == ID_totu:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
@@ -220,8 +220,7 @@ async def loop():
     now  = datetime.now().strftime("%H:%M")
     if now == '20:00':
         channel = bot.get_channel(ID_TSKILL)
-        channel2 = bot.get_channel(ID_TSKILL2)
-        channel3 = bot.get_channel(ID_totu)
+        channel2 = bot.get_channel(ID_totu)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
 
@@ -246,17 +245,17 @@ async def loop():
         await msg.add_reaction(emoji3)
         await msg.add_reaction(emoji4)
         await msg.add_reaction(emoji5)
-         
-        msg2 = await channel2.send('本日のKIMURA Chance')
-        await msg2.add_reaction('🤓')
         
-        msg_kanri = await channel3.send('今日の凸状況')
+        
+        msg_kanri = await channel2.send('今日の凸状況')
         await msg_kanri.add_reaction("1️⃣")
         await msg_kanri.add_reaction("2️⃣")
         await msg_kanri.add_reaction("3️⃣")
         
+        msg2 = await channel2.send('本日のKIMURA Chance')
+        await msg2.add_reaction('🤓')  
         
-        msg3 = await channel3.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+        msg3 = await channel2.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
         await msg3.add_reaction("1️⃣")
         await msg3.add_reaction("2️⃣")
         await msg3.add_reaction("3️⃣")
