@@ -224,9 +224,9 @@ async def loop():
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
 
-#        for member in guild.members:
-#            if tskl in member.roles:
-#                await member.remove_roles(tskl)
+        for member in guild.members:
+            if tskl in member.roles:
+                await member.remove_roles(tskl)
 #        poll = await channel.send('今日の凸状況')
 #        await poll.add_reaction("1️⃣")
 #        await poll.add_reaction("2️⃣")
@@ -244,8 +244,7 @@ async def loop():
 #        await msg.add_reaction(emoji2)
 #        await msg.add_reaction(emoji3)
 #        await msg.add_reaction(emoji4)
-#        await msg.add_reaction(emoji5)
-        
+#        await msg.add_reaction(emoji5)        
         
 #        msg_kanri = await channel2.send('今日の凸状況')
 #        await msg_kanri.add_reaction("1️⃣")
