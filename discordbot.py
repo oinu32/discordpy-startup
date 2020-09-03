@@ -138,6 +138,7 @@ ID_ROLE_TSKL = set_input.ID_ROLE_TSKL
 ID_TSKILL = set_input.ID_TSKILL
 ID_TSKILL2 = set_input.ID_TSKILL2
 ID_totu = set_input.ID_totu
+ID_totu2 = set_input.ID_totu2
 @bot.event  
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
