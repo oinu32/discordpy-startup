@@ -221,6 +221,7 @@ async def loop():
     if now == '20:00':
         channel = bot.get_channel(ID_TSKILL)
         channel2 = bot.get_channel(ID_totu)
+        channel2 = bot.get_channel(ID_totu2)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
 
@@ -265,6 +266,26 @@ async def loop():
 #        await msg3.add_reaction(emoji3)
 #        await msg3.add_reaction(emoji4)
 #        await msg3.add_reaction(emoji5)
+
+        msg_kanri2 = await channel3send('今日の凸状況')
+        await msg_kanri2.add_reaction("1️⃣")
+        await msg_kanri2.add_reaction("2️⃣")
+        await msg_kanri2.add_reaction("3️⃣")
+        
+        msg4 = await channel3send('本日のKIMURA Chance')
+        await msg4.add_reaction('🤓')  
+        
+        msg5 = await channel3send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+        await msg5.add_reaction("1️⃣")
+        await msg5.add_reaction("2️⃣")
+        await msg5.add_reaction("3️⃣")
+        await msg5.add_reaction("4️⃣")
+        await msg5.add_reaction("5️⃣")
+        await msg5.add_reaction(emoji1)
+        await msg5.add_reaction(emoji2)
+        await msg5.add_reaction(emoji3)
+        await msg5.add_reaction(emoji4)
+        await msg5.add_reaction(emoji5)
         
 loop.start()
 
