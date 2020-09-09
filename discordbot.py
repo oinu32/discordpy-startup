@@ -187,8 +187,12 @@ async def on_raw_reaction_add(payload):
             await member.add_roles(role)   
         if payload.emoji.name == '2️⃣':
             role = guild.get_role(ID_2)  
-            await member.add_roles(role)   
+            await member.add_roles(role)
+            role = guild.get_role(ID_1)  
+            await member.remove_roles(role)  
         if payload.emoji.name == '3️⃣':
+            role = guild.get_role(ID_2)  
+            await member.remove_roles(role)  
             role = guild.get_role(ID_3)  
             await member.add_roles(role)  
             
@@ -227,13 +231,13 @@ async def on_raw_reaction_remove(payload):
             await member.remove_roles(role) 
         if payload.emoji.name == '1️⃣':
             role = guild.get_role(ID_1)  
-            await member.add_roles(role)      
+            await member.remove_roles(role)      
         if payload.emoji.name == '2️⃣':
             role = guild.get_role(ID_2)  
-            await member.add_roles(role)  
+            await member.remove_roles(role)  
         if payload.emoji.name == '3️⃣':
             role = guild.get_role(ID_3)  
-            await member.add_roles(role)  
+            await member.remove_roles(role)  
             
 #===============================タスキル====
 emoji1 = '<:cnt1:739818340939202622>'
