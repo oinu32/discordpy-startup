@@ -263,8 +263,11 @@ async def loop():
         for member in guild.members:
             if tskl in member.roles:
                 await member.remove_roles(tskl)
+            if ID_1t in member.roles:
                 await member.remove_roles(ID_1t)
+            if ID_2t in member.roles:
                 await member.remove_roles(ID_2t)
+            if ID_3t in member.roles:
                 await member.remove_roles(ID_3t)
                 
 #        poll = await channel.send('今日の凸状況')
