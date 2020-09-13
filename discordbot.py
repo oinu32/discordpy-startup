@@ -343,6 +343,40 @@ async def コール(ctx, *, message: str):
         await ctx.message.delete()
 
 @bot.command()
+async def call(ctx):
+    """?call """　
+    msg = await ctx.send("1boss\n物理1️⃣\n魔法<:cnt1:739818340939202622>\n持越し🥺")
+    await msg.add_reaction(emoji1)
+    await msg.add_reaction("1️⃣")
+    await msg.add_reaction('🥺')
+    
+    msg = await ctx.send("2boss\n物理2⃣\n魔法<:cnt2:739818340557783063>\n持越し🥺")
+    await msg.add_reaction(emoji2)
+    await msg.add_reaction("2️⃣")
+    await msg.add_reaction('🥺')
+    
+    msg = await ctx.send("3boss\n物理3⃣\n魔法<:cnt3:739818340918493273>\n持越し🥺")
+    await msg.add_reaction(emoji3)
+    await msg.add_reaction("3️⃣")
+    await msg.add_reaction('🥺')
+    
+    msg = await ctx.send("4boss\n物理4⃣\n魔法<:cnt4:739818340788207617>\n持越し🥺")
+    await msg.add_reaction(emoji4)
+    await msg.add_reaction("4️⃣")
+    await msg.add_reaction('🥺')
+    
+    msg = await ctx.send("5boss\n物理5⃣\n魔法<:cnt5:739818340905648208>\n持越し🥺")
+    await msg.add_reaction(emoji5)
+    await msg.add_reaction("5️⃣")
+    await msg.add_reaction('🥺')
+    
+    # message can't be deleted in private channel(DM/Group)
+    if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
+        await ctx.message.delete()
+        
+        
+        
+@bot.command()
 async def 凸(ctx):
     """私はここに凸したいってところにリアクションつけようね"""
     msg = await ctx.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
