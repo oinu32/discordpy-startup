@@ -341,7 +341,19 @@ async def コール(ctx, *, message: str):
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
-
+        
+@bot.command()
+async def call2(ctx, *, message: str):
+    """?コール　"文章"（※必須、「１ボス」とか）　　🤚は凸、🥺は持ち越し吐きたい人🤣はフルオート"""
+    msg = await ctx.send(message)
+    await msg.add_reaction('🤚')
+    await msg.add_reaction('🤣')
+    await msg.add_reaction('🥺')
+    # message can't be deleted in private channel(DM/Group)
+    if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
+        await ctx.message.delete()
+        
+        
 @bot.command()
 async def call(ctx):
     
