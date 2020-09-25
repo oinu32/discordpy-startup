@@ -254,7 +254,7 @@ async def loop():
     if now == '20:00':
         channel = bot.get_channel(ID_TSKILL)
         channel2 = bot.get_channel(ID_totu)
-        channel2 = bot.get_channel(ID_totu2)
+        channel3 = bot.get_channel(ID_totu2)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
         ID_1t = discord.utils.get(guild.roles,name='1凸')
