@@ -188,13 +188,13 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '2️⃣':
             role = guild.get_role(ID_2)  
             await member.add_roles(role)
-            role = guild.get_role(ID_1)  
-            await member.remove_roles(role)  
+            role2 = guild.get_role(ID_1)  
+            await member.remove_roles(role2)  
         if payload.emoji.name == '3️⃣':
             role = guild.get_role(ID_2)  
             await member.remove_roles(role)  
-            role = guild.get_role(ID_3)  
-            await member.add_roles(role)  
+            role2 = guild.get_role(ID_3)  
+            await member.add_roles(role2)  
             
 @bot.event  
 async def on_raw_reaction_remove(payload):
