@@ -245,6 +245,13 @@ emoji2 = '<:cnt2:739818340557783063>'
 emoji3 = '<:cnt3:739818340918493273>'
 emoji4 = '<:cnt4:739818340788207617>'
 emoji5 = '<:cnt5:739818340905648208>'
+
+yt1 = '<:yt1:760140566263889931>'
+yt2 = '<:yt2:760141171347161178>'
+yt3 = '<:yt3:760141171405226024>'
+yt4 = '<:yt4:760141224300118036>'
+yt5 = '<:yt5:760141238736519169>'
+
 ID_SRV = set_input.ID_SRV
 
 @tasks.loop(seconds=60)
@@ -278,11 +285,11 @@ async def loop():
         await msg.add_reaction('🤓')
 
         msg = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-        await msg.add_reaction("1️⃣")
-        await msg.add_reaction("2️⃣")
-        await msg.add_reaction("3️⃣")
-        await msg.add_reaction("4️⃣")
-        await msg.add_reaction("5️⃣")
+        await msg.add_reaction(yt1)
+        await msg.add_reaction(yt2)
+        await msg.add_reaction(yt3)
+        await msg.add_reaction(yt4)
+        await msg.add_reaction(yt5)
         await msg.add_reaction(emoji1)
         await msg.add_reaction(emoji2)
         await msg.add_reaction(emoji3)
@@ -298,11 +305,11 @@ async def loop():
         await msg2.add_reaction('🤓')  
         
         msg3 = await channel2.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-        await msg3.add_reaction("1️⃣")
-        await msg3.add_reaction("2️⃣")
-        await msg3.add_reaction("3️⃣")
-        await msg3.add_reaction("4️⃣")
-        await msg3.add_reaction("5️⃣")
+        await msg3.add_reaction(yt1)
+        await msg3.add_reaction(yt2)
+        await msg3.add_reaction(yt3)
+        await msg3.add_reaction(yt4)
+        await msg3.add_reaction(yt5)
         await msg3.add_reaction(emoji1)
         await msg3.add_reaction(emoji2)
         await msg3.add_reaction(emoji3)
@@ -318,11 +325,11 @@ async def loop():
         await msg4.add_reaction('🤓')  
         
         msg5 = await channel3.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-        await msg5.add_reaction("1️⃣")
-        await msg5.add_reaction("2️⃣")
-        await msg5.add_reaction("3️⃣")
-        await msg5.add_reaction("4️⃣")
-        await msg5.add_reaction("5️⃣")
+        await msg5.add_reaction(yt1)
+        await msg5.add_reaction(yt2)
+        await msg5.add_reaction(yt3)
+        await msg5.add_reaction(yt4)
+        await msg5.add_reaction(yt5)
         await msg5.add_reaction(emoji1)
         await msg5.add_reaction(emoji2)
         await msg5.add_reaction(emoji3)
@@ -391,11 +398,11 @@ async def call(ctx):
 async def 凸(ctx):
     """私はここに凸したいってところにリアクションつけようね"""
     msg = await ctx.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-    await msg.add_reaction("1️⃣")
-    await msg.add_reaction("2️⃣")
-    await msg.add_reaction("3️⃣")
-    await msg.add_reaction("4️⃣")
-    await msg.add_reaction("5️⃣")
+    await msg.add_reaction(yt1)
+    await msg.add_reaction(yt2)
+    await msg.add_reaction(yt3)
+    await msg.add_reaction(yt4)
+    await msg.add_reaction(yt5)
     await msg.add_reaction(emoji1)
     await msg.add_reaction(emoji2)
     await msg.add_reaction(emoji3)
