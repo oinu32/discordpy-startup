@@ -257,7 +257,7 @@ yt5 = '<:yt5:760141238736519169>'
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '21:53':
+    if now == '22:00':
         channel = bot.get_channel(ID_TSKILL)
         channel2 = bot.get_channel(ID_totu)
         channel3 = bot.get_channel(ID_totu2)
