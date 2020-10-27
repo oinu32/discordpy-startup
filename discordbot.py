@@ -253,31 +253,6 @@ yt3 = '<:yt3:760141171405226024>'
 yt4 = '<:yt4:760141224300118036>'
 yt5 = '<:yt5:760141238736519169>'
 
-@tasks.loop(seconds=60)
-async def loop():
-    await bot.wait_until_ready()
-    now  = datetime.now().strftime("%H:%M")
-    if now == '22:00':
-        channel = bot.get_channel(ID_TSKILL)
-        channel2 = bot.get_channel(ID_totu)
-        channel3 = bot.get_channel(ID_totu2)
-        guild = bot.get_guild(ID_SRV)
-        tskl = discord.utils.get(guild.roles,name='タスキル')
-        ID_1t = discord.utils.get(guild.roles,name='1凸')
-        ID_2t = discord.utils.get(guild.roles,name='2凸')
-        ID_3t = discord.utils.get(guild.roles,name='3凸')
-        for member in guild.members:
-            if tskl in member.roles:
-                await member.remove_roles(tskl)
-            if ID_1t in member.roles:
-                await member.remove_roles(ID_1t)
-            if ID_2t in member.roles:
-                await member.remove_roles(ID_2t)
-            if ID_3t in member.roles:
-                await member.remove_roles(ID_3t)
-loop.start()
-
-
 ID_SRV = set_input.ID_SRV
 
 @tasks.loop(seconds=60)
