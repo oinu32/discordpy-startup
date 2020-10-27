@@ -267,6 +267,8 @@ async def loop():
         ID_2t = discord.utils.get(guild.roles,name='2凸')
         ID_3t = discord.utils.get(guild.roles,name='3凸')
         for member in guild.members:
+            if tskl in member.roles:
+                await member.remove_roles(tskl)
             if ID_1t in member.roles:
                 await member.remove_roles(ID_1t)
             if ID_2t in member.roles:
