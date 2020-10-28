@@ -18,7 +18,9 @@ from discord.ext import commands
 from datetime import datetime
 
 token = os.environ['DISCORD_BOT_TOKEN']
-bot = commands.Bot(command_prefix='?')
+
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='?', intents=intents)
 
 def Dice(pInputMessage):
     list = []
