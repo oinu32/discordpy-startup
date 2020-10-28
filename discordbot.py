@@ -2,7 +2,6 @@ import discord
 import os
 import traceback
 import re
-import os
 import math
 import random
 import asyncio
