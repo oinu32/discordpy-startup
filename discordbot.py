@@ -148,10 +148,7 @@ async def on_raw_reaction_add(payload):
     channel = bot.get_channel(payload.channel_id)  
     guild = bot.get_guild(payload.guild_id)  
     member = guild.get_member(payload.user_id)     
-    if payload.emoji.name == '😇':
-        role_tensi = guild.get_role(779344408138350604)  
-        await member.remove_roles(role_tensi)
-        
+    
     if channel.id == ID_CHANNEL_README:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
@@ -208,9 +205,6 @@ async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id) 
     guild = bot.get_guild(payload.guild_id)  
     member = guild.get_member(payload.user_id)     
-    if payload.emoji.name == '😇':
-        role_tensi = guild.get_role(779344408138350604)    
-        await member.remove_roles(role_tensi) 
     
     if channel.id == ID_CHANNEL_README:
         guild = bot.get_guild(payload.guild_id)  
