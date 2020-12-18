@@ -140,6 +140,8 @@ ID_TSKILL = set_input.ID_TSKILL
 ID_TSKILL2 = set_input.ID_TSKILL2
 ID_totu = set_input.ID_totu
 ID_totu2 = set_input.ID_totu2
+ID_totu3 = set_input.ID_totu3
+
 ID_1=set_input.ID_1
 ID_2=set_input.ID_2
 ID_3=set_input.ID_3
@@ -173,14 +175,14 @@ async def on_raw_reaction_add(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
 
-    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2:
+    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2 or channel.id == ID_totu3:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
             role = guild.get_role(ID_ROLE_TSKL)  
             await member.add_roles(role) 
             
-    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2:
+    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2 or channel.id == ID_totu3:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
@@ -230,7 +232,7 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
             
-    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2:   
+    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2 or channel.id == ID_totu3:   
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
@@ -270,6 +272,7 @@ async def loop():
         channel = bot.get_channel(ID_TSKILL)
         channel2 = bot.get_channel(ID_totu)
         channel3 = bot.get_channel(ID_totu2)
+        channel4 = bot.get_channel(ID_totu3)
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
         ID_1t = discord.utils.get(guild.roles,name='1凸')
@@ -283,7 +286,7 @@ async def loop():
             if ID_2t in member.roles:
                 await member.remove_roles(ID_2t)
             if ID_3t in member.roles:
-                await member.remove_roles(ID_3t)
+                await member.remove_roles(ID_3t)           
                 
 #        poll = await channel.send('今日の凸状況')
 #        await poll.add_reaction("1️⃣")
@@ -343,7 +346,29 @@ async def loop():
 #        await msg5.add_reaction(emoji3)
 #        await msg5.add_reaction(emoji4)
 #        await msg5.add_reaction(emoji5)
-        
+
+        msg_kanri3 = await channel4.send('今日の凸状況')
+        await msg_kanri3.add_reaction("1️⃣")
+        await msg_kanri3.add_reaction("2️⃣")
+        await msg_kanri3.add_reaction("3️⃣")
+
+        msg6 = await channel4.send('本日のKIMURA Chance')
+        await msg4.add_reaction('🤓')  
+       
+        msg7 = await channel4.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+        await msg7.add_reaction(yt1)
+        await msg7.add_reaction(yt2)
+        await msg7.add_reaction(yt3)
+        await msg7.add_reaction(yt4)
+        await msg7.add_reaction(yt5)
+        await msg7.add_reaction(emoji1)
+        await msg7.add_reaction(emoji2)
+        await msg7.add_reaction(emoji3)
+        await msg7.add_reaction(emoji4)
+        await msg7.add_reaction(emoji5)
+
+    
+    
 loop.start()
 
 #=そのた======================================
