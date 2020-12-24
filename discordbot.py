@@ -522,7 +522,6 @@ async def 秒数2(ctx, byo,zan,la):
 @bot.command()
 async def 秒数3(ctx, zan,la,la2):
     """?秒数　戦闘時間　残HP LAの人のダメージ　持越し秒数がでる（正確なほう）"""
-  有)"""
     c = 90 - ((int(zan) - int(la2)) / int(la)) * 90 + 20
     if c > 90:
         c = 90  
