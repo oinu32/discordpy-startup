@@ -521,15 +521,16 @@ async def 秒数2(ctx, byo,zan,la):
 
 @bot.command()
 async def 秒数3(ctx, zan,la,la2):
-    """?秒数　戦闘時間　残HP LAの人のダメージ　持越し秒数がでる（正確なほう）"""
-    c = 90 - ((int(zan) - int(la2)) / int(la)) * 90 + 20
+    """?秒数　戦闘時間　残HP ひとりめ　ふたりめ　持越し秒数がでる（正確なほう）"""
+    b = int(zan) - int(la2)
+    c = 90 - (int(b) / int(la)) * 90 + 20
     if c > 90:
         c = 90  
-    await ctx.send(ctx.author.mention + 'a先の場合\n' +  str(math.ceil(c)) + "秒")
-    c2 = 90 - ((int(zan) - int(la)) / int(la2)) * 90 + 20
+    b2 = int(zan) - int(la)
+    c2 = 90 - (int(b2) / int(la2)) * 90 + 20
     if c2 > 90:
         c2 = 90  
-    await ctx.send('b先の場合\n' +  str(math.ceil(c2)) + "秒")
+    await ctx.send(ctx.author.mention + 'a先の場合\n' +  str(math.ceil(c)) + '秒\nb先の場合\n' +  str(math.ceil(c2)) + "秒")
 
 @bot.command()
 async def フル(ctx, zan):
