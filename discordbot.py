@@ -530,7 +530,7 @@ async def 秒数3(ctx, zan,la,la2):
     c2 = 90 - (int(b2) / int(la2)) * 90 + 20
     if c2 > 90:
         c2 = 90  
-    await ctx.send(ctx.author.mention + 'ひとりめが後の場合\n' +  str(math.ceil(c)) + '秒\nふたりめが後の場合\n' +  str(math.ceil(c2)) + "秒")
+    await ctx.send(ctx.author.mention + '\nひとりめが後の場合\n' +  str(math.ceil(c)) + '秒\nふたりめが後の場合\n' +  str(math.ceil(c2)) + "秒")
 
 @bot.command()
 async def フル(ctx, zan):
