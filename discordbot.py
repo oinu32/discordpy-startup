@@ -513,7 +513,7 @@ async def 秒数(ctx, zan,la):
     else:        
         await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
 
-async def 秒数2(ctx, byo,zan,la):
+async def 秒(ctx, byo,zan,la):
     """?秒数　戦闘時間　残HP LAの人のダメージ　持越し秒数がでる（正確なほう）"""
     c = 110 - int(byo) * (int(zan) / int(la))
     await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
