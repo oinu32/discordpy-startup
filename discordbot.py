@@ -461,7 +461,7 @@ async def on_message(message):
     
     if message.content.startswith("/count"):
 #        useflag = True
-        await message.channel.send("以下からカウントします。\n ダメージに万をつけて報告お願いします。")
+        await message.channel.send("以下からカウントします。\n ダメージに　まん　をつけて報告お願いします。")
         DmgCalc = DamageCalculator.DamageCalculator()
         isEnd = False                   
         while (not isEnd):
