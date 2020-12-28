@@ -477,7 +477,7 @@ async def on_message(message):
                 
             #結果を抽出する
             #dmgMatch = re.match(r'[0-9]+万', string) 
-            dmgMatch = re.search(r'[0-9]+万', string) 
+            dmgMatch = re.search(r'[0-9]+まん', string) 
             
             if(dmgMatch == None):
                 print("無効なダメージ入力です")
