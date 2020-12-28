@@ -448,27 +448,18 @@ async def 凸(ctx):
 useflag = False
 @bot.event
 async def on_message(message):
-    
     if message.author.bot:
         return
-    
     def check(msg):
-        return True
-    #msg.author == message.author
-    
-#    if useflag:
-#        return
+        return True   
     
     if message.content.startswith("/count"):
-#        useflag = True
         await message.channel.send("以下からカウントします。\n ダメージに　まん　をつけて報告お願いします。")
         DmgCalc = DamageCalculator.DamageCalculator()
         isEnd = False                   
         while (not isEnd):
             wait_msg = await bot.wait_for("message", check=check)
             string = wait_msg.content
-
-            
             #終了の処理
             if (string == "/end"):
                 print("カウントを終了します")
@@ -487,17 +478,49 @@ async def on_message(message):
             dmg10e4 = re.match(r'[0-9]+', dmgMatch.group())#100万->100にする
             print(dmg10e4.group() + "(万)をデータに追加しました")#debug用
             
-            DmgCalc.InsertResult(str(wait_msg.author.name), int(dmg10e4.group()))#ダメージ計算機に結果を追加                        
-     
+            DmgCalc.InsertResult(str(wait_msg.author.name), int(dmg10e4.group()))#ダメージ計算機に結果を追加 
+            
         DmgCalc.CalcResult()#合計を計算        
-        dmg_msg = str()  
-        
+        dmg_msg = str()          
         for resultTaple in DmgCalc.GetResult():
             dmg_msg = dmg_msg + str("名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万") + '\n'        
         dmg_msg = dmg_msg + str("合計" + str(DmgCalc.GetResultTotal()) + "万")        
-        await message.channel.send(dmg_msg)
-#        useflag=False
+        await message.channel.send(dmg_msg)    
+    await bot.process_commands(message)   
     
+    if message.content.startswith("/countw"):
+        await message.channel.send("以下からカウントします。\n ダメージに　ちん　をつけて報告お願いします。")
+        DmgCalc2 = DamageCalculator.DamageCalculator()
+        isEnd = False                   
+        while (not isEnd):
+            wait_msg = await bot.wait_for("message", check=check)
+            string = wait_msg.content
+            #終了の処理
+            if (string == "/endw"):
+                print("カウントを終了します")
+                isEnd = True
+                continue
+                
+            #結果を抽出する
+            #dmgMatch = re.match(r'[0-9]+万', string) 
+            dmgMatch2 = re.search(r'[0-9]+ちん', string) 
+            
+            if(dmgMatch2 == None):
+                print("無効なダメージ入力です")
+                continue
+                
+            #以下は有効な入力
+            dmg10e5 = re.match(r'[0-9]+', dmgMatch2.group())#100万->100にする
+            print(dmg10e5.group() + "(万)をデータに追加しました")#debug用
+            
+            DmgCalc2.InsertResult(str(wait_msg.author.name), int(dmg10e5.group()))#ダメージ計算機に結果を追加 
+            
+        DmgCalc2.CalcResult()#合計を計算        
+        dmg_msg = str()          
+        for resultTaple in DmgCalc2.GetResult():
+            dmg_msg = dmg_msg + str("名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万") + '\n'        
+        dmg_msg = dmg_msg + str("合計" + str(DmgCalc2.GetResultTotal()) + "万")        
+        await message.channel.send(dmg_msg)    
     await bot.process_commands(message)   
         
         
