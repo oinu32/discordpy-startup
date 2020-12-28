@@ -488,7 +488,7 @@ async def on_message(message):
         await message.channel.send(dmg_msg)    
     await bot.process_commands(message)   
     
-    if message.content.startswith("/countw"):
+    if message.content.startswith("/wcount"):
         await message.channel.send("以下からカウントします。\n ダメージに　ちん　をつけて報告お願いします。")
         DmgCalc2 = DamageCalculator.DamageCalculator()
         isEnd = False                   
