@@ -561,7 +561,7 @@ async def on_message(message):
             dmg_msg = dmg_msg + str("名前:" + resultTaple[0] + " " + "スコア:" + str(resultTaple[1]) + "万") + '\n'        
         dmg_msg = dmg_msg + str("合計" + str(DmgCalc2.GetResultTotal()) + "万")        
         await message.channel.send(dmg_msg)    
-    await bot.process_commands(message)   
+        await bot.process_commands(message)   
         
         
         
