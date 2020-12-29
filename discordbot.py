@@ -444,8 +444,48 @@ async def 凸(ctx):
     # message can't be deleted in private channel(DM/Group)
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
+
         
-useflag = False
+@bot.command()
+async def 秒数(ctx, zan,la):
+    """?秒数　残HP LAの人のダメージ　持越し秒数がでる(90秒まるまる殴った場合のやつなのでズレ有)"""
+    c = 90 - (int(zan) / int(la)) * 90 + 20
+    if c > 90:
+        c = 90
+    if 0 > int(zan) or 0 > int(la):
+        await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
+    else:        
+        await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
+
+@bot.command()
+async def 秒数2(ctx, byo,zan,la):
+    """?秒数　戦闘時間　残HP LAの人のダメージ　持越し秒数がでる　フルタイム前提"""
+    c = 110 - int(byo) * (int(zan) / int(la))
+    await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
+
+@bot.command()
+async def 秒数3(ctx, zan,la,la2):
+    """?秒数　戦闘時間　残HP ひとりめ　ふたりめ　持越し秒数がでる（正確なほう）"""
+    b = int(zan) - int(la2)
+    c = 90 - (int(b) / int(la)) * 90 + 20
+    if c > 90:
+        c = 90  
+    b2 = int(zan) - int(la)
+    c2 = 90 - (int(b2) / int(la2)) * 90 + 20
+    if c2 > 90:
+        c2 = 90  
+    await ctx.send(ctx.author.mention + '\nひとりめが後の場合\n' +  str(math.ceil(c)) + '秒\nふたりめが後の場合\n' +  str(math.ceil(c2)) + "秒")
+
+@bot.command()
+async def フル(ctx, zan):
+    """?フル　残HP　どのぐらい出せばフル持越しになるか"""
+    f = int(zan) * 4.29
+    if 0 > int(zan):
+        await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
+    else:
+        await ctx.send(ctx.author.mention + '\n' +  str(f) + "くらいでフル持越し")        
+
+        
 @bot.event
 async def on_message(message):
     if message.author.bot:
@@ -525,44 +565,7 @@ async def on_message(message):
         
         
         
-@bot.command()
-async def 秒数(ctx, zan,la):
-    """?秒数　残HP LAの人のダメージ　持越し秒数がでる(90秒まるまる殴った場合のやつなのでズレ有)"""
-    c = 90 - (int(zan) / int(la)) * 90 + 20
-    if c > 90:
-        c = 90
-    if 0 > int(zan) or 0 > int(la):
-        await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
-    else:        
-        await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
 
-@bot.command()
-async def 秒数2(ctx, byo,zan,la):
-    """?秒数　戦闘時間　残HP LAの人のダメージ　持越し秒数がでる　フルタイム前提"""
-    c = 110 - int(byo) * (int(zan) / int(la))
-    await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
-
-@bot.command()
-async def 秒数3(ctx, zan,la,la2):
-    """?秒数　戦闘時間　残HP ひとりめ　ふたりめ　持越し秒数がでる（正確なほう）"""
-    b = int(zan) - int(la2)
-    c = 90 - (int(b) / int(la)) * 90 + 20
-    if c > 90:
-        c = 90  
-    b2 = int(zan) - int(la)
-    c2 = 90 - (int(b2) / int(la2)) * 90 + 20
-    if c2 > 90:
-        c2 = 90  
-    await ctx.send(ctx.author.mention + '\nひとりめが後の場合\n' +  str(math.ceil(c)) + '秒\nふたりめが後の場合\n' +  str(math.ceil(c2)) + "秒")
-
-@bot.command()
-async def フル(ctx, zan):
-    """?フル　残HP　どのぐらい出せばフル持越しになるか"""
-    f = int(zan) * 4.29
-    if 0 > int(zan):
-        await ctx.send(ctx.author.mention + '\n' + "正しい数値を入力してください")
-    else:
-        await ctx.send(ctx.author.mention + '\n' +  str(f) + "くらいでフル持越し")
 
         
 bot.run(token)
