@@ -117,7 +117,7 @@ async def on_raw_reaction_add(payload):
             await member.add_roles(role)
             
     for chname in chlist:       
-        if channel.id = chname:
+        if channel.id == chname:
             guild = bot.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id) 
             if payload.emoji.name == '🤓':
