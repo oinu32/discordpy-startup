@@ -68,65 +68,6 @@ async def sayd(ctx, *, message: str):
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
 
-#翻訳群      
-@bot.command()
-async def kh(ctx, *, message):
-    """ ja →　ko """
-    #韓国
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='ko')
-    await ctx.send(msg.text) 
-
-@bot.command()
-async def jh(ctx, *, message):
-    """ko　→ ja"""
-    translator = Translator()
-    msg=translator.translate(ctx.message.clean_content[4:], src='ko' ,dest='ja')
-    await ctx.send(msg.text) 
-    
-@bot.command()
-async def jeh(ctx, *, message):
-    """ja　→en"""
-    #英語
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='en')
-    await ctx.send(msg.text) 
-
-@bot.command()
-async def ejh(ctx, *, message):
-    """en→ja"""
-    #english→日本
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:], src='en' ,dest='ja')
-    await ctx.send(msg.text) 
-    
-@bot.command()
-async def jch(ctx, *, message):
-    """ja→zh-CN"""
-    #中国語
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:] , src='ja' ,dest='zh-CN')
-    await ctx.send(msg.text) 
-
-@bot.command()
-async def cjh(ctx, *, message):
-    """zh-CN→ja"""
-    #ちゃいにーず→日本
-    translator = Translator()  
-    msg=translator.translate(ctx.message.clean_content[4:], src='zh-CN' ,dest='ja')
-    await ctx.send(msg.text)
-
-    
-#================================呼び出し=============================
-@bot.command()
-async def きりさめ(ctx):
-    """きりさめを呼ぶ"""
-    kirisame = ['きりさめはJKだょ？','きりさめはJCかな？','きりさめはJSヵモ？','きりっっ','きりちゃん☆彡']
-    await ctx.send("<@474584379071528960>" + '\n' + random.choice(kirisame))
-#@bot.command()
-#async def てんが(ctx):
-#    await ctx.send('(っ'"'"'-'"'"')╮ =͟͟͞╰U╯ﾌﾞｵﾝ' +"<@487986743266770945>")            
-
  #====================ROLE付与==========================
 ID_CHANNEL_README = set_input.ID_CHANNEL_README # 該当のチャンネルのID  
 ID_ROLE_ASA = set_input.ID_ROLE_ASA # 付けたい役職のID  
@@ -174,15 +115,8 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
-
-    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2 or channel.id == ID_totu3:
-        guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id) 
-        if payload.emoji.name == '🤓':
-            role = guild.get_role(ID_ROLE_TSKL)  
-            await member.add_roles(role) 
             
-    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2 or channel.id == ID_totu3:
+    if channel.name == "凸管理"
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
@@ -232,7 +166,7 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
             
-    if channel.id == ID_TSKILL or channel.id == ID_totu or channel.id == ID_totu2 or channel.id == ID_totu3:   
+    if channel.name == "凸管理"
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
         if payload.emoji.name == '🤓':
@@ -346,28 +280,7 @@ async def loop():
 #        await msg5.add_reaction(emoji3)
 #        await msg5.add_reaction(emoji4)
 #        await msg5.add_reaction(emoji5)
-#
-#        msg_kanri3 = await channel4.send('今日の凸状況')
-#        await msg_kanri3.add_reaction("1️⃣")
-#        await msg_kanri3.add_reaction("2️⃣")
-#        await msg_kanri3.add_reaction("3️⃣")
-#
-#        msg6 = await channel4.send('本日のKIMURA Chance')
-#        await msg6.add_reaction('🤓')  
-#       
-#        msg7 = await channel4.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-#        await msg7.add_reaction(yt1)
-#        await msg7.add_reaction(yt2)
-#        await msg7.add_reaction(yt3)
-#        await msg7.add_reaction(yt4)
-#        await msg7.add_reaction(yt5)
-#        await msg7.add_reaction(emoji1)
-#        await msg7.add_reaction(emoji2)
-#        await msg7.add_reaction(emoji3)
-#        await msg7.add_reaction(emoji4)
-#        await msg7.add_reaction(emoji5)
-
-    
+   
     
 loop.start()
 
@@ -563,9 +476,5 @@ async def on_message(message):
         await message.channel.send(dmg_msg)    
         await bot.process_commands(message)   
         
-        
-        
 
-
-        
 bot.run(token)
