@@ -205,11 +205,12 @@ async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
     if now == '20:00':
-        channel = bot.get_channel(ID_TSKILL)
-        channel2 = bot.get_channel(ID_totu)
-        channel3 = bot.get_channel(ID_totu2)
-        channel4 = bot.get_channel(ID_totu3)
+#        channel = bot.get_channel(ID_TSKILL)
+#        channel2 = bot.get_channel(ID_totu)
+#        channel3 = bot.get_channel(ID_totu2)
+#        channel4 = bot.get_channel(ID_totu3)
         guild = bot.get_guild(ID_SRV)
+        clist = [ID_TSKILL, ID_totu2]
         tskl = discord.utils.get(guild.roles,name='タスキル')
         ID_1t = discord.utils.get(guild.roles,name='1凸')
         ID_2t = discord.utils.get(guild.roles,name='2凸')
@@ -222,67 +223,28 @@ async def loop():
             if ID_2t in member.roles:
                 await member.remove_roles(ID_2t)
             if ID_3t in member.roles:
-                await member.remove_roles(ID_3t)           
-#                
-#        poll = await channel.send('今日の凸状況')
-#        await poll.add_reaction("1️⃣")
-#        await poll.add_reaction("2️⃣")
-#        await poll.add_reaction("3️⃣")
-#        msg = await channel.send('本日のKIMURA Chance')
-#        await msg.add_reaction('🤓')
-#
-#        msg = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-#        await msg.add_reaction(yt1)
-#        await msg.add_reaction(yt2)
-#        await msg.add_reaction(yt3)
-#        await msg.add_reaction(yt4)
-#        await msg.add_reaction(yt5)
-#        await msg.add_reaction(emoji1)
-#        await msg.add_reaction(emoji2)
-#        await msg.add_reaction(emoji3)
-#        await msg.add_reaction(emoji4)
-#        await msg.add_reaction(emoji5)        
-#       
-#        msg_kanri = await channel2.send('今日の凸状況')
-#        await msg_kanri.add_reaction("1️⃣")
-#        await msg_kanri.add_reaction("2️⃣")
-#        await msg_kanri.add_reaction("3️⃣")
-#       
-#        msg2 = await channel2.send('本日のKIMURA Chance')
-#        await msg2.add_reaction('🤓')  
-#       
-#        msg3 = await channel2.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-#        await msg3.add_reaction(yt1)
-#        await msg3.add_reaction(yt2)
-#        await msg3.add_reaction(yt3)
-#        await msg3.add_reaction(yt4)
-#        await msg3.add_reaction(yt5)
-#        await msg3.add_reaction(emoji1)
-#        await msg3.add_reaction(emoji2)
-#        await msg3.add_reaction(emoji3)
-#        await msg3.add_reaction(emoji4)
-#        await msg3.add_reaction(emoji5)
-#
-#        msg_kanri2 = await channel3.send('今日の凸状況')
-#        await msg_kanri2.add_reaction("1️⃣")
-#        await msg_kanri2.add_reaction("2️⃣")
-#        await msg_kanri2.add_reaction("3️⃣")
-#       
-#        msg4 = await channel3.send('本日のKIMURA Chance')
-#        await msg4.add_reaction('🤓')  
-#       
-#        msg5 = await channel3.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-#        await msg5.add_reaction(yt1)
-#        await msg5.add_reaction(yt2)
-#        await msg5.add_reaction(yt3)
-#        await msg5.add_reaction(yt4)
-#        await msg5.add_reaction(yt5)
-#        await msg5.add_reaction(emoji1)
-#        await msg5.add_reaction(emoji2)
-#        await msg5.add_reaction(emoji3)
-#        await msg5.add_reaction(emoji4)
-#        await msg5.add_reaction(emoji5)
-   
+                await member.remove_roles(ID_3t) 
+                
+        for cid in clist:
+            channel = bot.get_channel(clist)            
+            poll = await channel.send('今日の凸状況')
+            await poll.add_reaction("1️⃣")
+            await poll.add_reaction("2️⃣")
+            await poll.add_reaction("3️⃣")
+            msg2 = await channel.send('本日のKIMURA Chance')
+            await msg2.add_reaction('🤓')
+    
+            msg3 = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+            await msg3.add_reaction(yt1)
+            await msg3.add_reaction(yt2)
+            await msg3.add_reaction(yt3)
+            await msg3.add_reaction(yt4)
+            await msg3.add_reaction(yt5)
+            await msg3.add_reaction(emoji1)
+            await msg3.add_reaction(emoji2)
+            await msg3.add_reaction(emoji3)
+            await msg3.add_reaction(emoji4)
+            await msg3.add_reaction(emoji5)        
     
 loop.start()
 
@@ -310,7 +272,6 @@ async def call2(ctx, *, message: str):
         
 @bot.command()
 async def call(ctx):
-    
     msg = await ctx.send("1boss\n物理1️⃣\n魔法<:cnt1:739818340939202622>\n持越し🥺")
     await msg.add_reaction("1️⃣")
     await msg.add_reaction(emoji1)
@@ -340,27 +301,7 @@ async def call(ctx):
     if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
         await ctx.message.delete()
         
-        
-        
-@bot.command()
-async def 凸(ctx):
-    """私はここに凸したいってところにリアクションつけようね"""
-    msg = await ctx.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-    await msg.add_reaction(yt1)
-    await msg.add_reaction(yt2)
-    await msg.add_reaction(yt3)
-    await msg.add_reaction(yt4)
-    await msg.add_reaction(yt5)
-    await msg.add_reaction(emoji1)
-    await msg.add_reaction(emoji2)
-    await msg.add_reaction(emoji3)
-    await msg.add_reaction(emoji4)
-    await msg.add_reaction(emoji5)
-    # message can't be deleted in private channel(DM/Group)
-    if not isinstance(ctx.message.channel, discord.abc.PrivateChannel):
-        await ctx.message.delete()
 
-        
 @bot.command()
 async def 秒数(ctx, zan,la):
     """?秒数　残HP LAの人のダメージ　持越し秒数がでる(90秒まるまる殴った場合のやつなのでズレ有)"""
