@@ -226,7 +226,7 @@ async def loop():
                 await member.remove_roles(ID_3t) 
                 
         for cid in clist:
-            channel = bot.get_channel(clist)            
+            channel = bot.get_channel(cid)            
             poll = await channel.send('今日の凸状況')
             await poll.add_reaction("1️⃣")
             await poll.add_reaction("2️⃣")
