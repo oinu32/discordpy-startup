@@ -169,21 +169,21 @@ async def on_raw_reaction_remove(payload):
             
     for chname in chlist:       
         if channel.id == chname:
-        guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id) 
-        if payload.emoji.name == '🤓':
-            role = guild.get_role(ID_ROLE_TSKL)  
-            await member.remove_roles(role) 
-        if payload.emoji.name == '1️⃣':
-            role = guild.get_role(ID_1)  
-            await member.remove_roles(role)      
-        if payload.emoji.name == '2️⃣':
-            role = guild.get_role(ID_2)  
-            await member.remove_roles(role)  
-        if payload.emoji.name == '3️⃣':
-            role = guild.get_role(ID_3)  
-            await member.remove_roles(role)
-            
+            guild = bot.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id) 
+            if payload.emoji.name == '🤓':
+                role = guild.get_role(ID_ROLE_TSKL)  
+                await member.remove_roles(role) 
+            if payload.emoji.name == '1️⃣':
+                role = guild.get_role(ID_1)  
+                await member.remove_roles(role)      
+            if payload.emoji.name == '2️⃣':
+                role = guild.get_role(ID_2)  
+                await member.remove_roles(role)  
+            if payload.emoji.name == '3️⃣':
+                role = guild.get_role(ID_3)  
+                await member.remove_roles(role)
+                
             
 #===============================タスキル====
 emoji1 = '<:cnt1:739818340939202622>'
