@@ -80,11 +80,6 @@ ID_ROLE_TSKL = set_input.ID_ROLE_TSKL
 ID_TSKILL = set_input.ID_TSKILL
 ID_totu2 = set_input.ID_totu2
 
-
-ID_1=set_input.ID_1
-ID_2=set_input.ID_2
-ID_3=set_input.ID_3
-
 chlist = [ID_TSKILL, ID_totu2]
 @bot.event  
 async def on_raw_reaction_add(payload):  
@@ -135,17 +130,17 @@ async def on_raw_reaction_add(payload):
                 await member.remove_roles(ID_1t)
                 await member.remove_roles(ID_2t)  
                 await member.add_roles(ID_3t)  
-            
+    
+guild = bot.get_guild(payload.guild_id)
+tskl = discord.utils.get(guild.roles,name='タスキル')
+ID_1t = discord.utils.get(guild.roles,name='1凸')
+ID_2t = discord.utils.get(guild.roles,name='2凸')
+ID_3t = discord.utils.get(guild.roles,name='3凸')
 @bot.event  
 async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id) 
-    guild = bot.get_guild(payload.guild_id)  
-    member = guild.get_member(payload.user_id)     
-    tskl = discord.utils.get(guild.roles,name='タスキル')
-    ID_1t = discord.utils.get(guild.roles,name='1凸')
-    ID_2t = discord.utils.get(guild.roles,name='2凸')
-    ID_3t = discord.utils.get(guild.roles,name='3凸')
-        
+    member = guild.get_member(payload.user_id)
+    
     if channel.id == ID_CHANNEL_README:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
@@ -175,17 +170,13 @@ async def on_raw_reaction_remove(payload):
             guild = bot.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id) 
             if payload.emoji.name == '🤓':
-                role = guild.get_role(ID_ROLE_TSKL)  
-                await member.remove_roles(role) 
+                await member.remove_roles(tskl) 
             if payload.emoji.name == '1️⃣':
-                role = guild.get_role(ID_1)  
-                await member.remove_roles(role)      
+                await member.remove_roles(ID_1t)      
             if payload.emoji.name == '2️⃣':
-                role = guild.get_role(ID_2)  
-                await member.remove_roles(role)  
+                await member.remove_roles(ID_2t)  
             if payload.emoji.name == '3️⃣':
-                role = guild.get_role(ID_3)  
-                await member.remove_roles(role)
+                await member.remove_roles(ID_3t)
                 
             
 #===============================タスキル====
