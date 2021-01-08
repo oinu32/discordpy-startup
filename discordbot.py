@@ -90,7 +90,11 @@ chlist = [ID_TSKILL, ID_totu2]
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
     guild = bot.get_guild(payload.guild_id)  
-    member = guild.get_member(payload.user_id)     
+    member = guild.get_member(payload.user_id)
+    tskl = discord.utils.get(guild.roles,name='タスキル')
+    ID_1t = discord.utils.get(guild.roles,name='1凸')
+    ID_2t = discord.utils.get(guild.roles,name='2凸')
+    ID_3t = discord.utils.get(guild.roles,name='3凸')
     
     if channel.id == ID_CHANNEL_README:
         guild = bot.get_guild(payload.guild_id)  
@@ -121,28 +125,27 @@ async def on_raw_reaction_add(payload):
             guild = bot.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id) 
             if payload.emoji.name == '🤓':
-                role = guild.get_role(ID_ROLE_TSKL)  
-                await member.add_roles(role)         
-            if payload.emoji.name == '1️⃣':
-                role = guild.get_role(ID_1)  
-                await member.add_roles(role)   
+                await member.add_roles(tskl)         
+            if payload.emoji.name == '1️⃣': 
+                await member.add_roles(ID_1t)   
             if payload.emoji.name == '2️⃣':
-                role = guild.get_role(ID_2)  
-                await member.add_roles(role)
-                role2 = guild.get_role(ID_1)  
-                await member.remove_roles(role2)  
+                await member.add_roles(ID_2t)  
+                await member.remove_roles(ID_1t)  
             if payload.emoji.name == '3️⃣':
-                role = guild.get_role(ID_2)  
-                await member.remove_roles(role)  
-                role2 = guild.get_role(ID_3)  
-                await member.add_roles(role2)  
+                await member.remove_roles(ID_1t)
+                await member.remove_roles(ID_2t)  
+                await member.add_roles(ID_3t)  
             
 @bot.event  
 async def on_raw_reaction_remove(payload):
     channel = bot.get_channel(payload.channel_id) 
     guild = bot.get_guild(payload.guild_id)  
     member = guild.get_member(payload.user_id)     
-    
+    tskl = discord.utils.get(guild.roles,name='タスキル')
+    ID_1t = discord.utils.get(guild.roles,name='1凸')
+    ID_2t = discord.utils.get(guild.roles,name='2凸')
+    ID_3t = discord.utils.get(guild.roles,name='3凸')
+        
     if channel.id == ID_CHANNEL_README:
         guild = bot.get_guild(payload.guild_id)  
         member = guild.get_member(payload.user_id) 
