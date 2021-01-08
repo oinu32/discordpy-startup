@@ -83,8 +83,10 @@ chlist = [ID_TSKILL, ID_totu2]
 @bot.event  
 async def on_raw_reaction_add(payload):  
     channel = bot.get_channel(payload.channel_id)  
+    ch_name=discord.utils.get(guild.text_channels, name="凸管理")
     guild = bot.get_guild(payload.guild_id)  
     member = guild.get_member(payload.user_id)
+    
     tskl = discord.utils.get(guild.roles,name='タスキル')
     ID_1t = discord.utils.get(guild.roles,name='1凸')
     ID_2t = discord.utils.get(guild.roles,name='2凸')
@@ -108,22 +110,21 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
-            
-    for chname in chlist:       
-        if channel.id == chname:
-            guild = bot.get_guild(payload.guild_id)  
-            member = guild.get_member(payload.user_id) 
-            if payload.emoji.name == '🤓':
-                await member.add_roles(tskl)         
-            if payload.emoji.name == '1️⃣': 
-                await member.add_roles(ID_1t)   
-            if payload.emoji.name == '2️⃣':
-                await member.add_roles(ID_2t)  
-                await member.remove_roles(ID_1t)  
-            if payload.emoji.name == '3️⃣':
-                await member.remove_roles(ID_1t)
-                await member.remove_roles(ID_2t)  
-                await member.add_roles(ID_3t)  
+    
+    if channel.id == ch_name:
+        guild = bot.get_guild(payload.guild_id)  
+        member = guild.get_member(payload.user_id) 
+        if payload.emoji.name == '🤓':
+            await member.add_roles(tskl)         
+        if payload.emoji.name == '1️⃣': 
+            await member.add_roles(ID_1t)   
+        if payload.emoji.name == '2️⃣':
+            await member.add_roles(ID_2t)  
+            await member.remove_roles(ID_1t)  
+        if payload.emoji.name == '3️⃣':
+            await member.remove_roles(ID_1t)
+            await member.remove_roles(ID_2t)  
+            await member.add_roles(ID_3t)  
     
 
 @bot.event  
