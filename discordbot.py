@@ -21,6 +21,14 @@ token = os.environ['DISCORD_BOT_TOKEN']
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='?', intents=intents)
 
+@bot.commnad()
+async def aa(payload): 
+    guild = bot.get_guild(payload.guild_id) 
+    channel = bot.get_channel(payload.channel_id)  
+    ch_name = discord.utils.get(guild.text_channels, name="凸管理")
+    await ctx.send(channel&"ああ")
+    await ctx.send(ch_name)
+    
 def Dice(pInputMessage):
     list = []
     string = (re.match('[1-9]{1}[D]', pInputMessage).group())
