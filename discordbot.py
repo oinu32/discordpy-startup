@@ -29,8 +29,16 @@ def Dice(pInputMessage):
     for i in range(int(dice_amount)):
         list.append(random.randint(1,int(dice_faces)))
     return list
-
-
+test_cnt = 0
+@bot.command()
+async def test(ctx):
+    test_cnt = 1
+   
+@bot.command()
+async def test1(ctx):
+     await ctx.send(test_cnt)
+    
+    
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
