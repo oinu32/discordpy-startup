@@ -20,14 +20,6 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='?', intents=intents)
-
-@bot.command()
-async def aa(payload): 
-    guild = bot.get_guild(payload.guild_id) 
-    channel = bot.get_channel(payload.channel_id)  
-    ch_name = discord.utils.get(guild.text_channels, name="凸管理")
-    await ctx.send(channel&"ああ")
-    await ctx.send(ch_name)
     
 def Dice(pInputMessage):
     list = []
@@ -134,7 +126,8 @@ async def on_raw_reaction_add(payload):
             await member.remove_roles(ID_1t)
             await member.remove_roles(ID_2t)  
             await member.add_roles(ID_3t)  
-    
+    await ctx.send(channel)
+    await ctx.send(ch_name)   
 
 @bot.event  
 async def on_raw_reaction_remove(payload):
