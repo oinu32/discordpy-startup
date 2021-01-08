@@ -79,7 +79,7 @@ ID_ROLE_TSKL = set_input.ID_ROLE_TSKL
 ID_TSKILL = set_input.ID_TSKILL
 ID_totu2 = set_input.ID_totu2
 
-chlist = [ID_TSKILL, ID_totu2]
+ch_list = [ID_TSKILL, ID_totu2]
 @bot.event  
 async def on_raw_reaction_add(payload): 
     guild = bot.get_guild(payload.guild_id) 
