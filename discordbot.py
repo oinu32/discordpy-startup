@@ -190,7 +190,6 @@ async def loop():
     now  = datetime.now().strftime("%H:%M")
     if now == '20:00':
         guild = bot.get_guild(ID_SRV)
-        ch_name = discord.utils.get(guild.text_channels, name="凸管理")
         tskl = discord.utils.get(guild.roles,name='タスキル')
         ID_1t = discord.utils.get(guild.roles,name='1凸')
         ID_2t = discord.utils.get(guild.roles,name='2凸')
@@ -205,26 +204,26 @@ async def loop():
             if ID_3t in member.roles:
                 await member.remove_roles(ID_3t) 
                 
-
-        channel = bot.get_channel(ch_name)            
-        poll = await channel.send('今日の凸状況')
-        await poll.add_reaction("1️⃣")
-        await poll.add_reaction("2️⃣")
-        await poll.add_reaction("3️⃣")
-        msg2 = await channel.send('本日のKIMURA Chance')
-        await msg2.add_reaction('🤓')
-        
-        msg3 = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-        await msg3.add_reaction(yt1)
-        await msg3.add_reaction(yt2)
-        await msg3.add_reaction(yt3)
-        await msg3.add_reaction(yt4)
-        await msg3.add_reaction(yt5)
-        await msg3.add_reaction(emoji1)
-        await msg3.add_reaction(emoji2)
-        await msg3.add_reaction(emoji3)
-        await msg3.add_reaction(emoji4)
-        await msg3.add_reaction(emoji5)        
+        for ch_name in ch_list:    
+            channel = bot.get_channel(ch_name)            
+            poll = await channel.send('今日の凸状況')
+            await poll.add_reaction("1️⃣")
+            await poll.add_reaction("2️⃣")
+            await poll.add_reaction("3️⃣")
+            msg2 = await channel.send('本日のKIMURA Chance')
+            await msg2.add_reaction('🤓')
+            
+            msg3 = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+            await msg3.add_reaction(yt1)
+            await msg3.add_reaction(yt2)
+            await msg3.add_reaction(yt3)
+            await msg3.add_reaction(yt4)
+            await msg3.add_reaction(yt5)
+            await msg3.add_reaction(emoji1)
+            await msg3.add_reaction(emoji2)
+            await msg3.add_reaction(emoji3)
+            await msg3.add_reaction(emoji4)
+            await msg3.add_reaction(emoji5)        
     
 loop.start()
 
