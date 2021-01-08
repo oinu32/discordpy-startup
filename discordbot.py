@@ -92,24 +92,19 @@ async def on_raw_reaction_add(payload):
     
     if channel.id == ID_CHANNEL_README:
         guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id) 
-        
+        member = guild.get_member(payload.user_id)
         if payload.emoji.name == '🌼':
             role = guild.get_role(ID_ROLE_ASA)  
             await member.add_roles(role)  
-        
         if payload.emoji.name == '🌞':
             role = guild.get_role(ID_ROLE_HIRU)  
             await member.add_roles(role)  
-        
         if payload.emoji.name == '🌝':
             role = guild.get_role(ID_ROLE_YORU)  
             await member.add_roles(role)  
-        
         if payload.emoji.name == '🌛':
             role = guild.get_role(ID_ROLE_SINY)  
             await member.add_roles(role)
-            
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
@@ -147,20 +142,16 @@ async def on_raw_reaction_remove(payload):
         
         if payload.emoji.name == '🌼':
             role = guild.get_role(ID_ROLE_ASA)  
-            await member.remove_roles(role)  
-        
+            await member.remove_roles(role)
         if payload.emoji.name == '🌞':
             role = guild.get_role(ID_ROLE_HIRU)  
-            await member.remove_roles(role)    
-        
+            await member.remove_roles(role) 
         if payload.emoji.name == '🌝':
             role = guild.get_role(ID_ROLE_YORU)  
-            await member.remove_roles(role)  
-        
+            await member.remove_roles(role)
         if payload.emoji.name == '🌛':
             role = guild.get_role(ID_ROLE_SINY)  
-            await member.remove_roles(role)     
-
+            await member.remove_roles(role) 
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
@@ -193,14 +184,13 @@ yt4 = '<:yt4:760141224300118036>'
 yt5 = '<:yt5:760141238736519169>'
 
 ID_SRV = set_input.ID_SRV
-
 @tasks.loop(seconds=60)
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
     if now == '20:00':
         guild = bot.get_guild(ID_SRV)
-        clist = [ID_TSKILL, ID_totu2]
+        ch_name = discord.utils.get(guild.text_channels, name="凸管理")
         tskl = discord.utils.get(guild.roles,name='タスキル')
         ID_1t = discord.utils.get(guild.roles,name='1凸')
         ID_2t = discord.utils.get(guild.roles,name='2凸')
@@ -215,26 +205,26 @@ async def loop():
             if ID_3t in member.roles:
                 await member.remove_roles(ID_3t) 
                 
-#       for cid in clist:
-#           channel = bot.get_channel(cid)            
-#           poll = await channel.send('今日の凸状況')
-#           await poll.add_reaction("1️⃣")
-#           await poll.add_reaction("2️⃣")
-#           await poll.add_reaction("3️⃣")
-#           msg2 = await channel.send('本日のKIMURA Chance')
-#           await msg2.add_reaction('🤓')
-#   
-#           msg3 = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-#           await msg3.add_reaction(yt1)
-#           await msg3.add_reaction(yt2)
-#           await msg3.add_reaction(yt3)
-#           await msg3.add_reaction(yt4)
-#           await msg3.add_reaction(yt5)
-#           await msg3.add_reaction(emoji1)
-#           await msg3.add_reaction(emoji2)
-#           await msg3.add_reaction(emoji3)
-#           await msg3.add_reaction(emoji4)
-#           await msg3.add_reaction(emoji5)        
+
+        channel = bot.get_channel(ch_name)            
+        poll = await channel.send('今日の凸状況')
+        await poll.add_reaction("1️⃣")
+        await poll.add_reaction("2️⃣")
+        await poll.add_reaction("3️⃣")
+        msg2 = await channel.send('本日のKIMURA Chance')
+        await msg2.add_reaction('🤓')
+        
+        msg3 = await channel.send("今日の凸予定先" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+        await msg3.add_reaction(yt1)
+        await msg3.add_reaction(yt2)
+        await msg3.add_reaction(yt3)
+        await msg3.add_reaction(yt4)
+        await msg3.add_reaction(yt5)
+        await msg3.add_reaction(emoji1)
+        await msg3.add_reaction(emoji2)
+        await msg3.add_reaction(emoji3)
+        await msg3.add_reaction(emoji4)
+        await msg3.add_reaction(emoji5)        
     
 loop.start()
 
