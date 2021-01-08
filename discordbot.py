@@ -29,15 +29,6 @@ def Dice(pInputMessage):
     for i in range(int(dice_amount)):
         list.append(random.randint(1,int(dice_faces)))
     return list
-
-@bot.command()
-async def test(ctx):
-    test_cnt = 1
-   
-@bot.command()
-async def test1(ctx):
-    await ctx.send(test_cnt)
-    test_cnt = 0
     
 @bot.command()
 async def ping(ctx):
@@ -303,7 +294,7 @@ async def call(ctx):
 
 @bot.command()
 async def 秒数(ctx, zan,la):
-    """?秒数　残HP LAの人のダメージ　持越し秒数がでる(90秒まるまる殴った場合のやつなのでズレ有)"""
+    """?秒数　残HP LAの人のダメージ　＝持越し秒数がでる(90秒まるまる殴った場合のやつなのでズレ有)"""
     c = 90 - (int(zan) / int(la)) * 90 + 20
     if c > 90:
         c = 90
@@ -314,13 +305,13 @@ async def 秒数(ctx, zan,la):
 
 @bot.command()
 async def 秒数2(ctx, byo,zan,la):
-    """?秒数　戦闘時間　残HP LAの人のダメージ　持越し秒数がでる　フルタイム前提"""
+    """?秒数　戦闘時間　残HP LAの人のダメージ　＝持越し秒数がでる　（正確なほう）"""
     c = 110 - int(byo) * (int(zan) / int(la))
     await ctx.send(ctx.author.mention + '\n' +  str(math.ceil(c)) + "秒")
 
 @bot.command()
 async def 秒数3(ctx, zan,la,la2):
-    """?秒数　戦闘時間　残HP ひとりめ　ふたりめ　持越し秒数がでる（正確なほう）"""
+    """?秒数　戦闘時間　残HP ひとりめ　ふたりめ　＝持越し秒数がでる　フルタイム前提"""
     b = int(zan) - int(la2)
     c = 90 - (int(b) / int(la)) * 90 + 20
     if c > 90:
