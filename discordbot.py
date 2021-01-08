@@ -83,9 +83,7 @@ chlist = [ID_TSKILL, ID_totu2]
 @bot.event  
 async def on_raw_reaction_add(payload): 
     guild = bot.get_guild(payload.guild_id) 
-    channel = bot.get_channel(payload.channel_id)  
-    ch_name = discord.utils.get(guild.text_channels, name="凸管理")
- 
+    channel = bot.get_channel(payload.channel_id)   
     member = guild.get_member(payload.user_id)
     
     tskl = discord.utils.get(guild.roles,name='タスキル')
@@ -111,23 +109,22 @@ async def on_raw_reaction_add(payload):
         if payload.emoji.name == '🍌':
             role = guild.get_role(ID_ROLE_SINK)  
             await member.add_roles(role)
-    
-    if channel.id == ch_name:
-        guild = bot.get_guild(payload.guild_id)  
-        member = guild.get_member(payload.user_id) 
-        if payload.emoji.name == '🤓':
-            await member.add_roles(tskl)         
-        if payload.emoji.name == '1️⃣': 
-            await member.add_roles(ID_1t)   
-        if payload.emoji.name == '2️⃣':
-            await member.add_roles(ID_2t)  
-            await member.remove_roles(ID_1t)  
-        if payload.emoji.name == '3️⃣':
-            await member.remove_roles(ID_1t)
-            await member.remove_roles(ID_2t)  
-            await member.add_roles(ID_3t)  
-    await ctx.send(channel)
-    await ctx.send(ch_name)   
+
+    for ch_name in ch_list:    
+        if channel.id == ch_name:
+            guild = bot.get_guild(payload.guild_id)  
+            member = guild.get_member(payload.user_id) 
+            if payload.emoji.name == '🤓':
+                await member.add_roles(tskl)         
+            if payload.emoji.name == '1️⃣': 
+                await member.add_roles(ID_1t)   
+            if payload.emoji.name == '2️⃣':
+                await member.add_roles(ID_2t)  
+                await member.remove_roles(ID_1t)  
+            if payload.emoji.name == '3️⃣':
+                await member.remove_roles(ID_1t)
+                await member.remove_roles(ID_2t)  
+                await member.add_roles(ID_3t)  
 
 @bot.event  
 async def on_raw_reaction_remove(payload):
@@ -159,8 +156,8 @@ async def on_raw_reaction_remove(payload):
             role = guild.get_role(ID_ROLE_SINK)  
             await member.remove_roles(role)
             
-    for chname in chlist:       
-        if channel.id == chname:
+    for ch_name in ch_list:       
+        if channel.id == ch_name:
             guild = bot.get_guild(payload.guild_id)  
             member = guild.get_member(payload.user_id) 
             if payload.emoji.name == '🤓':
