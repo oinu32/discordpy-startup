@@ -81,10 +81,11 @@ ID_totu2 = set_input.ID_totu2
 
 chlist = [ID_TSKILL, ID_totu2]
 @bot.event  
-async def on_raw_reaction_add(payload):  
+async def on_raw_reaction_add(payload): 
+    guild = bot.get_guild(payload.guild_id) 
     channel = bot.get_channel(payload.channel_id)  
-    ch_name = discord.utils.get(payload.text_channels, name="凸管理")
-    guild = bot.get_guild(payload.guild_id)  
+    ch_name = discord.utils.get(guild.text_channels, name="凸管理")
+ 
     member = guild.get_member(payload.user_id)
     
     tskl = discord.utils.get(guild.roles,name='タスキル')
