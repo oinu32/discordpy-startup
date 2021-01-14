@@ -183,7 +183,15 @@ async def loop():
                 await member.remove_roles(ID_2t)
             if ID_3t in member.roles:
                 await member.remove_roles(ID_3t)
-            
+            if ID_ROLE_ASA in member.roles:
+                await member.remove_roles(ID_ROLE_ASA)
+            if ID_ROLE_HIRU in member.roles:
+                await member.remove_roles(ID_ROLE_HIRU)
+            if ID_ROLE_YORU in member.roles:
+                await member.remove_roles(ID_ROLE_YORU)
+            if ID_ROLE_SINYA in member.roles:
+                await member.remove_roles(ID_ROLE_SINYA)
+                
       for ch_name in ch_list:    
           channel = bot.get_channel(ch_name)            
           poll = await channel.send('今日の凸状況')
