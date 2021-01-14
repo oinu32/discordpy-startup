@@ -192,32 +192,32 @@ async def loop():
             if ID_ROLE_SINYA in member.roles:
                 await member.remove_roles(ID_ROLE_SINYA)
                 
-      for ch_name in ch_list:    
-          channel = bot.get_channel(ch_name)            
-          poll = await channel.send('今日の凸状況')
-          await poll.add_reaction("1️⃣")
-          await poll.add_reaction("2️⃣")
-          await poll.add_reaction("3️⃣")
-          msg2 = await channel.send('本日のKIMURA Chance')
-          await msg2.add_reaction('🤓')
-          
-          msg3 = await channel.send("今日の凸先(予定)" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
-          await msg3.add_reaction(yt1)
-          await msg3.add_reaction(yt2)
-          await msg3.add_reaction(yt3)
-          await msg3.add_reaction(yt4)
-          await msg3.add_reaction(yt5)
-          await msg3.add_reaction(emoji1)
-          await msg3.add_reaction(emoji2)
-          await msg3.add_reaction(emoji3)
-          await msg3.add_reaction(emoji4)
-          await msg3.add_reaction(emoji5)  
-
-          msg4 = await channel.send("今日の予定\n朝活🌼：5時～12時\n昼活：🌞12時～18時\n夜活：🌝18時～23時\n深夜活：🌛23時～終わるまで")
-          await msg4.add_reaction('🌼')
-          await msg4.add_reaction('🌞')
-          await msg4.add_reaction('🌝')
-          await msg4.add_reaction('🌛')
+        for ch_name in ch_list:
+            channel = bot.get_channel(ch_name)            
+            poll = await channel.send('今日の凸状況')
+            await poll.add_reaction("1️⃣")
+            await poll.add_reaction("2️⃣")
+            await poll.add_reaction("3️⃣")
+            msg2 = await channel.send('本日のKIMURA Chance')
+            await msg2.add_reaction('🤓')
+            
+            msg3 = await channel.send("今日の凸先(予定)" + '\n' + "1️⃣～5️⃣：物理" + '\n' + '<:cnt1:739818340939202622>' + "～" + '<:cnt5:739818340905648208>' + "：魔法")
+            await msg3.add_reaction(yt1)
+            await msg3.add_reaction(yt2)
+            await msg3.add_reaction(yt3)
+            await msg3.add_reaction(yt4)
+            await msg3.add_reaction(yt5)
+            await msg3.add_reaction(emoji1)
+            await msg3.add_reaction(emoji2)
+            await msg3.add_reaction(emoji3)
+            await msg3.add_reaction(emoji4)
+            await msg3.add_reaction(emoji5)  
+    
+            msg4 = await channel.send("今日の予定\n朝活🌼：5時～12時\n昼活：🌞12時～18時\n夜活：🌝18時～23時\n深夜活：🌛23時～終わるまで")
+            await msg4.add_reaction('🌼')
+            await msg4.add_reaction('🌞')
+            await msg4.add_reaction('🌝')
+            await msg4.add_reaction('🌛')
     
 loop.start()
 
