@@ -87,28 +87,28 @@ async def on_raw_reaction_add(payload):
     ID_ROLE_ASA = discord.utils.get(guild.roles,name='朝活')
     ID_ROLE_HIRU = discord.utils.get(guild.roles,name='昼活')
     ID_ROLE_YORU = discord.utils.get(guild.roles,name='夜活')
-    ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜')
+    ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜活')
     
     for ch_name in ch_list: 
-        if payload.emoji.name == '🌼':
-            await member.add_roles(ID_ROLE_ASA)  
-        if payload.emoji.name == '🌞': 
-            await member.add_roles(ID_ROLE_HIRU)  
-        if payload.emoji.name == '🌝':
-            await member.add_roles(ID_ROLE_YORU)  
-        if payload.emoji.name == '🌛':
-            await member.add_roles(ID_ROLE_SINYA)
-        if payload.emoji.name == '🤓':
-            await member.add_roles(tskl)         
-        if payload.emoji.name == '1️⃣': 
-            await member.add_roles(ID_1t)   
-        if payload.emoji.name == '2️⃣':
-            await member.add_roles(ID_2t)  
-            await member.remove_roles(ID_1t)  
-        if payload.emoji.name == '3️⃣':
-            await member.remove_roles(ID_1t)
-            await member.remove_roles(ID_2t)  
-            await member.add_roles(ID_3t)  
+        if channel == ch_name:
+            if payload.emoji.name == '🌼':
+                await member.add_roles(ID_ROLE_ASA)  
+            if payload.emoji.name == '🌞': 
+                await member.add_roles(ID_ROLE_HIRU)  
+            if payload.emoji.name == '🌝':
+                await member.add_roles(ID_ROLE_YORU)  
+            if payload.emoji.name == '🌛':
+                await member.add_roles(ID_ROLE_SINYA)
+            if payload.emoji.name == '🤓':
+                await member.add_roles(tskl)         
+            if payload.emoji.name == '1️⃣': 
+                await member.add_roles(ID_1t)   
+            if payload.emoji.name == '2️⃣':
+                await member.add_roles(ID_2t)  
+            if payload.emoji.name == '3️⃣':
+                await member.remove_roles(ID_1t)
+                await member.remove_roles(ID_2t)  
+                await member.add_roles(ID_3t)  
 
 @bot.event  
 async def on_raw_reaction_remove(payload):
@@ -123,7 +123,7 @@ async def on_raw_reaction_remove(payload):
     ID_ROLE_ASA = discord.utils.get(guild.roles,name='朝活')
     ID_ROLE_HIRU = discord.utils.get(guild.roles,name='昼活')
     ID_ROLE_YORU = discord.utils.get(guild.roles,name='夜活')
-    ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜')
+    ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜活')
     
     for ch_name in ch_list:
         if channel == ch_name:
@@ -173,7 +173,7 @@ async def loop():
         ID_ROLE_ASA = discord.utils.get(guild.roles,name='朝活')
         ID_ROLE_HIRU = discord.utils.get(guild.roles,name='昼活')
         ID_ROLE_YORU = discord.utils.get(guild.roles,name='夜活')
-        ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜')
+        ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜活')
         
         for member in guild.members:
             if tskl in member.roles:
@@ -215,7 +215,7 @@ async def loop():
                 await msg3.add_reaction(emoji4)
                 await msg3.add_reaction(emoji5)  
     
-                msg4 = await channel.send("今日の予定\n朝活🌼：5時～12時\n昼活：🌞12時～18時\n夜活：🌝18時～23時\n深夜活：🌛23時～終わるまで")
+                msg4 = await channel.send("今日の予定\n　朝活　:🌼5時～12時\n　昼活　：🌞12時～18時\n　夜活　:🌝18時～23時\n深夜活:🌛23時～終わるまで")
                 await msg4.add_reaction('🌼')
                 await msg4.add_reaction('🌞')
                 await msg4.add_reaction('🌝')
