@@ -211,7 +211,7 @@ async def loop():
 #           await msg3.add_reaction(emoji4)
 #           await msg3.add_reaction(emoji5)  
 #           
-#           msg4 = await channel.send("今日の予定\n　朝活　:🌼5時～12時\n　昼活　：🌞12時～18時\n　夜活　:🌝18時～23時\n深夜活:🌛23時～終わるまで")
+#           msg4 = await channel.send("今日の予定\n　朝活:🌼5時～12時\n　昼活：🌞12時～18時\n　夜活:🌝18時～23時\n深夜活:🌛23時～終わるまで")
 #           await msg4.add_reaction('🌼')
 #           await msg4.add_reaction('🌞')
 #           await msg4.add_reaction('🌝')
