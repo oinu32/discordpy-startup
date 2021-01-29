@@ -139,7 +139,7 @@ async def on_raw_reaction_remove(payload):
             await member.remove_roles(ID_1t)      
         if payload.emoji.name == '2️⃣':
             await member.remove_roles(ID_2t)  
-        if payload.emoji.name == '3️⃣':
+        if payload.emoji.name == '3️⃣': 
             await member.remove_roles(ID_3t)
                 
             
