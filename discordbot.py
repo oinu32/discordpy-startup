@@ -131,7 +131,7 @@ async def on_raw_reaction_remove(payload):
     ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜活')
     
     for ch_name in ch_list:
-        if channel == ch_name:
+        if payload.channel_id == ch_name:
             if payload.emoji.name == '🌼':
                 await member.remove_roles(ID_ROLE_ASA)
             if payload.emoji.name == '🌞':
