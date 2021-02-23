@@ -73,6 +73,12 @@ ID_TSKILL = set_input.ID_TSKILL
 ID_totu2 = set_input.ID_totu2
 
 ch_list = [ID_TSKILL, ID_totu2]
+
+@bot.command()
+async def test(ctx):
+    for ch_name in ch_list: 
+        await ctx.send(ch_name) 
+    
 @bot.event  
 async def on_raw_reaction_add(payload): 
     guild = bot.get_guild(payload.guild_id) 
@@ -89,7 +95,7 @@ async def on_raw_reaction_add(payload):
     ID_ROLE_SINYA = discord.utils.get(guild.roles,name='深夜活')
     
     for ch_name in ch_list:
-        if channel == ch_name:
+        if payload.channel_id == ch_name:
             if payload.emoji.name == '🌼':
                 await member.add_roles(ID_ROLE_ASA)  
             if payload.emoji.name == '🌞': 
