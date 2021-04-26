@@ -104,8 +104,10 @@ async def on_raw_reaction_add(payload):
                 await member.add_roles(ID_ROLE_YORU)  
             if payload.emoji.name == '🌛':
                 await member.add_roles(ID_ROLE_SINYA)
+            if payload.emoji.name == '👼':
+                await member.add_roles(tskl)
             if payload.emoji.name == '🤓':
-                await member.add_roles(tskl)         
+                await member.add_roles(tskl)
             if payload.emoji.name == '1️⃣': 
                 await member.add_roles(ID_1t)   
             if payload.emoji.name == '2️⃣':
@@ -142,6 +144,8 @@ async def on_raw_reaction_remove(payload):
                 await member.remove_roles(ID_ROLE_SINYA) 
 
             if payload.emoji.name == '🤓':
+                await member.remove_roles(tskl) 
+            if payload.emoji.name == '👼':
                 await member.remove_roles(tskl) 
             if payload.emoji.name == '1️⃣':
                 await member.remove_roles(ID_1t)      
@@ -204,7 +208,7 @@ async def loop():
             await poll.add_reaction("2️⃣")
             await poll.add_reaction("3️⃣")
             msg2 = await channel.send('本日のKIMURA Chance')
-            await msg2.add_reaction('🤓')
+            await msg2.add_reaction('👼')
 
             msg4 = await channel.send("今日の予定\n　朝活:🌼5時～12時\n　昼活:🌞12時～18時\n　夜活:🌝18時～23時\n深夜活:🌛23時～終わるまで")
             await msg4.add_reaction('🌼')
