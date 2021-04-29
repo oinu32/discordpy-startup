@@ -201,20 +201,20 @@ async def loop():
             if ID_ROLE_SINYA in member.roles:
                 await member.remove_roles(ID_ROLE_SINYA)
 
-        for ch_name in ch_list:
-            channel = bot.get_channel(ch_name)            
-            poll = await channel.send('今日の凸状況')
-            await poll.add_reaction("1️⃣")
-            await poll.add_reaction("2️⃣")
-            await poll.add_reaction("3️⃣")
-            msg2 = await channel.send('本日のKIMURA Chance')
-            await msg2.add_reaction('👼')
+#       for ch_name in ch_list:
+#           channel = bot.get_channel(ch_name)            
+#           poll = await channel.send('今日の凸状況')
+#           await poll.add_reaction("1️⃣")
+#           await poll.add_reaction("2️⃣")
+#           await poll.add_reaction("3️⃣")
+#           msg2 = await channel.send('本日のKIMURA Chance')
+#           await msg2.add_reaction('👼')
 
-            msg4 = await channel.send("今日の予定\n　朝活:🌼5時～12時\n　昼活:🌞12時～18時\n　夜活:🌝18時～23時\n深夜活:🌛23時～終わるまで")
-            await msg4.add_reaction('🌼')
-            await msg4.add_reaction('🌞')
-            await msg4.add_reaction('🌝')
-            await msg4.add_reaction('🌛')
+#           msg4 = await channel.send("今日の予定\n　朝活:🌼5時～12時\n　昼活:🌞12時～18時\n　夜活:🌝18時～23時\n深夜活:🌛23時～終わるまで")
+#           await msg4.add_reaction('🌼')
+#           await msg4.add_reaction('🌞')
+#           await msg4.add_reaction('🌝')
+#           await msg4.add_reaction('🌛')
     
 loop.start()
 
