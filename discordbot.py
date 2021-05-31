@@ -28,7 +28,38 @@ def Dice(pInputMessage):
     for i in range(int(dice_amount)):
         list.append(random.randint(1,int(dice_faces)))
     return list
+
+def make_party_num(self, ctx, party_num, remainder_flag='false'):
+    team = []
+    remainder = []
     
+    # メンバーリストを取得
+    if self.set_mem(ctx) is False:
+        return self.vc_state_err
+
+    # 指定数の確認
+    if party_num > self.mem_len or party_num <= 0:
+        return '実行できません。チーム分けできる数を指定してください。(チーム数を指定しない場合は、デフォルトで2が指定されます)'
+
+    # メンバーリストをシャッフル
+    random.shuffle(self.channel_mem)
+
+    # チーム分けで余るメンバーを取得
+    if remainder_flag:
+        remainder_num = self.mem_len % party_num
+        if remainder_num != 0: 
+            for r in range(remainder_num):
+                remainder.append(self.channel_mem.pop())
+            team.append("=====余り=====")
+            team.extend(remainder)
+
+    # チーム分け
+    for i in range(party_num): 
+        team.append("=====チーム"+str(i+1)+"=====")
+        team.extend(self.channel_mem[i:self.mem_len:party_num])
+
+    return ('\n'.join(team))
+
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -48,6 +79,30 @@ async def ちょいす(ctx, *choices):
         await ctx.send(random.choice(choices))
     else:
         await ctx.show_help()
+
+@bot.command()
+async def team(ctx, specified_num=2):
+    make_team = MakeTeam()
+    remainder_flag = 'true'
+    msg = make_team.make_party_num(ctx,specified_num,remainder_flag)
+    await ctx.channel.send(msg)
+
+# メンバー数が均等にはならないチーム分け
+@bot.command()
+async def team_norem(ctx, specified_num=2):
+    make_team = MakeTeam()
+    msg = make_team.make_party_num(ctx,specified_num)
+    await ctx.channel.send(msg)
+
+# メンバー数を指定してチーム分け
+@bot.command()
+async def group(ctx, specified_num=1):
+    make_team = MakeTeam()
+    msg = make_team.make_specified_len(ctx,specified_num)
+    await ctx.channel.send(msg)
+
+
+        
 @bot.command()
 async def だいす(ctx, inputmsg):
     """?ダイス　nDN でだいすふれるよ"""
