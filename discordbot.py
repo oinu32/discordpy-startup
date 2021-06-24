@@ -225,7 +225,7 @@ async def loop():
             if ID_ROLE_SINYA in member.roles:
                 await member.remove_roles(ID_ROLE_SINYA)
 
-　        for ch_name in ch_list:
+　       for ch_name in ch_list:
              channel = bot.get_channel(ch_name)            
              poll = await channel.send('今日の凸状況')
              await poll.add_reaction("1️⃣")
