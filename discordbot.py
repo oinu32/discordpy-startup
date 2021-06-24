@@ -28,7 +28,7 @@ def Dice(pInputMessage):
     for i in range(int(dice_amount)):
         list.append(random.randint(1,int(dice_faces)))
     return list
-
+    
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -48,30 +48,6 @@ async def ちょいす(ctx, *choices):
         await ctx.send(random.choice(choices))
     else:
         await ctx.show_help()
-
-@bot.command()
-async def team(ctx, specified_num=2):
-    make_team = MakeTeam()
-    remainder_flag = 'true'
-    msg = make_team.make_party_num(ctx,specified_num,remainder_flag)
-    await ctx.channel.send(msg)
-
-# メンバー数が均等にはならないチーム分け
-@bot.command()
-async def team_norem(ctx, specified_num=2):
-    make_team = MakeTeam()
-    msg = make_team.make_party_num(ctx,specified_num)
-    await ctx.channel.send(msg)
-
-# メンバー数を指定してチーム分け
-@bot.command()
-async def group(ctx, specified_num=1):
-    make_team = MakeTeam()
-    msg = make_team.make_specified_len(ctx,specified_num)
-    await ctx.channel.send(msg)
-
-
-        
 @bot.command()
 async def だいす(ctx, inputmsg):
     """?ダイス　nDN でだいすふれるよ"""
@@ -196,7 +172,7 @@ ID_SRV = set_input.ID_SRV
 async def loop():
     await bot.wait_until_ready()
     now  = datetime.now().strftime("%H:%M")
-    if now == '06:10':
+    if now == '20:00':
         guild = bot.get_guild(ID_SRV)
         tskl = discord.utils.get(guild.roles,name='タスキル')
         ID_1t = discord.utils.get(guild.roles,name='1凸')
@@ -225,7 +201,7 @@ async def loop():
             if ID_ROLE_SINYA in member.roles:
                 await member.remove_roles(ID_ROLE_SINYA)
 
-　      for ch_name in ch_list:
+        for ch_name in ch_list:
             channel = bot.get_channel(ch_name)            
             poll = await channel.send('今日の凸状況')
             await poll.add_reaction("1️⃣")
